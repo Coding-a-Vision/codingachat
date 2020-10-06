@@ -11,6 +11,7 @@ import UIKit
 protocol HomeViewControllerDelegate: class {
     func onEditDetailsAction()
     func fetchData()
+    func channelJoin(selectedChannel : Channel)
 }
 
 class HomeViewController: UIViewController {
@@ -59,6 +60,11 @@ extension HomeViewController: UITableViewDataSource {
         cell.configure(with: items[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.channelJoin(selectedChannel: items[indexPath.row])
+    }
+
 }
 
 extension HomeViewController: UITableViewDelegate {}
