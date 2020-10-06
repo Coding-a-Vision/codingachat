@@ -8,11 +8,24 @@
 
 import UIKit
 
+protocol ChatViewControllerDelegate: class {
+    func sendMessage(message: String)
+}
+
 class ChatViewController: UIViewController {
+    
+    @IBOutlet weak var messageTextField: UITextField!
+    weak var delegate: ChatViewControllerDelegate?
+
+    @IBAction func sendMessage(_ sender: Any) {
+        guard let message = messageTextField.text else { return }
+        delegate?.sendMessage(message: message)
+    }
+
     let channel : Channel
     
     init(channel : Channel) {
-        self.channel=channel
+        self.channel = channel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,20 +35,9 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title=channel.name
+        self.title = channel.name
 
         // Do any additional setup after loading the view.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
