@@ -9,15 +9,17 @@
 import UIKit
 
 protocol ChatViewControllerDelegate: class {
-    func sendMessage()
+    func sendMessage(message: String)
 }
 
 class ChatViewController: UIViewController {
     
+    @IBOutlet weak var messageTextField: UITextField!
     weak var delegate: ChatViewControllerDelegate?
 
     @IBAction func sendMessage(_ sender: Any) {
-        delegate?.sendMessage()
+        guard let message = messageTextField.text else { return }
+        delegate?.sendMessage(message: message)
     }
     
     override func viewDidLoad() {
