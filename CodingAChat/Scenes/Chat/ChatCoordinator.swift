@@ -27,6 +27,7 @@ class ChatCoordinator: Coordinator {
 extension ChatCoordinator: ChatViewControllerDelegate {
     
     func sendMessage() {
+        
         print("Send message!")
     }
     
