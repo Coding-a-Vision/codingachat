@@ -33,6 +33,12 @@ class HomeCoordinator: Coordinator {
 }
 
 extension HomeCoordinator: HomeViewControllerDelegate {
+    func channelJoin(selectedChannel: Channel) {
+        let chatcoordinator = ChatCoordinator(presenter: homeViewController, window: window, channel: selectedChannel)
+        chatcoordinator.start()
+    }
+    
+        
    
     func onEditDetailsAction() {
         let editCoordinator = EditDetailsCoordinator(presenter: homeViewController, user: user)
