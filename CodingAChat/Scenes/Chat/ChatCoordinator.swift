@@ -11,9 +11,24 @@ import Foundation
 class ChatCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
+    private let chatViewController: ChatViewController
+    
+    init() {
+        self.chatViewController = ChatViewController()
+        chatViewController.delegate = self
+    }
     
     func start() {
         //start
     }
+    
+}
+
+extension ChatCoordinator: ChatViewControllerDelegate {
+    
+    func sendMessage() {
+        print("Send message!")
+    }
+    
     
 }

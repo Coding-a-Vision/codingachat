@@ -8,8 +8,18 @@
 
 import UIKit
 
-class ChatViewController: UIViewController {
+protocol ChatViewControllerDelegate: class {
+    func sendMessage()
+}
 
+class ChatViewController: UIViewController {
+    
+    weak var delegate: ChatViewControllerDelegate?
+
+    @IBAction func sendMessage(_ sender: Any) {
+        delegate?.sendMessage()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
