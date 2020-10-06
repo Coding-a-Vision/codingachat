@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="azG-aJ-gjS">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrM-dh-POT">
@@ -60,16 +60,16 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="CrM-dh-POT" firstAttribute="top" secondItem="azG-aJ-gjS" secondAttribute="bottom" constant="8" id="08J-J7-D5T"/>
                 <constraint firstItem="azG-aJ-gjS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I3L-g2-K1s"/>
                 <constraint firstItem="azG-aJ-gjS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Q3L-ja-P1n"/>
-                <constraint firstAttribute="bottom" secondItem="azG-aJ-gjS" secondAttribute="bottom" id="Ui3-zT-jFF"/>
                 <constraint firstItem="CrM-dh-POT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="gWt-TO-NCE"/>
                 <constraint firstItem="azG-aJ-gjS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="jcu-XL-jgZ"/>
                 <constraint firstAttribute="bottom" secondItem="CrM-dh-POT" secondAttribute="bottom" id="kzR-oz-B4z"/>
                 <constraint firstItem="CrM-dh-POT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sx9-r3-Q8a"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="143" y="148"/>
+            <point key="canvasLocation" x="144.92753623188406" y="130.58035714285714"/>
         </view>
     </objects>
 </document>
