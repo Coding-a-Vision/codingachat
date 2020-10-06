@@ -24,21 +24,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrM-dh-POT">
                     <rect key="frame" x="0.0" y="776" width="414" height="120"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-gd-iGt">
-                            <rect key="frame" x="20" y="20" width="374" height="34"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-gd-iGt">
+                            <rect key="frame" x="20" y="19.999999999999996" width="374" height="34.666666666666657"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kv2-6r-Vr1">
-                                    <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="34.666666666666664"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="34" id="VW1-Bj-8rX"/>
-                                        <constraint firstAttribute="width" constant="32.670000000000002" id="ha1-Zf-L3W"/>
+                                        <constraint firstAttribute="width" secondItem="kv2-6r-Vr1" secondAttribute="height" multiplier="16:17" id="cas-fc-1P2"/>
                                     </constraints>
                                     <state key="normal" image="photo" catalog="system">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
                                     </state>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2og-St-hSf">
-                                    <rect key="frame" x="44.666666666666657" y="0.0" width="329.33333333333337" height="34"/>
+                                    <rect key="frame" x="40.666666666666657" y="0.0" width="333.33333333333337" height="34.666666666666664"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -47,10 +46,10 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="3XH-gd-iGt" firstAttribute="leading" secondItem="CrM-dh-POT" secondAttribute="leading" constant="20" id="DDc-4d-6fh"/>
+                        <constraint firstItem="3XH-gd-iGt" firstAttribute="leading" secondItem="CrM-dh-POT" secondAttribute="leading" constant="20" id="5MF-xQ-W35"/>
                         <constraint firstAttribute="height" constant="120" id="GTg-hO-hPJ"/>
-                        <constraint firstItem="3XH-gd-iGt" firstAttribute="top" secondItem="CrM-dh-POT" secondAttribute="top" constant="20" id="g8w-yZ-nZQ"/>
-                        <constraint firstAttribute="trailing" secondItem="3XH-gd-iGt" secondAttribute="trailing" constant="20" id="wof-Rg-Tfy"/>
+                        <constraint firstAttribute="trailing" secondItem="3XH-gd-iGt" secondAttribute="trailing" constant="20" id="UXm-Zi-YCI"/>
+                        <constraint firstItem="3XH-gd-iGt" firstAttribute="top" secondItem="CrM-dh-POT" secondAttribute="top" constant="20" id="v6Y-ST-K2a"/>
                     </constraints>
                 </view>
             </subviews>
