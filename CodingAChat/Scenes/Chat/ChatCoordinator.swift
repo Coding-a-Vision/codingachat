@@ -33,13 +33,11 @@ class ChatCoordinator: Coordinator {
         chatViewController.delegate = self
         presenter.navigationController?.pushViewController(chatViewController, animated: true)
         
-        db.collection("channels").document(chatViewController.channel.id).collection("messages").getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print(document.data())
-                }
+        
+        db.collection("channels").document(chatViewController.channel.id).collection("messages").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { return print("No documents") }
+            let messages = documents.map { message in
+                print(message.data())
             }
         }
         
