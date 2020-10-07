@@ -19,14 +19,15 @@ class ChatCoordinator: Coordinator {
     private let window : UIWindow
     private let db: Firestore
     private let user: User
+    private var didLoadMessages: Bool
     
     init(presenter: UIViewController, window: UIWindow, channel : Channel, user: User) {
         self.user = user
         self.presenter = presenter
         self.window=window
-        
         self.chatViewController = ChatViewController(channel: channel)
         self.db = Firestore.firestore()
+        self.didLoadMessages = false
     }
     
     func start() {
@@ -36,8 +37,14 @@ class ChatCoordinator: Coordinator {
         
         db.collection("channels").document(chatViewController.channel.id).collection("messages").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { return print("No documents") }
-            let messages = documents.map { message in
-                print(message.data())
+            if self.didLoadMessages {
+                guard let lastMessage = documents.last?.data() else { return }
+                print(lastMessage)
+            } else {
+                for message in documents {
+                    print(message.data())
+                }
+                self.didLoadMessages = true
             }
         }
         
@@ -50,9 +57,12 @@ extension ChatCoordinator: ChatViewControllerDelegate {
     func sendMessage(message: String) {
         guard let name = user.displayName else { return print("User without name") }
         
+        let timestamp = Timestamp()
+        
         db.collection("channels").document(chatViewController.channel.id).collection("messages").addDocument(data: [
             "author": name,
-            "message": message
+            "message": message,
+            "data": timestamp
         ])
         chatViewController.messageTextField.text = nil
     }
