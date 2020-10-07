@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class ChatCoordinator: Coordinator {
     
@@ -15,12 +17,16 @@ class ChatCoordinator: Coordinator {
     private let presenter: UIViewController
     private let chatViewController : ChatViewController
     private let window : UIWindow
+    private let db: Firestore
+    private let user: User
     
-    init(presenter: UIViewController, window: UIWindow, channel : Channel) {
+    init(presenter: UIViewController, window: UIWindow, channel : Channel, user: User) {
+        self.user = user
         self.presenter = presenter
         self.window=window
-        self.chatViewController = ChatViewController(channel: channel)
         
+        self.chatViewController = ChatViewController(channel: channel)
+        self.db = Firestore.firestore()
     }
     
     func start() {
@@ -33,9 +39,13 @@ class ChatCoordinator: Coordinator {
 extension ChatCoordinator: ChatViewControllerDelegate {
     
     func sendMessage(message: String) {
+        guard let name = user.displayName else { return print("User without name") }
         
-        print("Send message: \(message)")
+        db.collection("channels").document(chatViewController.channel.id).collection("messages").addDocument(data: [
+            "author": name,
+            "message": message
+        ])
+        
     }
-    
     
 }

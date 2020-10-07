@@ -13,7 +13,7 @@ protocol ChatViewControllerDelegate: class {
 }
 
 class ChatViewController: UIViewController {
-    
+        
     @IBOutlet weak var messageTextField: UITextField!
     weak var delegate: ChatViewControllerDelegate?
 
