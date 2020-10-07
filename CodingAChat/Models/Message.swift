@@ -10,6 +10,5 @@ import Foundation
 
 struct Message {
     let author: String
-    let data: Data
     let message: String
 }
