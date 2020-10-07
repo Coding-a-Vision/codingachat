@@ -13,7 +13,7 @@ import FirebaseAuth
 class ChatCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
-
+    
     private let presenter: UIViewController
     private let chatViewController : ChatViewController
     private let window : UIWindow
@@ -32,9 +32,20 @@ class ChatCoordinator: Coordinator {
     func start() {
         chatViewController.delegate = self
         presenter.navigationController?.pushViewController(chatViewController, animated: true)
+        
+        db.collection("channels").document(chatViewController.channel.id).collection("messages").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print(document.data())
+                }
+            }
+        }
+        
     }
-    
 }
+
 
 extension ChatCoordinator: ChatViewControllerDelegate {
     
