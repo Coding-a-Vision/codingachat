@@ -11,4 +11,14 @@ import Foundation
 struct Message {
     let author: String
     let message: String
+    
+    init?(json: [String: Any]) {
+      guard
+        let author = json["author"] as? String,
+        let message = json["message"] as? String
+      else { return nil }
+      self.author = author
+      self.message = message
+    }
+    
 }

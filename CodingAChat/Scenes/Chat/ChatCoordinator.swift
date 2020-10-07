@@ -37,12 +37,17 @@ class ChatCoordinator: Coordinator {
         
         db.collection("channels").document(chatViewController.channel.id).collection("messages").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { return print("No documents") }
+            
+            let messages = documents
+            .compactMap { Message(json: $0.data()) }
+                .sorted { $0.message < $1.message }
+            
             if self.didLoadMessages {
-                guard let lastMessage = documents.last?.data() else { return }
+                guard let lastMessage = messages.last else { return }
                 print(lastMessage)
             } else {
-                for message in documents {
-                    print(message.data())
+                for message in messages {
+                    print(message)
                 }
                 self.didLoadMessages = true
             }
