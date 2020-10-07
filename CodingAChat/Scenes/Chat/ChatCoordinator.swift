@@ -45,7 +45,7 @@ extension ChatCoordinator: ChatViewControllerDelegate {
             "author": name,
             "message": message
         ])
-        
+        chatViewController.messageTextField.text = nil
     }
     
 }
