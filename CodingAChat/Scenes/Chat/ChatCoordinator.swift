@@ -37,17 +37,29 @@ class ChatCoordinator: Coordinator {
     }
     
     func getMessages() {
-     db.collection("channels").document(channel.id).collection("messages").addSnapshotListener { [weak self] (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { return print("No documents") }
+        
+        db.collection("channels")
+            .document(channel.id)
+            .collection("messages")
+            .addSnapshotListener { [weak self] (querySnapshot, error) in
+                
+            guard let querySnapshot = querySnapshot else { return print("No documents") }
             
-            let messages = documents
-            .compactMap { Message(json: $0.data()) }
-                .sorted { $0.message < $1.message }
-            
-        self?.chatViewController.messages = Set(messages)        }
+            querySnapshot.documentChanges.forEach { diff in
+                
+                if diff.type == .added,
+                   let timestamp = diff.document.get("data") as? Timestamp,
+                   let message = Message(json: diff.document.data(), id: diff.document.documentID, date: timestamp.dateValue()) {
+                    
+                    self?.chatViewController.addMessage(message)
+                } else if diff.type == .removed {
+                    let id = diff.document.documentID
+                    // self?.chatViewController.removeMessage(withId: id) // TODO:
+                }
+            }
+        }
     }
 }
-
 
 extension ChatCoordinator: ChatViewControllerDelegate {
     
@@ -63,5 +75,4 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         ])
         chatViewController.messageTextField.text = nil
     }
-    
 }

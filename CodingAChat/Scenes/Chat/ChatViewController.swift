@@ -17,12 +17,14 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     weak var delegate: ChatViewControllerDelegate?
-    var messages: Set<Message> = [] {
-        didSet {
-            tableView.reloadData()
+    private var messages: [Message] = []
+
+    private var sortedMessages: [Message] {
+        return messages.sorted { (m1, m2) -> Bool in
+            return m1.date < m2.date
         }
     }
-
+    
     @IBAction func sendMessage(_ sender: Any) {
         guard let message = messageTextField.text else { return }
         delegate?.sendMessage(message: message)
@@ -48,20 +50,25 @@ class ChatViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
+    func addMessage(_ message: Message) {
+        messages.append(message)
+        let lastIndexPath = IndexPath(row: messages.count - 1, section: 0)
+        //tableView.insertRows(at: [lastIndexPath], with: .automatic)
+        tableView.reloadData()
+        tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
+    }
 }
 
 extension ChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return sortedMessages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-        cell.textLabel?.text = Array(messages)[indexPath.row].message
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatTableViewCell
+        cell.configure(with: sortedMessages[indexPath.row])
         return cell
     }
-    
-    
 }

@@ -13,14 +13,17 @@ struct Message: Hashable {
     @DocumentID var id: String? = UUID().uuidString
     let author: String
     let message: String
+    let date: Date
     
-    init?(json: [String: Any]) {
-      guard
-        let author = json["author"] as? String,
-        let message = json["message"] as? String
-      else { return nil }
-      self.author = author
-      self.message = message
+    init?(json: [String: Any], id: String, date: Date) {
+        guard
+            let author = json["author"] as? String,
+            let message = json["message"] as? String
+        
+        else { return nil }
+        self.author = author
+        self.message = message
+        self.id = id
+        self.date = date
     }
-    
 }

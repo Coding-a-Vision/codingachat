@@ -7,18 +7,34 @@
 //
 
 import UIKit
+import Firebase
+
+extension DateFormatter {
+    
+    static var ui: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy hh:mm"
+        return formatter
+    }
+}
+
+extension Date {
+    var asString: String? {
+        return DateFormatter.ui.string(from: self)
+    }
+}
+
 
 class ChatTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    func configure(with message: Message) {
+        authorLabel.text = message.author
+        messageLabel.text = message.message
+        dateLabel.text = message.date.asString
     }
     
 }
