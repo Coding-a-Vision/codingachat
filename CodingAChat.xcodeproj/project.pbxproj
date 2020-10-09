@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7FA86EF4252C6D8F00DE88F1 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA86EF2252C6D8F00DE88F1 /* ChatViewController.swift */; };
-		7FA86EF5252C6D8F00DE88F1 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA86EF3252C6D8F00DE88F1 /* ChatViewController.xib */; };
 		7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */; };
 		9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335E9D9252C8A3800FB46B0 /* Message.swift */; };
 		E32F55B7D46B22DA3A0831EC /* Pods_CodingAChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAF4127A606026A8AFA8930 /* Pods_CodingAChat.framework */; };
@@ -34,7 +33,6 @@
 /* Begin PBXFileReference section */
 		3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.debug.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.debug.xcconfig"; sourceTree = "<group>"; };
 		7FA86EF2252C6D8F00DE88F1 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		7FA86EF3252C6D8F00DE88F1 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
 		9335E9D9252C8A3800FB46B0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9EAF4127A606026A8AFA8930 /* Pods_CodingAChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingAChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				7FA86EF2252C6D8F00DE88F1 /* ChatViewController.swift */,
-				7FA86EF3252C6D8F00DE88F1 /* ChatViewController.xib */,
 				7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */,
 			);
 			path = Chat;
@@ -274,7 +271,6 @@
 				F71F14ED251E0DB5009203BF /* Assets.xcassets in Resources */,
 				F71F14FD251E102E009203BF /* GoogleService-Info.plist in Resources */,
 				F7CDC4D32523378D0039DBE4 /* HomeViewController.xib in Resources */,
-				7FA86EF5252C6D8F00DE88F1 /* ChatViewController.xib in Resources */,
 				F7CDC57C2523567B0039DBE4 /* ChannelTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

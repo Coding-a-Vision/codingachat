@@ -34,7 +34,7 @@ class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: HomeViewControllerDelegate {
     func channelJoin(selectedChannel: Channel) {
-        let chatcoordinator = ChatCoordinator(presenter: homeViewController, window: window, channel: selectedChannel)
+        let chatcoordinator = ChatCoordinator(presenter: homeViewController, window: window, channel: selectedChannel, user: user)
         chatcoordinator.start()
         childCoordinators.append(chatcoordinator)
     }
