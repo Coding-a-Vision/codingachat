@@ -9,7 +9,13 @@
 import UIKit
 
 class HeaderCollectionReusableView: UICollectionReusableView {
+    
+    var editProfileSettings: (() -> Void)?
 
+    @IBAction func editProfileSettings(_ sender: Any) {
+        editProfileSettings?()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

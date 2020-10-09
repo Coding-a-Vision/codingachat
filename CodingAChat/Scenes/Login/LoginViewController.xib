@@ -62,7 +62,7 @@
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drl-TH-KQQ">
                                     <rect key="frame" x="48" y="128" width="278" height="42"/>
-                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="42" id="p1D-XP-TtU"/>
                                     </constraints>
@@ -91,7 +91,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-RN-6au">
                                             <rect key="frame" x="185" y="0.0" width="84" height="29"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                            <state key="normal" title="Sign up now"/>
+                                            <state key="normal" title="Sign up now">
+                                                <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                         </button>
                                     </subviews>
                                 </stackView>

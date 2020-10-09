@@ -32,8 +32,6 @@
 		F7CDC524252341420039DBE4 /* EditDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC523252341420039DBE4 /* EditDetailsCoordinator.swift */; };
 		F7CDC528252341540039DBE4 /* EditDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC526252341540039DBE4 /* EditDetailsViewController.swift */; };
 		F7CDC529252341540039DBE4 /* EditDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */; };
-		F7CDC57B2523567B0039DBE4 /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC5792523567B0039DBE4 /* ChannelTableViewCell.swift */; };
-		F7CDC57C2523567B0039DBE4 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7CDC57A2523567B0039DBE4 /* ChannelTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,8 +64,6 @@
 		F7CDC523252341420039DBE4 /* EditDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailsCoordinator.swift; sourceTree = "<group>"; };
 		F7CDC526252341540039DBE4 /* EditDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailsViewController.swift; sourceTree = "<group>"; };
 		F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDetailsViewController.xib; sourceTree = "<group>"; };
-		F7CDC5792523567B0039DBE4 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
-		F7CDC57A2523567B0039DBE4 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,8 +232,6 @@
 				F7CDC4D22523378D0039DBE4 /* HomeCoordinator.swift */,
 				F7CDC4D02523378D0039DBE4 /* HomeViewController.xib */,
 				F7CDC4D12523378D0039DBE4 /* HomeViewController.swift */,
-				F7CDC5792523567B0039DBE4 /* ChannelTableViewCell.swift */,
-				F7CDC57A2523567B0039DBE4 /* ChannelTableViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -331,7 +325,6 @@
 				F71F14ED251E0DB5009203BF /* Assets.xcassets in Resources */,
 				F71F14FD251E102E009203BF /* GoogleService-Info.plist in Resources */,
 				F7CDC4D32523378D0039DBE4 /* HomeViewController.xib in Resources */,
-				F7CDC57C2523567B0039DBE4 /* ChannelTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +393,6 @@
 				9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */,
 				F7CDC4D42523378D0039DBE4 /* HomeViewController.swift in Sources */,
 				F7CDC524252341420039DBE4 /* EditDetailsCoordinator.swift in Sources */,
-				F7CDC57B2523567B0039DBE4 /* ChannelTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

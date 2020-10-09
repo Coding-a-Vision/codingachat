@@ -9,10 +9,16 @@
 import UIKit
 
 class ChannelCardCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var channelImage: UIImageView!
+    @IBOutlet weak var channelName: UILabel!
+    
+    func configure(withChannel channel: Channel) {
+        self.channelName.text = channel.name
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }
