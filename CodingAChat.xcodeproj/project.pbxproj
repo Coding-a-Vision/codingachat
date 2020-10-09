@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7FA86EF4252C6D8F00DE88F1 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA86EF2252C6D8F00DE88F1 /* ChatViewController.swift */; };
 		7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */; };
+		7FE50D432530A37800B96C30 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE50D422530A37800B96C30 /* CustomTextField.swift */; };
 		9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335E9D9252C8A3800FB46B0 /* Message.swift */; };
 		E32F55B7D46B22DA3A0831EC /* Pods_CodingAChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAF4127A606026A8AFA8930 /* Pods_CodingAChat.framework */; };
 		F71F14E4251E0DB3009203BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F14E3251E0DB3009203BF /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.debug.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.debug.xcconfig"; sourceTree = "<group>"; };
 		7FA86EF2252C6D8F00DE88F1 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
+		7FE50D422530A37800B96C30 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		9335E9D9252C8A3800FB46B0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9EAF4127A606026A8AFA8930 /* Pods_CodingAChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingAChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C135A46712C50AE7BEAEAC3F /* Pods-CodingAChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.release.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 				7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		7FE50D412530A35F00B96C30 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7FE50D422530A37800B96C30 /* CustomTextField.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		8E084BF2293DF74C07C747E5 /* Pods */ = {
@@ -188,6 +198,7 @@
 		F7CDC4D7252337940039DBE4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				7FE50D412530A35F00B96C30 /* Components */,
 				F7CDC4D8252337940039DBE4 /* LoginCoordinator.swift */,
 				F7CDC4D9252337940039DBE4 /* LoginViewController.xib */,
 				F7CDC4DA252337940039DBE4 /* LoginViewController.swift */,
@@ -324,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE50D432530A37800B96C30 /* CustomTextField.swift in Sources */,
 				F7CDC4DD252337940039DBE4 /* LoginViewController.swift in Sources */,
 				F7CDC4DB252337940039DBE4 /* LoginCoordinator.swift in Sources */,
 				7FA86EF4252C6D8F00DE88F1 /* ChatViewController.swift in Sources */,
