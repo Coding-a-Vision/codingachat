@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatViewController" customModule="CodingAChat" customModuleProvider="target">
             <connections>
                 <outlet property="messageTextField" destination="2og-St-hSf" id="syS-aH-at2"/>
+                <outlet property="tableView" destination="azG-aJ-gjS" id="XXF-cE-bEx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

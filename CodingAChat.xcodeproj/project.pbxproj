@@ -11,6 +11,8 @@
 		7FA86EF5252C6D8F00DE88F1 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA86EF3252C6D8F00DE88F1 /* ChatViewController.xib */; };
 		7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */; };
 		9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335E9D9252C8A3800FB46B0 /* Message.swift */; };
+		934D422725305BBB001F2494 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D422525305BBB001F2494 /* ChatTableViewCell.swift */; };
+		934D422825305BBB001F2494 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934D422625305BBB001F2494 /* ChatTableViewCell.xib */; };
 		E32F55B7D46B22DA3A0831EC /* Pods_CodingAChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAF4127A606026A8AFA8930 /* Pods_CodingAChat.framework */; };
 		F71F14E4251E0DB3009203BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F14E3251E0DB3009203BF /* AppDelegate.swift */; };
 		F71F14ED251E0DB5009203BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F71F14EC251E0DB5009203BF /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		7FA86EF3252C6D8F00DE88F1 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
 		9335E9D9252C8A3800FB46B0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		934D422525305BBB001F2494 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		934D422625305BBB001F2494 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		9EAF4127A606026A8AFA8930 /* Pods_CodingAChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingAChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C135A46712C50AE7BEAEAC3F /* Pods-CodingAChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.release.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.release.xcconfig"; sourceTree = "<group>"; };
 		F71F14E0251E0DB3009203BF /* CodingAChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingAChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				7FA86EF2252C6D8F00DE88F1 /* ChatViewController.swift */,
+				934D422525305BBB001F2494 /* ChatTableViewCell.swift */,
+				934D422625305BBB001F2494 /* ChatTableViewCell.xib */,
 				7FA86EF3252C6D8F00DE88F1 /* ChatViewController.xib */,
 				7FA86EF6252C6DA600DE88F1 /* ChatCoordinator.swift */,
 			);
@@ -269,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7CDC4DC252337940039DBE4 /* LoginViewController.xib in Resources */,
+				934D422825305BBB001F2494 /* ChatTableViewCell.xib in Resources */,
 				F7CDC529252341540039DBE4 /* EditDetailsViewController.xib in Resources */,
 				F71F14F0251E0DB5009203BF /* LaunchScreen.storyboard in Resources */,
 				F71F14ED251E0DB5009203BF /* Assets.xcassets in Resources */,
@@ -339,6 +346,7 @@
 				7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */,
 				9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */,
 				F7CDC4D42523378D0039DBE4 /* HomeViewController.swift in Sources */,
+				934D422725305BBB001F2494 /* ChatTableViewCell.swift in Sources */,
 				F7CDC524252341420039DBE4 /* EditDetailsCoordinator.swift in Sources */,
 				F7CDC57B2523567B0039DBE4 /* ChannelTableViewCell.swift in Sources */,
 			);

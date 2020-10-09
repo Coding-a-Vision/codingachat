@@ -19,40 +19,32 @@ class ChatCoordinator: Coordinator {
     private let window : UIWindow
     private let db: Firestore
     private let user: User
-    private var didLoadMessages: Bool
+    private let channel: Channel
     
     init(presenter: UIViewController, window: UIWindow, channel : Channel, user: User) {
         self.user = user
         self.presenter = presenter
-        self.window=window
+        self.window = window
         self.chatViewController = ChatViewController(channel: channel)
         self.db = Firestore.firestore()
-        self.didLoadMessages = false
+        self.channel = channel
     }
     
     func start() {
         chatViewController.delegate = self
         presenter.navigationController?.pushViewController(chatViewController, animated: true)
-        
-        
-        db.collection("channels").document(chatViewController.channel.id).collection("messages").addSnapshotListener { (querySnapshot, error) in
+        getMessages()
+    }
+    
+    func getMessages() {
+     db.collection("channels").document(channel.id).collection("messages").addSnapshotListener { [weak self] (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { return print("No documents") }
             
             let messages = documents
             .compactMap { Message(json: $0.data()) }
                 .sorted { $0.message < $1.message }
             
-            if self.didLoadMessages {
-                guard let lastMessage = messages.last else { return }
-                print(lastMessage)
-            } else {
-                for message in messages {
-                    print(message)
-                }
-                self.didLoadMessages = true
-            }
-        }
-        
+        self?.chatViewController.messages = Set(messages)        }
     }
 }
 

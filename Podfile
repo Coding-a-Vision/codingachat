@@ -12,4 +12,5 @@ target 'CodingAChat' do
   pod 'PromiseKit'
   pod 'SVProgressHUD'
   pod 'Kingfisher'
+  pod 'FirebaseFirestoreSwift'
 end

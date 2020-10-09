@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Message {
+struct Message: Hashable {
+    @DocumentID var id: String? = UUID().uuidString
     let author: String
     let message: String
     
