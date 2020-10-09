@@ -32,7 +32,7 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     
     func configure(with message: Message) {
-        authorLabel.text = message.author
+        authorLabel.text = message.author.displayName
         messageLabel.text = message.message
         dateLabel.text = message.date.asString
     }

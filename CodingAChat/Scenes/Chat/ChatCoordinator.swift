@@ -43,36 +43,40 @@ class ChatCoordinator: Coordinator {
             .collection("messages")
             .addSnapshotListener { [weak self] (querySnapshot, error) in
                 
-            guard let querySnapshot = querySnapshot else { return print("No documents") }
-            
-            querySnapshot.documentChanges.forEach { diff in
+                guard let querySnapshot = querySnapshot else { return print("No documents") }
                 
-                if diff.type == .added,
-                   let timestamp = diff.document.get("data") as? Timestamp,
-                   let message = Message(json: diff.document.data(), id: diff.document.documentID, date: timestamp.dateValue()) {
+                querySnapshot.documentChanges.forEach { diff in
                     
-                    self?.chatViewController.addMessage(message)
-                } else if diff.type == .removed {
-                    let id = diff.document.documentID
-                    // self?.chatViewController.removeMessage(withId: id) // TODO:
+                    if diff.type == .added,
+                       let timestamp = diff.document.get("data") as? Timestamp,
+                       let message = Message(json: diff.document.data(), id: diff.document.documentID, date: timestamp.dateValue()) {
+                        
+                        self?.chatViewController.addMessage(message)
+                    } else if diff.type == .removed {
+                        let id = diff.document.documentID
+                        // self?.chatViewController.removeMessage(withId: id) // TODO:
+                    }
                 }
             }
-        }
     }
 }
 
 extension ChatCoordinator: ChatViewControllerDelegate {
     
-    func sendMessage(message: String) {
-        guard let name = user.displayName else { return print("User without name") }
+    func sendMessage(message: String, type: Type) {
+        guard let name = user.displayName, let id = Auth.auth().currentUser?.uid else { return print("User without name") }
         
         let timestamp = Timestamp()
         
-        db.collection("channels").document(chatViewController.channel.id).collection("messages").addDocument(data: [
-            "author": name,
-            "message": message,
-            "data": timestamp
-        ])
+        db.collection("channels")
+            .document(chatViewController.channel.id)
+            .collection("messages").addDocument(data: [
+                "author": name,
+                "authorId": id,
+                "message": message,
+                "kind": type.rawValue,
+                "data": timestamp
+            ])
         chatViewController.messageTextField.text = nil
     }
 }

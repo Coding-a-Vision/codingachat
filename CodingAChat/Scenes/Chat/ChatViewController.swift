@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChatViewControllerDelegate: class {
-    func sendMessage(message: String)
+    func sendMessage(message: String, type: Type)
 }
 
 class ChatViewController: UIViewController {
@@ -27,7 +27,7 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendMessage(_ sender: Any) {
         guard let message = messageTextField.text else { return }
-        delegate?.sendMessage(message: message)
+        delegate?.sendMessage(message: message, type: .text)
     }
 
     let channel : Channel
