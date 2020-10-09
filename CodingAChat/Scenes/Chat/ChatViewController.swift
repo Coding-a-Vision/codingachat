@@ -95,5 +95,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         self.delegate?.sendMessage(message: text, type: .text)
+        inputBar.inputTextView.text = ""
     }
 }
