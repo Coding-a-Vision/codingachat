@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import MessageKit
+import FirebaseAuth
+import InputBarAccessoryView
 
 protocol ChatViewControllerDelegate: class {
     func sendMessage(message: String, type: Type)
 }
 
-class ChatViewController: UIViewController {
-        
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var messageTextField: UITextField!
+class ChatViewController: MessagesViewController {
+    
     weak var delegate: ChatViewControllerDelegate?
     private var messages: [Message] = []
-
+    private let user: User
+    
     private var sortedMessages: [Message] {
         return messages.sorted { (m1, m2) -> Bool in
             return m1.date < m2.date
@@ -26,14 +28,15 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendMessage(_ sender: Any) {
-        guard let message = messageTextField.text else { return }
-        delegate?.sendMessage(message: message, type: .text)
+        //guard let message = messageTextField.text else { return }
+        //delegate?.sendMessage(message: message, type: .text)
     }
-
+    
     let channel : Channel
     
-    init(channel : Channel) {
+    init(channel : Channel, user: User) {
         self.channel = channel
+        self.user = user
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,32 +46,54 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
         self.title = channel.name
-        let nib = UINib(nibName: "ChatTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "cellId")
         
-        // Do any additional setup after loading the view.
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
     }
     
     func addMessage(_ message: Message) {
         messages.append(message)
-        let lastIndexPath = IndexPath(row: messages.count - 1, section: 0)
-        //tableView.insertRows(at: [lastIndexPath], with: .automatic)
-        tableView.reloadData()
-        tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
+        messagesCollectionView.reloadData()
     }
 }
 
-extension ChatViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sortedMessages.count
+extension ChatViewController: MessagesDataSource {
+    func currentSender() -> SenderType {
+        return Author(senderId: user.uid, displayName: user.displayName ?? user.email ?? "Anonymous")
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatTableViewCell
-        cell.configure(with: sortedMessages[indexPath.row])
-        return cell
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        let message = messages[indexPath.section]
+        return message
+    }
+    
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        return messages.count
+    }
+}
+
+extension ChatViewController: MessagesLayoutDelegate {}
+
+extension ChatViewController: MessagesDisplayDelegate {
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        
+        guard let message = message as? Message else { return }
+        
+        if let urlString = message.userPictureUrl, let url = URL(string: urlString) {
+            avatarView.kf.setImage(with: url)
+        } else {
+            avatarView.initials = String(message.author.displayName.prefix(2))
+        }
+    }
+}
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        self.delegate?.sendMessage(message: text, type: .text)
     }
 }

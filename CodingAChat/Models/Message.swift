@@ -26,6 +26,7 @@ struct Message: Hashable {
     let message: String
     let date: Date
     let type: Type
+    let userPictureUrl: String?
     
     init?(json: [String: Any], id: String, date: Date) {
         guard
@@ -41,6 +42,7 @@ struct Message: Hashable {
         self.id = id
         self.date = date
         self.type = type
+        self.userPictureUrl = json["userPictureUrl"] as? String
     }
 }
 

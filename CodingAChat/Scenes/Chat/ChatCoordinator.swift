@@ -25,7 +25,7 @@ class ChatCoordinator: Coordinator {
         self.user = user
         self.presenter = presenter
         self.window = window
-        self.chatViewController = ChatViewController(channel: channel)
+        self.chatViewController = ChatViewController(channel: channel, user: user)
         self.db = Firestore.firestore()
         self.channel = channel
     }
@@ -75,8 +75,9 @@ extension ChatCoordinator: ChatViewControllerDelegate {
                 "authorId": id,
                 "message": message,
                 "kind": type.rawValue,
+                "userPictureUrl": user.photoURL?.absoluteString ?? "",
                 "data": timestamp
             ])
-        chatViewController.messageTextField.text = nil
+        
     }
 }
