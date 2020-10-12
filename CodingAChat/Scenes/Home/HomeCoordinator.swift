@@ -39,8 +39,6 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         childCoordinators.append(chatcoordinator)
     }
     
-        
-   
     func onEditDetailsAction() {
         let editCoordinator = EditDetailsCoordinator(presenter: homeViewController, user: user)
         editCoordinator.start()
