@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIAlertController {
-    class func show(_ message: String, from controller: UIViewController) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+    class func show(title: String? = nil, message: String, from controller: UIViewController) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         controller.show(alert, sender: nil)
     }

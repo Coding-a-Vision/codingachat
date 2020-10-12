@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     @IBAction func standardLogin() {
         
         guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            UIAlertController.show("Please, fill in all fields", from: self)
+            UIAlertController.show(message: "Please, fill in all fields", from: self)
             return
         }
         

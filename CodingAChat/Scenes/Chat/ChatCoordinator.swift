@@ -65,7 +65,7 @@ extension ChatCoordinator: ChatViewControllerDelegate {
     
     func sendMessage(message: String, type: Type) {
         guard let name = user.displayName, let id = Auth.auth().currentUser?.uid else {
-            UIAlertController.show("Unable to send messages", from: self.chatViewController)
+            UIAlertController.show(title: "Unable to send messages", message:"Please set your name and your image first", from: self.chatViewController)
             print("User without name")
             return
         }
