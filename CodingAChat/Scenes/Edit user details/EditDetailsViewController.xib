@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditDetailsViewController" customModule="CodingAChat" customModuleProvider="target">
             <connections>
+                <outlet property="displayNameLabel" destination="5uy-Yz-daN" id="gNH-NL-VKU"/>
                 <outlet property="displayNameTextField" destination="yVh-9T-21C" id="Xes-tl-Xhg"/>
+                <outlet property="saveButton" destination="vzd-3B-EbU" id="9yM-e4-nMA"/>
                 <outlet property="userPictureImageView" destination="98R-UZ-5QX" id="HWy-CW-ebz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

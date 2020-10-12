@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="CodingAChat" customModuleProvider="target">
             <connections>
+                <outlet property="button" destination="Drl-TH-KQQ" id="bCk-YR-mb6"/>
                 <outlet property="emailTextField" destination="MR0-7b-RJy" id="WKG-wW-sA1"/>
+                <outlet property="notRegisterLabel" destination="LjN-kQ-TLt" id="ZSU-id-kBg"/>
                 <outlet property="passwordTextField" destination="sOx-KY-vEx" id="K1O-dd-Rxh"/>
+                <outlet property="signUpButton" destination="Df3-RN-6au" id="IDb-Fu-3qC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,10 +28,10 @@
                     <rect key="frame" x="20" y="244.5" width="374" height="407"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="L6L-t9-SKS">
-                            <rect key="frame" x="96" y="0.0" width="182.5" height="162"/>
+                            <rect key="frame" x="95.5" y="0.0" width="183" height="162"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="a6h-qd-Pmg">
-                                    <rect key="frame" x="38" y="0.0" width="106" height="106"/>
+                                    <rect key="frame" x="38.5" y="0.0" width="106" height="106"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="106" id="4Sy-zL-yHG"/>
                                         <constraint firstAttribute="width" constant="106" id="68Y-7c-EbK"/>
@@ -34,7 +39,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CodingAChat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiP-Hr-f4Y">
-                                    <rect key="frame" x="0.0" y="127" width="182.5" height="35"/>
+                                    <rect key="frame" x="0.0" y="127" width="183" height="35"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -44,7 +49,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hGQ-Jd-ePx">
                             <rect key="frame" x="0.0" y="192" width="374" height="215"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MR0-7b-RJy" customClass="CustomTextField" customModule="CodingAChat" customModuleProvider="target">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MR0-7b-RJy" customClass="CustomTextField" customModule="CodingAChat" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="TZD-WI-ZXC"/>
@@ -60,9 +65,9 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drl-TH-KQQ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drl-TH-KQQ">
                                     <rect key="frame" x="48" y="128" width="278" height="42"/>
-                                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" systemColor="systemTealColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="42" id="p1D-XP-TtU"/>
                                     </constraints>
@@ -85,14 +90,14 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you not registered yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjN-kQ-TLt">
                                             <rect key="frame" x="0.0" y="0.0" width="179" height="29"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-RN-6au">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-RN-6au">
                                             <rect key="frame" x="185" y="0.0" width="84" height="29"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <state key="normal" title="Sign up now">
-                                                <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" systemColor="systemTealColor"/>
                                             </state>
                                         </button>
                                     </subviews>
@@ -114,17 +119,26 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ZWN-KP-v8S" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RQg-OE-SGX"/>
                 <constraint firstItem="ZWN-KP-v8S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="T14-vB-mXc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZWN-KP-v8S" secondAttribute="trailing" constant="20" id="ZVj-Ha-vi2"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="132" y="147"/>
         </view>
     </objects>
     <resources>
         <image name="logo" width="200" height="200"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
