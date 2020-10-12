@@ -51,6 +51,8 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         db.collection("channels").addSnapshotListener() { [weak self] (querySnapshot, err) in
             
             if let err = err {
+                guard let self = self else { return }
+                UIAlertController.show(message: "Unable to load channels")
                 print("Error getting documents: \(err)")
             } else if let snapshot = querySnapshot {
                 

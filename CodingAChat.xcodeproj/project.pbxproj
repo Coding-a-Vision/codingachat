@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0E25B7253448B000CD2B5B /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */; };
+		7F0E25B92534582C00CD2B5B /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */; };
 		7F9324A32530ADCD005B01BF /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9324A22530ADCD005B01BF /* HomeViewController+CollectionView.swift */; };
 		7F9324A92530AE15005B01BF /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9324A72530AE15005B01BF /* HeaderCollectionReusableView.swift */; };
 		7F9324AA2530AE15005B01BF /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9324A82530AE15005B01BF /* HeaderCollectionReusableView.xib */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.debug.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.debug.xcconfig"; sourceTree = "<group>"; };
+		7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
+		7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		7F9324A22530ADCD005B01BF /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		7F9324A72530AE15005B01BF /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		7F9324A82530AE15005B01BF /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F0E25B52534488F00CD2B5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */,
+				7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7F9324A12530ADA4005B01BF /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 		F71F14E2251E0DB3009203BF /* CodingAChat */ = {
 			isa = PBXGroup;
 			children = (
+				7F0E25B52534488F00CD2B5B /* Extensions */,
 				9335E9D8252C8A2400FB46B0 /* Models */,
 				F7CDC4CC2523377B0039DBE4 /* Coordinator.swift */,
 				F7CDC4E0252337AB0039DBE4 /* AppCoordinator.swift */,
@@ -379,12 +393,14 @@
 			files = (
 				7F9324A92530AE15005B01BF /* HeaderCollectionReusableView.swift in Sources */,
 				7FE50D432530A37800B96C30 /* CustomTextField.swift in Sources */,
+				7F0E25B7253448B000CD2B5B /* UIAlertController+show.swift in Sources */,
 				F7CDC4DD252337940039DBE4 /* LoginViewController.swift in Sources */,
 				F7CDC4DB252337940039DBE4 /* LoginCoordinator.swift in Sources */,
 				7FA86EF4252C6D8F00DE88F1 /* ChatViewController.swift in Sources */,
 				7F9324A32530ADCD005B01BF /* HomeViewController+CollectionView.swift in Sources */,
 				F7CDC528252341540039DBE4 /* EditDetailsViewController.swift in Sources */,
 				F71F14E4251E0DB3009203BF /* AppDelegate.swift in Sources */,
+				7F0E25B92534582C00CD2B5B /* UIApplication+topViewController.swift in Sources */,
 				F7CDC4E1252337AB0039DBE4 /* AppCoordinator.swift in Sources */,
 				F7CDC4D52523378D0039DBE4 /* HomeCoordinator.swift in Sources */,
 				F7CDC4CD2523377B0039DBE4 /* Coordinator.swift in Sources */,

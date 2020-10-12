@@ -83,7 +83,7 @@ class EditDetailsViewController: UIViewController {
     @IBAction func save() {
         
         guard let displayName = displayNameTextField.text, !displayName.isEmpty, let image = userPictureImageView.image else {
-            // TODO: add alert to warn user about missing data
+            UIAlertController.show(message: "Please, fill in all fields")
             return
         }
         
