@@ -9,7 +9,9 @@
 import UIKit
 
 extension UIAlertController {
-    class func show(title: String? = nil, message: String, from controller: UIViewController) {
+    class func show(title: String? = nil, message: String) {
+        guard let controller = UIApplication.topViewController() else { return }
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         controller.show(alert, sender: nil)
