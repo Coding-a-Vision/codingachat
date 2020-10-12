@@ -64,7 +64,11 @@ class ChatCoordinator: Coordinator {
 extension ChatCoordinator: ChatViewControllerDelegate {
     
     func sendMessage(message: String, type: Type) {
-        guard let name = user.displayName, let id = Auth.auth().currentUser?.uid else { return print("User without name") }
+        guard let name = user.displayName, let id = Auth.auth().currentUser?.uid else {
+            UIAlertController.show("Unable to send messages", from: self.chatViewController)
+            print("User without name")
+            return
+        }
         
         let timestamp = Timestamp()
         

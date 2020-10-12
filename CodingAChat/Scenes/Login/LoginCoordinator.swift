@@ -40,6 +40,7 @@ extension LoginCoordinator: LoginViewControllerDelegate {
                 self?.onLogin?(result.user)
                 
             } else if let error = error {
+                UIAlertController.show("Wrong email or password", from: self!.loginViewController)
                 print("Error during auth: \(error)")
             }
         }

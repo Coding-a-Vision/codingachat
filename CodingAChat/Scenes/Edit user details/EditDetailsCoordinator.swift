@@ -46,7 +46,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         }.ensure {
             SVProgressHUD.dismiss()
         }.catch { error in
-            //TODO: showalert
+            UIAlertController.show("Error while saving data", from: self.viewController)
             print(error)
         }
     }
