@@ -34,6 +34,13 @@ class HomeCoordinator: Coordinator {
 }
 
 extension HomeCoordinator: HomeViewControllerDelegate {
+    
+    func onSettings() {
+        let settingCoordinator = SettingsCoordinator(window: window, presenter: homeViewController)
+        settingCoordinator.start()
+        childCoordinators.append(settingCoordinator)
+    }
+    
     func channelJoin(selectedChannel: Channel) {
         let chatcoordinator = ChatCoordinator(presenter: homeViewController, window: window, channel: selectedChannel, user: user)
         chatcoordinator.start()
@@ -46,6 +53,8 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         editCoordinator.start()
         childCoordinators.append(editCoordinator)
     }
+    
+
     
     func fetchData() {
         let db = Firestore.firestore()

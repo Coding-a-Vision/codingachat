@@ -17,6 +17,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         header.editProfileSettings = {
             self.delegate?.onEditDetailsAction()
         }
+        header.settingsView = {
+            self.delegate?.onSettings()
+        }
         return header
     }
     

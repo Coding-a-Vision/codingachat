@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeViewControllerDelegate: class {
     func onEditDetailsAction()
+    func onSettings()
     func fetchData()
     func channelJoin(selectedChannel : Channel)
 }
