@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  CodingAChat
+ 
+  Created by Alex on 12/10/2020.
+  Copyright © 2020 CodingAVision. All rights reserved.
+*/
+
+// MARK: -- LOGIN
+"generics_messages.email.textfield.placeholder" = "Indirizzo Email";
+"generics_messages.password.textfield.placeholder" = "Password";
+"generics_messages.button.login.title" = "Accedi";
+"generics_messages.notregistered.label.title" = "Non sei ancora registrato?";
+"generics_messages.button.signup.title" = "Registrati ora";
+"genercis_messages.error.completeFields" = "Per piacere completa tutti i campi"; //Anche in EditDetails
+// MARK: -- HOME
+"generics_messages.home.tile" = "Home";
+
+// MARK: --EDIT
+"generics_messages.saveButton.title" = "Salva";
+"generics_messages.displayNameTextField.text" = "Nome mostrato";
+"generics_messages.alertSelect.title" = "Seleziona la sorgente";
+"generics_messages.alertSelect.camera" = "Camera";
+"generics_messages.alertSelect.gallery" = "Galleria";
+"generics_messages.alertSelect.savedInAlbum" = "Foto salvate in Album";

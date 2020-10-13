@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Set title
-        self.title = "Home"
+        self.title = NSLocalizedString("generics_messages.home.tile", comment: "")
         
         // Styling (hiding) navigation bar
         navigationController?.navigationBar.barTintColor = UIColor.systemBackground

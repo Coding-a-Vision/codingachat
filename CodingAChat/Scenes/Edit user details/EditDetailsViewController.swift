@@ -17,7 +17,9 @@ protocol EditDetailsViewControllerDelegate: class {
 class EditDetailsViewController: UIViewController {
 
     @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var userPictureImageView: UIImageView!
+    @IBOutlet weak var saveButton: UIButton!
     
     weak var delegate: EditDetailsViewControllerDelegate?
     private let user: User
@@ -33,8 +35,8 @@ class EditDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        displayNameTextField.text = user.displayName
+        buildUI()
+        self.displayNameTextField.text = user.displayName
         userPictureImageView.kf.setImage(with: user.photoURL)
         
         userPictureImageView.layer.borderWidth = 2
@@ -43,19 +45,19 @@ class EditDetailsViewController: UIViewController {
 
     @IBAction func pickImage() {
         
-        let alertController = UIAlertController(title: "Seleziona la sorgente", message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+        let cameraAction = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.camera", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .camera)
         }
         
-        let gallery = UIAlertAction(title: "Gallery", style: .default) { _ in
+        let gallery = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .photoLibrary)
         }
         
-        let saved = UIAlertAction(title: "Saved photo album", style: .default) { _ in
+        let saved = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .savedPhotosAlbum)
         }
@@ -83,11 +85,16 @@ class EditDetailsViewController: UIViewController {
     @IBAction func save() {
         
         guard let displayName = displayNameTextField.text, !displayName.isEmpty, let image = userPictureImageView.image else {
-            UIAlertController.show(message: "Please, fill in all fields")
+            UIAlertController.show(message: NSLocalizedString("genercis_messages.error.completeFields", comment: ""))
             return
         }
         
         delegate?.userDidSaveInfo(withDisplayName: displayName, andImage: image)
+    }
+
+    private func buildUI(){
+        self.saveButton.setTitle(NSLocalizedString("generics_messages.saveButton.title", comment: ""), for: .normal)
+        self.displayNameLabel.text = NSLocalizedString("generics_messages.displayNameTextField.text", comment: "")
     }
 }
 
