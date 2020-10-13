@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import PromiseKit
+import SVProgressHUD
 
 class ChatCoordinator: Coordinator {
     
@@ -63,7 +65,26 @@ class ChatCoordinator: Coordinator {
 
 extension ChatCoordinator: ChatViewControllerDelegate {
     
-    func sendMessage(message: String, type: Type) {
+    func sendImage(image: UIImage) {
+        guard let data = image.jpegData(compressionQuality: 0.8) else { return }
+        
+        let storage = FirebaseStorageServices()
+        let imageName = UUID().uuidString
+        
+        SVProgressHUD.show(withStatus: "Wait...")
+        
+        firstly {
+            storage.uploadImage(data, imageName: "\(imageName).jpg")
+        }.done { url in
+            self.sendMessage(message: nil, url: url, type: .photo)
+        }.ensure {
+            SVProgressHUD.dismiss()
+        }.catch { error in
+            UIAlertController.show(message: "Error: \(error.localizedDescription)")
+        }
+    }
+    
+    func sendMessage(message: String?, url: URL?, type: Type) {
         guard let name = user.displayName, let id = Auth.auth().currentUser?.uid else {
             UIAlertController.show(title: "Unable to send messages", message: "Please set your name and your image first")
             return
@@ -71,16 +92,24 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         
         let timestamp = Timestamp()
         
+        var body: [String: Any] = [
+            "author": name,
+            "authorId": id,
+            "kind": type.rawValue,
+            "userPictureUrl": user.photoURL?.absoluteString ?? "",
+            "data": timestamp
+        ]
+        
+        if let message = message {
+            body["message"] = message
+        } else if let url = url {
+            body["pictureUrl"] = url.absoluteString
+        }
+        
         db.collection("channels")
             .document(chatViewController.channel.id)
-            .collection("messages").addDocument(data: [
-                "author": name,
-                "authorId": id,
-                "message": message,
-                "kind": type.rawValue,
-                "userPictureUrl": user.photoURL?.absoluteString ?? "",
-                "data": timestamp
-            ])
+            .collection("messages").addDocument(data: body)
         
     }
 }
+

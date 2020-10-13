@@ -6,7 +6,7 @@
 //  Copyright © 2020 CodingAVision. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class WhiteNavigationController: UINavigationController {
     override func viewDidLoad() {

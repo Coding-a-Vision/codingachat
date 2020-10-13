@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseStorage
 import FirebaseAuth
 import PromiseKit
 import SVProgressHUD
@@ -37,10 +36,13 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
     
     func userDidSaveInfo(withDisplayName displayName: String, andImage image: UIImage) {
         
-        SVProgressHUD.show(withStatus: "Wait...")
+        guard let data = image.jpegData(compressionQuality: 0.8) else { return }
         
+        SVProgressHUD.show(withStatus: "Wait...")
+        let storage = FirebaseStorageServices()
+            
         firstly {
-            uploadImage(image)
+            storage.uploadImage(data, imageName: "\(user.uid).jpg")
         }.then { url in
             self.updateUserData(displayName: displayName, url: url)
         }.done {
@@ -51,37 +53,6 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         }.catch { error in
             UIAlertController.show(message: "Error while saving data")
             print(error)
-        }
-    }
-    
-    func uploadImage(_ image: UIImage) -> Promise<URL> {
-        
-        return Promise<URL> { seal in
-            
-            guard let data = image.jpegData(compressionQuality: 0.8) else { return }
-            
-            let storage = Storage.storage()
-            let storageRef = storage.reference()
-            let imageRef = storageRef.child("\(user.uid).jpg")
-            
-            imageRef.putData(data, metadata: nil) { (metadata, error) in
-                
-                if let metadata = metadata {
-                    print("ok!!! \(metadata)")
-                } else if let error = error {
-                    seal.reject(error)
-                }
-                
-                // You can also access to download URL after upload.
-                imageRef.downloadURL { (url, error) in
-                    
-                    if let url = url {
-                        seal.fulfill(url)
-                    } else if let error = error {
-                        seal.reject(error)
-                    }
-                }
-            }
         }
     }
     

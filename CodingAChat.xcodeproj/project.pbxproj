@@ -27,6 +27,7 @@
 		F7B793FD2535AD2C00248E75 /* AnalyticsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B793FC2535AD2C00248E75 /* AnalyticsTracker.swift */; };
 		F7B794042535B14B00248E75 /* FakeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B794032535B14B00248E75 /* FakeTracker.swift */; };
 		F7B7940C2535B7AB00248E75 /* WhiteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B7940B2535B7AB00248E75 /* WhiteNavigationController.swift */; };
+		F7B7942E2535BAA800248E75 /* FirebaseStorageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B7942D2535BAA800248E75 /* FirebaseStorageServices.swift */; };
 		F7CDC4CD2523377B0039DBE4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC4CC2523377B0039DBE4 /* Coordinator.swift */; };
 		F7CDC4D32523378D0039DBE4 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7CDC4D02523378D0039DBE4 /* HomeViewController.xib */; };
 		F7CDC4D42523378D0039DBE4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC4D12523378D0039DBE4 /* HomeViewController.swift */; };
@@ -66,6 +67,7 @@
 		F7B793FC2535AD2C00248E75 /* AnalyticsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTracker.swift; sourceTree = "<group>"; };
 		F7B794032535B14B00248E75 /* FakeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTracker.swift; sourceTree = "<group>"; };
 		F7B7940B2535B7AB00248E75 /* WhiteNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteNavigationController.swift; sourceTree = "<group>"; };
+		F7B7942D2535BAA800248E75 /* FirebaseStorageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageServices.swift; sourceTree = "<group>"; };
 		F7CDC4CC2523377B0039DBE4 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F7CDC4D02523378D0039DBE4 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		F7CDC4D12523378D0039DBE4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				F7B794062535B15A00248E75 /* Analytics */,
 				9335E9D9252C8A3800FB46B0 /* Message.swift */,
+				F7B7942D2535BAA800248E75 /* FirebaseStorageServices.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */,
 				7F9324AD2530AE3A005B01BF /* ChannelCardCollectionViewCell.swift in Sources */,
 				9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */,
+				F7B7942E2535BAA800248E75 /* FirebaseStorageServices.swift in Sources */,
 				F7B7940C2535B7AB00248E75 /* WhiteNavigationController.swift in Sources */,
 				F7CDC4D42523378D0039DBE4 /* HomeViewController.swift in Sources */,
 				F7CDC524252341420039DBE4 /* EditDetailsCoordinator.swift in Sources */,
