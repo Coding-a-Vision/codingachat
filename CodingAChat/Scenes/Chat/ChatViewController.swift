@@ -59,6 +59,7 @@ class ChatViewController: MessagesViewController {
     }
     
     func addMessage(_ message: Message) {
+        
         messages.append(message)
         messagesCollectionView.reloadData()
     }
@@ -122,15 +123,29 @@ extension ChatViewController: MessagesDataSource {
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         let message = sortedMessages[indexPath.section]
+        
         return message
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return sortedMessages.count
     }
+    
+    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let name = message.sender.displayName
+        return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
+    }
+    
 }
 
-extension ChatViewController: MessagesLayoutDelegate {}
+extension ChatViewController: MessagesLayoutDelegate {
+    
+    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 20
+    }
+    
+}
+
 
 extension ChatViewController: MessagesDisplayDelegate {
     
@@ -151,6 +166,7 @@ extension ChatViewController: MessagesDisplayDelegate {
         
         imageView.kf.setImage(with: photo.url)
     }
+    
 }
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
@@ -193,3 +209,5 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
     
 }
+
+

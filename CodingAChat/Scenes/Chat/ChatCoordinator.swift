@@ -52,7 +52,6 @@ class ChatCoordinator: Coordinator {
                     if diff.type == .added,
                        let timestamp = diff.document.get("data") as? Timestamp,
                        let message = Message(json: diff.document.data(), id: diff.document.documentID, date: timestamp.dateValue()) {
-                        
                         self?.chatViewController.addMessage(message)
                     } else if diff.type == .removed {
                         let id = diff.document.documentID
