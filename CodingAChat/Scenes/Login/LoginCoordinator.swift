@@ -15,11 +15,13 @@ class LoginCoordinator: Coordinator {
     
     private let loginViewController: LoginViewController
     private let window: UIWindow
+    private let tracker: Trackable
     var onLogin: ((User) -> Void)?
     
     
-    init(window: UIWindow) {
+    init(window: UIWindow, tracker: Trackable) {
         self.window = window
+        self.tracker = tracker
         self.loginViewController = LoginViewController()
     }
     
@@ -38,9 +40,9 @@ extension LoginCoordinator: LoginViewControllerDelegate {
             if let result = authResult {
                 
                 self?.onLogin?(result.user)
+                self?.tracker.track(withName: .login, parameters: nil)
                 
             } else if let error = error {
-                guard let self = self else { return }
                 UIAlertController.show(message: "Wrong email or password")
                 print("Error during auth: \(error)")
             }

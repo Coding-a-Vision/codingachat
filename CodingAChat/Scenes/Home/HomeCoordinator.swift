@@ -16,12 +16,13 @@ class HomeCoordinator: Coordinator {
     let navigator: UINavigationController
     let homeViewController: HomeViewController
     private let user: User
-    
+    private let tracker: Trackable
     private let window: UIWindow
     
-    init(window: UIWindow, user: User) {
+    init(window: UIWindow, user: User, tracker: Trackable) {
         self.window = window
         self.user = user
+        self.tracker = tracker
         self.homeViewController = HomeViewController()
         self.navigator = UINavigationController(rootViewController: homeViewController)
     }
@@ -37,10 +38,11 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         let chatcoordinator = ChatCoordinator(presenter: homeViewController, window: window, channel: selectedChannel, user: user)
         chatcoordinator.start()
         childCoordinators.append(chatcoordinator)
+        tracker.track(withName: .join, parameters: ["channelID": selectedChannel.name])
     }
     
     func onEditDetailsAction() {
-        let editCoordinator = EditDetailsCoordinator(presenter: homeViewController, user: user)
+        let editCoordinator = EditDetailsCoordinator(presenter: homeViewController, user: user, tracker: tracker)
         editCoordinator.start()
         childCoordinators.append(editCoordinator)
     }
@@ -51,7 +53,6 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         db.collection("channels").addSnapshotListener() { [weak self] (querySnapshot, err) in
             
             if let err = err {
-                guard let self = self else { return }
                 UIAlertController.show(message: "Unable to load channels")
                 print("Error getting documents: \(err)")
             } else if let snapshot = querySnapshot {

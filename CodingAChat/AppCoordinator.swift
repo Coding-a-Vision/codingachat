@@ -13,6 +13,7 @@ class AppCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
     private let window: UIWindow
+    private let tracker = FakeTracker()
     
     init(window: UIWindow) {
         self.window = window
@@ -22,12 +23,12 @@ class AppCoordinator: Coordinator {
         
         if let user = Auth.auth().currentUser {
            
-            let homeCoordinator = HomeCoordinator(window: window, user: user)
+            let homeCoordinator = HomeCoordinator(window: window, user: user, tracker: tracker)
             homeCoordinator.start()
             childCoordinators.append(homeCoordinator)
             
         } else {
-            let loginCoordinator = LoginCoordinator(window: window)
+            let loginCoordinator = LoginCoordinator(window: window, tracker: tracker)
             
             loginCoordinator.onLogin = { [weak self] user in
                 self?.start()

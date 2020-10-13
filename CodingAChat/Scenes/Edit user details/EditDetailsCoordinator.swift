@@ -18,10 +18,12 @@ class EditDetailsCoordinator: Coordinator {
     private let viewController: EditDetailsViewController
     private let presenter: UIViewController
     private let user: User
+    private let tracker: Trackable
     
-    init(presenter: UIViewController, user: User) {
+    init(presenter: UIViewController, user: User, tracker: Trackable) {
         self.presenter = presenter
         self.user = user
+        self.tracker = tracker
         viewController = EditDetailsViewController(user: user)
     }
     
@@ -42,6 +44,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         }.then { url in
             self.updateUserData(displayName: displayName, url: url)
         }.done {
+            self.tracker.track(withName: .changeUserData, parameters: nil)
             self.presenter.dismiss(animated: true, completion: nil)
         }.ensure {
             SVProgressHUD.dismiss()

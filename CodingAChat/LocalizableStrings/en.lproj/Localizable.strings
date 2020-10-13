@@ -11,7 +11,7 @@
 "generics_messages.password.textfield.placeholder" = "Password";
 "generics_messages.button.login.title" = "Login";
 "generics_messages.notregistered.label.title" = "Are you not registered yet?";
-"generics_messages.button.login.title" = "Sign up now";
+"generics_messages.button.signup.title" = "Sign up now";
 "genercis_messages.error.completeFields" = "Please, fill in all fields"; //EditDetails too
 
 // MARK: -- HOME
