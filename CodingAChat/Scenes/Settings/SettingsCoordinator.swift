@@ -30,7 +30,18 @@ class SettingsCoordinator : Coordinator {
 extension SettingsCoordinator : settingsActionDelegate {
 
     func contactUs() {
-       print("toimpl")
+      if MFMailComposeViewController.canSendMail() {
+        let mail = MFMailComposeViewController()
+        mail.mailComposeDelegate = self as! MFMailComposeViewControllerDelegate
+        mail.setToRecipients(["info@codingavision.it"])
+        presenter.present(mail, animated: true, completion: nil)
+      } else {
+        print("Error")
+      }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+      controller.dismiss(animated: true)
     }
     
     func logout() {
@@ -40,8 +51,8 @@ extension SettingsCoordinator : settingsActionDelegate {
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
-        let appcoordinator = AppCoordinator(window: window)
-        appcoordinator.start()
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        delegate.coordinator?.start()
     }
 }
 
