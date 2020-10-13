@@ -24,7 +24,7 @@ class HomeCoordinator: Coordinator {
         self.user = user
         self.tracker = tracker
         self.homeViewController = HomeViewController()
-        self.navigator = UINavigationController(rootViewController: homeViewController)
+        self.navigator = WhiteNavigationController(rootViewController: homeViewController)
     }
     
     func start() {

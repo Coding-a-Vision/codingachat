@@ -20,14 +20,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    TO DO: Watch it and if is useless delete it
-//    @IBOutlet weak var tableView: UITableView! {
-//        didSet {
-//            let nib = UINib(nibName: "ChannelTableViewCell", bundle: nil)
-//            tableView.register(nib, forCellReuseIdentifier: "cellID")
-//        }
-//    }
-    
     var items: [Channel] = [] {
         didSet {
             collectionView?.reloadData()
@@ -39,12 +31,6 @@ class HomeViewController: UIViewController {
         
         // Set title
         self.title = NSLocalizedString("generics_messages.home.tile", comment: "")
-        
-        // Styling (hiding) navigation bar
-        navigationController?.navigationBar.barTintColor = UIColor.systemBackground
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.hidesBarsOnSwipe = true
         
         let headerViewNib = UINib(nibName: "HeaderCollectionReusableView", bundle: nil)
         collectionView.register(headerViewNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderViewID")
