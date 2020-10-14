@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     var userDefault = UserDefaults.standard
-     let TAG = "BACKGROUND_IMAGE"
+    let TAG = "BACKGROUND_IMAGE"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,33 +50,31 @@ class SettingsViewController: UIViewController {
     
     @IBAction func changeBackgroundImage(_ sender: Any) {
         
-     let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
-         
-         let cameraAction = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.camera", comment: ""), style: .default) { _ in
-             
-             self.showPicker(with: .camera)
-         }
-         
-         let gallery = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
-             
-             self.showPicker(with: .photoLibrary)
-         }
-         
-         let saved = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
-             
-             self.showPicker(with: .savedPhotosAlbum)
-         }
-     
-         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-             alertController.addAction(cameraAction)
-         }
-         
-         alertController.addAction(gallery)
-         alertController.addAction(saved)
-         
-         present(alertController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.camera", comment: ""), style: .default) { _ in
+            
+            self.showPicker(with: .camera)
+        }
+        
+        let gallery = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
+            
+            self.showPicker(with: .photoLibrary)
+        }
+        
+        let saved = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
+            
+            self.showPicker(with: .savedPhotosAlbum)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(cameraAction)
+        }
+        
+        alertController.addAction(gallery)
+        alertController.addAction(saved)
+        present(alertController, animated: true, completion: nil)
     }
-    
     
     func showPicker(with source: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
@@ -84,14 +82,12 @@ class SettingsViewController: UIViewController {
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true, completion: nil)
-        
     }
-    
 }
 
-extension SettingsViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         guard let image = info[.editedImage] as? UIImage else { return }
         backgroundImage.image = image

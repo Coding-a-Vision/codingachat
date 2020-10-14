@@ -40,7 +40,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         
         SVProgressHUD.show(withStatus: "Wait...")
         let storage = FirebaseStorageServices()
-            
+        
         firstly {
             storage.uploadImage(data, imageName: "\(user.uid).jpg")
         }.then { url in

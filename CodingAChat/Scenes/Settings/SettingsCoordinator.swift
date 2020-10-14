@@ -9,14 +9,12 @@
 import UIKit
 import Firebase
 import MessageUI
-class SettingsCoordinator : Coordinator {
+class SettingsCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
-    private let viewController : SettingsViewController
-    private let window : UIWindow
-    private let presenter : UIViewController
+    private let viewController: SettingsViewController
+    private let presenter: UIViewController
     
-    init(window : UIWindow, presenter : UIViewController) {
-        self.window=window
+    init(presenter: UIViewController) {
         self.presenter=presenter
         viewController = SettingsViewController()
     }
@@ -27,29 +25,30 @@ class SettingsCoordinator : Coordinator {
     }
 }
 
-extension SettingsCoordinator : settingsActionDelegate {
-
+extension SettingsCoordinator: settingsActionDelegate {
+    
     func contactUs() {
-      if MFMailComposeViewController.canSendMail() {
-        let mail = MFMailComposeViewController()
-        mail.mailComposeDelegate = self as! MFMailComposeViewControllerDelegate
-        mail.setToRecipients(["info@codingavision.it"])
-        presenter.present(mail, animated: true, completion: nil)
-      } else {
-        print("Error")
-      }
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
+            mail.setToRecipients(["info@codingavision.it"])
+            presenter.present(mail, animated: true, completion: nil)
+        } else {
+            print("Error")
+        }
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-      controller.dismiss(animated: true)
+        controller.dismiss(animated: true)
+        
     }
     
     func logout() {
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
+            print ("Error signing out: %@", signOutError)
         }
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
         delegate.coordinator?.start()

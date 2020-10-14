@@ -14,11 +14,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderViewID", for: indexPath) as? HeaderCollectionReusableView else { fatalError() }
-        header.editProfileSettings = {
-            self.delegate?.onEditDetailsAction()
+        header.editProfileSettings = { [weak self] in
+            self!.delegate?.onEditDetailsAction()
         }
-        header.settingsView = {
-            self.delegate?.onSettings()
+        header.settingsView = { [weak self] in
+            self?.delegate?.onSettings()
         }
         return header
     }
@@ -28,7 +28,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     // MARK: - Channel cards
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
@@ -50,5 +49,4 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.channelJoin(selectedChannel: items[indexPath.row])
     }
-    
 }
