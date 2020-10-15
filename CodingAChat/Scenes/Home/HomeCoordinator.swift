@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class HomeCoordinator: Coordinator {
-  
+    
     var childCoordinators: [Coordinator] = []
     let navigator: UINavigationController
     let homeViewController: HomeViewController
@@ -34,6 +34,13 @@ class HomeCoordinator: Coordinator {
 }
 
 extension HomeCoordinator: HomeViewControllerDelegate {
+    
+    func onSettings() { 
+        let settingCoordinator = SettingsCoordinator(presenter: homeViewController)
+        settingCoordinator.start()
+        childCoordinators.append(settingCoordinator)
+    }
+    
     func channelJoin(selectedChannel: Channel) {
         let chatcoordinator = ChatCoordinator(presenter: homeViewController, window: window, channel: selectedChannel, user: user)
         chatcoordinator.start()
@@ -49,25 +56,17 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     
     func fetchData() {
         let db = Firestore.firestore()
-        
         db.collection("channels").addSnapshotListener() { [weak self] (querySnapshot, err) in
-            
             if let err = err {
                 UIAlertController.show(message: "Unable to load channels")
                 print("Error getting documents: \(err)")
             } else if let snapshot = querySnapshot {
-                
                 var items: [Channel] = []
-                
                 for document in snapshot.documents {
-                    
                     let dict = document.data()
-                    
                     if let itemName = dict["name"] as? String {
-                        
                         let channel = Channel(id: document.documentID, name: itemName)
-                        items.append(channel)
-                        
+                        items.append(channel)    
                     }
                 }
                 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CBA8D3B2535DC08007502CC /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3A2535DC08007502CC /* SettingsCoordinator.swift */; };
+		3CBA8D3E2535DC23007502CC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3C2535DC23007502CC /* SettingsViewController.swift */; };
+		3CBA8D3F2535DC23007502CC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3D2535DC23007502CC /* SettingsViewController.xib */; };
 		7F0E25B7253448B000CD2B5B /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */; };
 		7F0E25B92534582C00CD2B5B /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */; };
 		7F9324A32530ADCD005B01BF /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9324A22530ADCD005B01BF /* HomeViewController+CollectionView.swift */; };
@@ -44,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.debug.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.debug.xcconfig"; sourceTree = "<group>"; };
+		3CBA8D3A2535DC08007502CC /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		3CBA8D3C2535DC23007502CC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3CBA8D3D2535DC23007502CC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
 		7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		7F9324A22530ADCD005B01BF /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -95,6 +101,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CBA8D392535DBD8007502CC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3CBA8D3A2535DC08007502CC /* SettingsCoordinator.swift */,
+				3CBA8D3C2535DC23007502CC /* SettingsViewController.swift */,
+				3CBA8D3D2535DC23007502CC /* SettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		7F0E25B52534488F00CD2B5B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +247,7 @@
 				F7B7940A2535B79F00248E75 /* Nav */,
 				F7CDC521252341220039DBE4 /* Edit user details */,
 				F7CDC4D7252337940039DBE4 /* Login */,
+				3CBA8D392535DBD8007502CC /* Settings */,
 				F7CDC4CF2523378D0039DBE4 /* Home */,
 				7FA86EF1252C6D7000DE88F1 /* Chat */,
 			);
@@ -326,6 +343,7 @@
 				F71F14DD251E0DB3009203BF /* Frameworks */,
 				F71F14DE251E0DB3009203BF /* Resources */,
 				18632248C4F04CAF1EAB854C /* [CP] Embed Pods Frameworks */,
+				3C2C51D525373C4800DE8F5F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -384,6 +402,7 @@
 				F71F14ED251E0DB5009203BF /* Assets.xcassets in Resources */,
 				F71F14FD251E102E009203BF /* GoogleService-Info.plist in Resources */,
 				F7CDC4D32523378D0039DBE4 /* HomeViewController.xib in Resources */,
+				3CBA8D3F2535DC23007502CC /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +425,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodingAChat/Pods-CodingAChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3C2C51D525373C4800DE8F5F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		63EB41FF428148B6B467283A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -437,12 +473,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F9324A92530AE15005B01BF /* HeaderCollectionReusableView.swift in Sources */,
+				3CBA8D3B2535DC08007502CC /* SettingsCoordinator.swift in Sources */,
 				7FE50D432530A37800B96C30 /* CustomTextField.swift in Sources */,
 				7F0E25B7253448B000CD2B5B /* UIAlertController+show.swift in Sources */,
 				F7B793FA2535ACA200248E75 /* Trackable.swift in Sources */,
 				F7CDC4DD252337940039DBE4 /* LoginViewController.swift in Sources */,
 				F7CDC4DB252337940039DBE4 /* LoginCoordinator.swift in Sources */,
 				7FA86EF4252C6D8F00DE88F1 /* ChatViewController.swift in Sources */,
+				3CBA8D3E2535DC23007502CC /* SettingsViewController.swift in Sources */,
 				7F9324A32530ADCD005B01BF /* HomeViewController+CollectionView.swift in Sources */,
 				F7CDC528252341540039DBE4 /* EditDetailsViewController.swift in Sources */,
 				F71F14E4251E0DB3009203BF /* AppDelegate.swift in Sources */,
@@ -608,7 +646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CodingAChat/Application/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +665,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CodingAChat/Application/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

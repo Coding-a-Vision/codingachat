@@ -13,7 +13,7 @@ protocol LoginViewControllerDelegate: class {
 }
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var button: UIButton!
@@ -24,19 +24,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
-
     }
     
     @IBAction func standardLogin() {
-        
         guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             UIAlertController.show(message: NSLocalizedString("genercis_messages.error.completeFields", comment: ""))
             return
         }
-        
         delegate?.onLogin(withEmail: email, andPassword: password)
     }
-
+    
     private func buildUI(){
         self.emailTextField.placeholder = NSLocalizedString("generics_messages.email.textfield.placeholder", comment: "")
         self.passwordTextField.placeholder = NSLocalizedString("generics_messages.password.textfield.placeholder", comment: "")

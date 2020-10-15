@@ -365,6 +365,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromisesObjC (1.2.10)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.40.3)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -377,6 +378,7 @@ DEPENDENCIES:
   - MessageKit
   - PromiseKit
   - SVProgressHUD
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -406,6 +408,7 @@ SPEC REPOS:
     - PromiseKit
     - PromisesObjC
     - SVProgressHUD
+    - SwiftLint
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -434,7 +437,8 @@ SPEC CHECKSUMS:
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 1bbc72c728a77b68f58c47ccd3c095ec56117020
+PODFILE CHECKSUM: 119fbce8f001e234914f65737c6d870cc2453b29
 
 COCOAPODS: 1.9.3
