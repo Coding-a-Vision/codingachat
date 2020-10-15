@@ -35,7 +35,11 @@ extension LoginCoordinator: LoginViewControllerDelegate {
     
     func onLogin(withEmail email: String, andPassword password: String) {
         
+        loginViewController.showHUD(message: "Wait...")
+        
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            
+            self?.loginViewController.dismissHUD()
             
             if let result = authResult {
                 
