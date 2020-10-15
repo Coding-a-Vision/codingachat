@@ -5,7 +5,6 @@ target 'CodingAChat' do
 
   use_frameworks!
   inhibit_all_warnings!
-  pod 'SwiftLint'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Auth'
