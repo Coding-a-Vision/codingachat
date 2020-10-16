@@ -75,6 +75,7 @@
 		F71F14EF251E0DB5009203BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F71F14F1251E0DB5009203BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F71F14FC251E102E009203BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F77A0C7E2539A2EE000B67FF /* CodingAChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodingAChat.entitlements; sourceTree = "<group>"; };
 		F7B793F92535ACA200248E75 /* Trackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
 		F7B793FC2535AD2C00248E75 /* AnalyticsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTracker.swift; sourceTree = "<group>"; };
 		F7B794032535B14B00248E75 /* FakeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTracker.swift; sourceTree = "<group>"; };
@@ -236,6 +237,7 @@
 		F71F14E2251E0DB3009203BF /* CodingAChat */ = {
 			isa = PBXGroup;
 			children = (
+				F77A0C7E2539A2EE000B67FF /* CodingAChat.entitlements */,
 				DF8812932538C0070086A812 /* Sound */,
 				FA9BADF82534BE3900FE19EF /* LocalizableStrings */,
 				7F0E25B52534488F00CD2B5B /* Extensions */,
@@ -666,7 +668,9 @@
 			baseConfigurationReference = 3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CodingAChat/CodingAChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S996THL8P7;
 				INFOPLIST_FILE = CodingAChat/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -685,7 +689,9 @@
 			baseConfigurationReference = C135A46712C50AE7BEAEAC3F /* Pods-CodingAChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CodingAChat/CodingAChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S996THL8P7;
 				INFOPLIST_FILE = CodingAChat/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
