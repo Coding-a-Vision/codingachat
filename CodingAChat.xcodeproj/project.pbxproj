@@ -47,6 +47,10 @@
 		F7CDC528252341540039DBE4 /* EditDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC526252341540039DBE4 /* EditDetailsViewController.swift */; };
 		F7CDC529252341540039DBE4 /* EditDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */; };
 		FA9BAE052534BF3300FE19EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9BAE072534BF3300FE19EF /* Localizable.strings */; };
+		FA9FE160253A2DCB00B0B780 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FE15E253A2DCA00B0B780 /* ColorsViewController.swift */; };
+		FA9FE161253A2DCB00B0B780 /* ColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9FE15F253A2DCB00B0B780 /* ColorsViewController.xib */; };
+		FA9FE164253A2DD600B0B780 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9FE162253A2DD600B0B780 /* CollectionViewCell.xib */; };
+		FA9FE165253A2DD600B0B780 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FE163253A2DD600B0B780 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +100,10 @@
 		F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDetailsViewController.xib; sourceTree = "<group>"; };
 		FA9BAE062534BF3300FE19EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA9BAE082534BF3700FE19EF /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA9FE15E253A2DCA00B0B780 /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
+		FA9FE15F253A2DCB00B0B780 /* ColorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorsViewController.xib; sourceTree = "<group>"; };
+		FA9FE162253A2DD600B0B780 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		FA9FE163253A2DD600B0B780 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +274,7 @@
 		F71F14F9251E0DF4009203BF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FA9FE15C253A2D9300B0B780 /* CollectionColor */,
 				F7B7940A2535B79F00248E75 /* Nav */,
 				F7CDC521252341220039DBE4 /* Edit user details */,
 				F7CDC4D7252337940039DBE4 /* Login */,
@@ -353,6 +362,25 @@
 			path = LocalizableStrings;
 			sourceTree = "<group>";
 		};
+		FA9FE15C253A2D9300B0B780 /* CollectionColor */ = {
+			isa = PBXGroup;
+			children = (
+				FA9FE15E253A2DCA00B0B780 /* ColorsViewController.swift */,
+				FA9FE15F253A2DCB00B0B780 /* ColorsViewController.xib */,
+				FA9FE15D253A2D9B00B0B780 /* ColorsCell */,
+			);
+			path = CollectionColor;
+			sourceTree = "<group>";
+		};
+		FA9FE15D253A2D9B00B0B780 /* ColorsCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA9FE163253A2DD600B0B780 /* CollectionViewCell.swift */,
+				FA9FE162253A2DD600B0B780 /* CollectionViewCell.xib */,
+			);
+			path = ColorsCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -420,11 +448,13 @@
 				F7CDC4DC252337940039DBE4 /* LoginViewController.xib in Resources */,
 				F7CDC529252341540039DBE4 /* EditDetailsViewController.xib in Resources */,
 				DF8812992538C5550086A812 /* sound.mp3 in Resources */,
+				FA9FE164253A2DD600B0B780 /* CollectionViewCell.xib in Resources */,
 				FA9BAE052534BF3300FE19EF /* Localizable.strings in Resources */,
 				F71F14F0251E0DB5009203BF /* LaunchScreen.storyboard in Resources */,
 				F71F14ED251E0DB5009203BF /* Assets.xcassets in Resources */,
 				F71F14FD251E102E009203BF /* GoogleService-Info.plist in Resources */,
 				F7CDC4D32523378D0039DBE4 /* HomeViewController.xib in Resources */,
+				FA9FE161253A2DCB00B0B780 /* ColorsViewController.xib in Resources */,
 				3CBA8D3F2535DC23007502CC /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,12 +545,14 @@
 				F7B794042535B14B00248E75 /* FakeTracker.swift in Sources */,
 				F7B793FD2535AD2C00248E75 /* AnalyticsTracker.swift in Sources */,
 				F7CDC4CD2523377B0039DBE4 /* Coordinator.swift in Sources */,
+				FA9FE165253A2DD600B0B780 /* CollectionViewCell.swift in Sources */,
 				7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */,
 				7F9324AD2530AE3A005B01BF /* ChannelCardCollectionViewCell.swift in Sources */,
 				7ABBE3D62539926F00B5A01B /* String+Localization.swift in Sources */,
 				9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */,
 				F7B7942E2535BAA800248E75 /* FirebaseStorageServices.swift in Sources */,
 				F7B7940C2535B7AB00248E75 /* WhiteNavigationController.swift in Sources */,
+				FA9FE160253A2DCB00B0B780 /* ColorsViewController.swift in Sources */,
 				F7CDC4D42523378D0039DBE4 /* HomeViewController.swift in Sources */,
 				F7CDC524252341420039DBE4 /* EditDetailsCoordinator.swift in Sources */,
 			);

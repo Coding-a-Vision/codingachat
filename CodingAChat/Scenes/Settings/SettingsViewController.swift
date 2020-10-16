@@ -55,7 +55,12 @@ class SettingsViewController: UIViewController {
     @IBAction func changeBackgroundImage(_ sender: Any) {
         
         let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
-        
+
+        let goToColors = UIAlertAction(title: NSLocalizedString("Sfondi a tinta unica", comment: ""), style: .default) { _ in
+            
+            self.navigationController?.pushViewController(ColorsViewController(), animated: true)
+        }
+
         let cameraAction = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.camera", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .camera)
@@ -75,6 +80,7 @@ class SettingsViewController: UIViewController {
             alertController.addAction(cameraAction)
         }
         
+        alertController.addAction(goToColors)
         alertController.addAction(gallery)
         alertController.addAction(saved)
         present(alertController, animated: true, completion: nil)
