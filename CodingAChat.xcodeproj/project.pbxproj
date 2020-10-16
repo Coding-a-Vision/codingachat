@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7ABBE3D62539926F00B5A01B /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABBE3D52539926F00B5A01B /* String+Localization.swift */; };
 		7AF8774E25384A15007D9393 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */; };
 		7F0E25B7253448B000CD2B5B /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */; };
 		7F0E25B92534582C00CD2B5B /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.debug.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.debug.xcconfig"; sourceTree = "<group>"; };
+		7ABBE3D52539926F00B5A01B /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
 		7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */,
 				7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */,
 				7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */,
+				7ABBE3D52539926F00B5A01B /* String+Localization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				F7CDC4CD2523377B0039DBE4 /* Coordinator.swift in Sources */,
 				7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */,
 				7F9324AD2530AE3A005B01BF /* ChannelCardCollectionViewCell.swift in Sources */,
+				7ABBE3D62539926F00B5A01B /* String+Localization.swift in Sources */,
 				9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */,
 				F7B7942E2535BAA800248E75 /* FirebaseStorageServices.swift in Sources */,
 				F7B7940C2535B7AB00248E75 /* WhiteNavigationController.swift in Sources */,

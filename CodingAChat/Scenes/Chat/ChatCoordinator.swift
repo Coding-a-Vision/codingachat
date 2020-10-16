@@ -71,7 +71,7 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         let imageName = UUID().uuidString
         
         //SVProgressHUD.show(withStatus: "Wait...")
-        chatViewController.showHUD(message: "Wait...")
+        UIViewController.showHUD(message: "Wait...")
         
         firstly {
             storage.uploadImage(data, imageName: "\(imageName).jpg")
@@ -79,7 +79,7 @@ extension ChatCoordinator: ChatViewControllerDelegate {
             self.sendMessage(message: nil, url: url, type: .photo)
         }.ensure {
             //SVProgressHUD.dismiss()
-            self.chatViewController.dismissHUD()
+            UIViewController.dismissHUD()
         }.catch { error in
             UIAlertController.show(message: "Error: \(error.localizedDescription)")
         }
