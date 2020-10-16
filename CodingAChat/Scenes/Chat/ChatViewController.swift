@@ -210,16 +210,3 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
     
 }
-
-/*
-var bombSoundEffect: AVAudioPlayer?
-let path = Bundle.main.path(forResource: "sound.mp3", ofType:nil)!
-let url = URL(fileURLWithPath: path)
-
-do {
-    bombSoundEffect = try AVAudioPlayer(contentsOf: url)
-    bombSoundEffect?.play()
-} catch {
-    
-}
-*/
