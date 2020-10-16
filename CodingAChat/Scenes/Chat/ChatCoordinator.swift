@@ -23,10 +23,8 @@ class ChatCoordinator: Coordinator {
     private let db: Firestore
     private let user: User
     private let channel: Channel
-    var bombSoundEffect: AVAudioPlayer?
-    
-
-    
+    var alertSound: AVAudioPlayer?
+    var isFirstLoading = true
     
     init(presenter: UIViewController, window: UIWindow, channel : Channel, user: User) {
         self.user = user
@@ -51,7 +49,12 @@ class ChatCoordinator: Coordinator {
             .addSnapshotListener { [weak self] (querySnapshot, error) in
                 
                 guard let querySnapshot = querySnapshot else { return print("No documents") }
-                self?.playSound()
+                
+                if !(self?.isFirstLoading ?? true) {
+                    self?.playSound()
+                }
+                
+                self?.isFirstLoading = false
                 
                 querySnapshot.documentChanges.forEach { diff in
                     
@@ -114,20 +117,18 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         db.collection("channels")
             .document(chatViewController.channel.id)
             .collection("messages").addDocument(data: body)
-        
     }
-    func playSound(){
+    
+    private func playSound() {
         let path = Bundle.main.path(forResource: "sound", ofType: "mp3")
         if let path = path {
         let url = URL(fileURLWithPath: path)
             do {
-                bombSoundEffect = try AVAudioPlayer(contentsOf: url)
-                bombSoundEffect?.play()
-            }catch{
+                alertSound = try AVAudioPlayer(contentsOf: url)
+                alertSound?.play()
+            } catch {
                 print(error)
             }
         }
     }
 }
-
-
