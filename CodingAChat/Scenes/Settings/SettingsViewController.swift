@@ -55,35 +55,23 @@ class SettingsViewController: UIViewController {
     
     @IBAction func changeBackgroundImage(_ sender: Any) {
         
-        let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("Vuoi cambiare sfondo?", comment: ""), message: "", preferredStyle: .actionSheet)
+
+        let goToBackgrounds = UIAlertAction(title: NSLocalizedString("Sfondi", comment: ""), style: .default) { _ in
+            
+            self.navigationController?.pushViewController(ColorsViewController(), animated: true)
+        }
 
         let goToColors = UIAlertAction(title: NSLocalizedString("Sfondi a tinta unica", comment: ""), style: .default) { _ in
             
             self.navigationController?.pushViewController(ColorsViewController(), animated: true)
         }
 
-        let cameraAction = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.camera", comment: ""), style: .default) { _ in
-            
-            self.showPicker(with: .camera)
-        }
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         
-        let gallery = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
-            
-            self.showPicker(with: .photoLibrary)
-        }
-        
-        let saved = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
-            
-            self.showPicker(with: .savedPhotosAlbum)
-        }
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alertController.addAction(cameraAction)
-        }
-        
+        alertController.addAction(goToBackgrounds)
         alertController.addAction(goToColors)
-        alertController.addAction(gallery)
-        alertController.addAction(saved)
+        alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
     }
     
