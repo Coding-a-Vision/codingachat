@@ -8,22 +8,30 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
+import IQKeyboardManager
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     var window: UIWindow?
     var coordinator: AppCoordinator?
+    var gcmMessageIDKey = "gcmMessageIDKey"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
         
         let myWindow = UIWindow(frame: UIScreen.main.bounds)
+        IQKeyboardManager.shared().isEnabled = true
         
         coordinator = AppCoordinator(window: myWindow)
         coordinator?.start()
         self.window = myWindow
+        
+        // Register for push
+        registerForFCMNotifications()
+        Messaging.messaging().delegate = self
         
         window?.makeKeyAndVisible()
         return true
@@ -60,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          print("Failed to register: \(error)")
      } */
     
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
         // Print full message.
@@ -81,4 +90,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(UIBackgroundFetchResult.newData)
     }
 }
-

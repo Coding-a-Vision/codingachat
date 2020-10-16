@@ -5,15 +5,18 @@ target 'CodingAChat' do
 
   use_frameworks!
   inhibit_all_warnings!
+  
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'Firebase/Messaging'
   pod 'PromiseKit'
   pod 'SVProgressHUD'
   pod 'Kingfisher'
   pod 'FirebaseFirestoreSwift'
   pod 'MessageKit'
   pod 'SwiftLint'
+  pod 'IQKeyboardManager'
 end

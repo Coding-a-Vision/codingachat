@@ -11,10 +11,12 @@ import MessageKit
 import FirebaseAuth
 import InputBarAccessoryView
 import AVFoundation
+import FirebaseMessaging
 
 protocol ChatViewControllerDelegate: class {
     func sendMessage(message: String?, url: URL?, type: Type)
     func sendImage(image: UIImage)
+    func toggleNotification()
 }
 
 class ChatViewController: MessagesViewController {
@@ -52,6 +54,22 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         setSendButtonAppearance(text: "")
         messageInputBar.sendButton.isEnabled = true
+        
+        setNotificationIcon()
+    }
+    
+    func setNotificationIcon() {
+        
+        let isActive = UserDefaults.standard.bool(forKey: Constants.getNotificationChannelID(from: channel.name))
+        
+        let image = isActive ? "bell.fill" : "bell.slash.fill"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: image), style: .plain, target: self, action: #selector(toggleNotifications))
+    }
+    
+    @objc
+    func toggleNotifications() {
+        delegate?.toggleNotification()
     }
     
     func addMessage(_ message: Message) {
