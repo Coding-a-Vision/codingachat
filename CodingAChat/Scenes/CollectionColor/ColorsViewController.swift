@@ -56,6 +56,20 @@ extension ColorsViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Hai tappato la cella numero \([indexPath.item+1]) che è il colore \(ColorBg.allCases[indexPath.item].rawValue)")
+        let alertController = UIAlertController(title: NSLocalizedString("Vuoi cambiare sfondo?", comment: ""), message: "", preferredStyle: .actionSheet)
+
+        let yes = UIAlertAction(title: NSLocalizedString("Cambia sfondo", comment: ""), style: .default) { _ in
+            
+            print("Hai cambiato sfondo con il colore \(ColorBg.allCases[indexPath.item].rawValue)")
+        }
+        
+        let not = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+            
+            print("Non hai cambiato")
+        }
+        alertController.addAction(yes)
+        alertController.addAction(not)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
