@@ -11,6 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import PromiseKit
 import SVProgressHUD
+import AVFoundation
 
 class ChatCoordinator: Coordinator {
     
@@ -22,6 +23,8 @@ class ChatCoordinator: Coordinator {
     private let db: Firestore
     private let user: User
     private let channel: Channel
+    var alertSound: AVAudioPlayer?
+    var isFirstLoading = true
     
     init(presenter: UIViewController, window: UIWindow, channel : Channel, user: User) {
         self.user = user
@@ -46,6 +49,12 @@ class ChatCoordinator: Coordinator {
             .addSnapshotListener { [weak self] (querySnapshot, error) in
                 
                 guard let querySnapshot = querySnapshot else { return print("No documents") }
+                
+                if !(self?.isFirstLoading ?? true) {
+                    self?.playSound()
+                }
+                
+                self?.isFirstLoading = false
                 
                 querySnapshot.documentChanges.forEach { diff in
                     
@@ -110,7 +119,18 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         db.collection("channels")
             .document(chatViewController.channel.id)
             .collection("messages").addDocument(data: body)
-        
+    }
+    
+    private func playSound() {
+        let path = Bundle.main.path(forResource: "sound", ofType: "mp3")
+        if let path = path {
+        let url = URL(fileURLWithPath: path)
+            do {
+                alertSound = try AVAudioPlayer(contentsOf: url)
+                alertSound?.play()
+            } catch {
+                print(error)
+            }
+        }
     }
 }
-

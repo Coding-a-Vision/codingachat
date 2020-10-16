@@ -10,6 +10,7 @@ import UIKit
 import MessageKit
 import FirebaseAuth
 import InputBarAccessoryView
+import AVFoundation
 
 protocol ChatViewControllerDelegate: class {
     func sendMessage(message: String?, url: URL?, type: Type)
@@ -209,5 +210,3 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
     
 }
-
-
