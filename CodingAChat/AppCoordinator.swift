@@ -22,7 +22,7 @@ class AppCoordinator: Coordinator {
     func start() {
         
         if let user = Auth.auth().currentUser {
-           
+            
             let homeCoordinator = HomeCoordinator(window: window, user: user, tracker: tracker)
             homeCoordinator.start()
             childCoordinators.append(homeCoordinator)

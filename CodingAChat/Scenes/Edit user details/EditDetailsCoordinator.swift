@@ -41,7 +41,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         UIViewController.showHUD(message: "Wait...")
         
         let storage = FirebaseStorageServices()
-            
+        
         firstly {
             storage.uploadImage(data, imageName: "\(user.uid).jpg")
         }.then { url in

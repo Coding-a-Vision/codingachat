@@ -10,14 +10,14 @@ import UIKit
 
 protocol HomeViewControllerDelegate: class {
     func onEditDetailsAction()
+    func onSettings()
     func fetchData()
     func channelJoin(selectedChannel : Channel)
 }
 
 class HomeViewController: UIViewController {
-
-    weak var delegate: HomeViewControllerDelegate?
     
+    weak var delegate: HomeViewControllerDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     
     var items: [Channel] = [] {
@@ -37,7 +37,6 @@ class HomeViewController: UIViewController {
         
         let channelCardNib = UINib(nibName: "ChannelCardCollectionViewCell", bundle: nil)
         collectionView.register(channelCardNib, forCellWithReuseIdentifier: "ChannelCardID")
-
     }
     
     override func viewDidAppear(_ animated: Bool) {

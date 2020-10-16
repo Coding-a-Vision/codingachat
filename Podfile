@@ -2,8 +2,9 @@
 # platform :ios, '9.0'
 
 target 'CodingAChat' do
-  
+
   use_frameworks!
+  inhibit_all_warnings!
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Auth'
@@ -14,4 +15,5 @@ target 'CodingAChat' do
   pod 'Kingfisher'
   pod 'FirebaseFirestoreSwift'
   pod 'MessageKit'
+  pod 'SwiftLint'
 end

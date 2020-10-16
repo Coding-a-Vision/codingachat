@@ -11,9 +11,14 @@ import UIKit
 class HeaderCollectionReusableView: UICollectionReusableView {
     
     var editProfileSettings: (() -> Void)?
+    var settingsView : (() -> Void)?
 
     @IBAction func editProfileSettings(_ sender: Any) {
         editProfileSettings?()
+    }
+    
+    @IBAction func openSettings() {
+        settingsView?()
     }
     
     override func awakeFromNib() {

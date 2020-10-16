@@ -1,0 +1,122 @@
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace
+  - class_delegate_protocol
+  - implicit_getter
+  - valid_ibinspectable
+  - line_lenght
+  - trailing_newline
+opt_in_rules: # some rules are only opt-in
+- empty_count
+  - closure_spacing
+  - implicit_return
+  - implicitly_unwrapped_optional
+  - force_unwrapping
+  - first_where
+  - fatal_error_message
+  - extension_access_modifier
+  - explicit_init
+  - closure_end_indentation
+  - attributes
+  - let_var_whitespace
+  - multiline_parameters
+  - number_separator
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+  - switch_case_on_newline
+  - trailing_closure
+  - unneeded_parentheses_in_closure_argument
+  - vertical_parameter_alignment_on_call
+  - array_init
+  - contains_over_first_not_nil
+  - literal_expression_end_indentation
+  - operator_usage_whitespace
+  - quick_discouraged_call
+  - empty_string
+  - untyped_error_in_catch
+  - multiline_function_chains
+  - unavailable_function
+  - file_name
+  - convenience_type
+
+excluded:
+  - Carthage
+  - Pods
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+cyclomatic_complexity:
+  - 15
+  - 20
+
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length:
+  warning: 350
+  error: 500
+# they can set both implicitly with an array
+function_body_length:
+  warning: 100
+  error: 150
+# they can set both implicitly with an array
+type_body_length:
+  - 300 # warning
+  - 400 # error
+# or they can set both explicitly
+file_length:
+  warning: 580
+  error: 1200
+# tuple
+large_tuple:
+  warning: 5
+  error: 6
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 4 # only warning
+  max_length: # warning and error
+    warning: 50
+    error: 60
+  excluded:
+    - iPhone # excluded via string
+    - In
+    - Out
+    - Err
+identifier_name:
+  min_length: # only min_length
+    warning: 1
+    error: 2 # only error
+  max_length:
+    warning: 45
+    error: 40
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
+    - to
+    - x
+    - y
+
+custom_rules:
+  comments_space: # From https://github.com/brandenr/swiftlintconfig
+      name: "Space After Comment"
+      regex: "(^ *//\\w+)"
+      message: "There should be a space after //"
+      severity: warning
+
+  double_space: # From https://github.com/IBM-Swift/Package-Builder
+      include: "*.swift"
+      name: "Double space"
+      regex: "([a-z,A-Z] \\s+)"
+      message: "Double space between keywords"
+      match_kinds: keyword
+      severity: warning
+
+  new_line_between_import:
+      name: "New line between import"
+      regex: "import(.*?)\n\n+import"
+      message: "No new line between import"
+      severity: warning

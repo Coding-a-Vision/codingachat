@@ -15,7 +15,7 @@ protocol EditDetailsViewControllerDelegate: class {
 }
 
 class EditDetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var userPictureImageView: UIImageView!
@@ -42,7 +42,7 @@ class EditDetailsViewController: UIViewController {
         userPictureImageView.layer.borderWidth = 2
         userPictureImageView.layer.borderColor = UIColor.red.cgColor
     }
-
+    
     @IBAction func pickImage() {
         
         let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
@@ -61,7 +61,7 @@ class EditDetailsViewController: UIViewController {
             
             self.showPicker(with: .savedPhotosAlbum)
         }
-    
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             alertController.addAction(cameraAction)
         }
@@ -91,7 +91,7 @@ class EditDetailsViewController: UIViewController {
         
         delegate?.userDidSaveInfo(withDisplayName: displayName, andImage: image)
     }
-
+    
     private func buildUI(){
         self.saveButton.setTitle(NSLocalizedString("generics_messages.saveButton.title", comment: ""), for: .normal)
         self.displayNameLabel.text = NSLocalizedString("generics_messages.displayNameTextField.text", comment: "")
