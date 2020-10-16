@@ -12,6 +12,7 @@ import FirebaseAuth
 import PromiseKit
 import SVProgressHUD
 import AVFoundation
+import FirebaseMessaging
 
 class ChatCoordinator: Coordinator {
     
@@ -72,6 +73,23 @@ class ChatCoordinator: Coordinator {
 }
 
 extension ChatCoordinator: ChatViewControllerDelegate {
+ 
+    func toggleNotification() {
+        
+        // Se sono registrato faccio l'unsubscribe
+        let notificationChannelId = Constants.getNotificationChannelID(from: channel.name)
+        
+        if UserDefaults.standard.bool(forKey: notificationChannelId) {
+            Messaging.messaging().unsubscribe(fromTopic: channel.name)
+            UserDefaults.standard.set(false, forKey: notificationChannelId)
+        } else {
+            Messaging.messaging().subscribe(toTopic: channel.name)
+            UserDefaults.standard.set(true, forKey: notificationChannelId)
+        }
+        
+        chatViewController.setNotificationIcon()
+        
+    }
     
     func sendImage(image: UIImage) {
         guard let data = image.jpegData(compressionQuality: 0.8) else { return }
