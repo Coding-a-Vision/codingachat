@@ -70,14 +70,16 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         let storage = FirebaseStorageServices()
         let imageName = UUID().uuidString
         
-        SVProgressHUD.show(withStatus: "Wait...")
+        //SVProgressHUD.show(withStatus: "Wait...")
+        UIViewController.showHUD(message: "Wait...")
         
         firstly {
             storage.uploadImage(data, imageName: "\(imageName).jpg")
         }.done { url in
             self.sendMessage(message: nil, url: url, type: .photo)
         }.ensure {
-            SVProgressHUD.dismiss()
+            //SVProgressHUD.dismiss()
+            UIViewController.dismissHUD()
         }.catch { error in
             UIAlertController.show(message: "Error: \(error.localizedDescription)")
         }

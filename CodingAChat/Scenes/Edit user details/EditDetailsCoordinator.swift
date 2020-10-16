@@ -38,7 +38,8 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         
         guard let data = image.jpegData(compressionQuality: 0.8) else { return }
         
-        SVProgressHUD.show(withStatus: "Wait...")
+        UIViewController.showHUD(message: "Wait...")
+        
         let storage = FirebaseStorageServices()
         
         firstly {
@@ -49,7 +50,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
             self.tracker.track(withName: .changeUserData, parameters: nil)
             self.presenter.dismiss(animated: true, completion: nil)
         }.ensure {
-            SVProgressHUD.dismiss()
+            UIViewController.dismissHUD()
         }.catch { error in
             UIAlertController.show(message: "Error while saving data")
             print(error)

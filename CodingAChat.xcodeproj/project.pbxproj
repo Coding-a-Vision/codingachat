@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7ABBE3D62539926F00B5A01B /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABBE3D52539926F00B5A01B /* String+Localization.swift */; };
+		7AF8774E25384A15007D9393 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */; };
 		3CBA8D3B2535DC08007502CC /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3A2535DC08007502CC /* SettingsCoordinator.swift */; };
 		3CBA8D3E2535DC23007502CC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3C2535DC23007502CC /* SettingsViewController.swift */; };
 		3CBA8D3F2535DC23007502CC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3D2535DC23007502CC /* SettingsViewController.xib */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.debug.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.debug.xcconfig"; sourceTree = "<group>"; };
+		7ABBE3D52539926F00B5A01B /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		3CBA8D3A2535DC08007502CC /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		3CBA8D3C2535DC23007502CC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3CBA8D3D2535DC23007502CC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -115,7 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */,
+				7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */,
 				7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */,
+				7ABBE3D52539926F00B5A01B /* String+Localization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 				F7B793FA2535ACA200248E75 /* Trackable.swift in Sources */,
 				F7CDC4DD252337940039DBE4 /* LoginViewController.swift in Sources */,
 				F7CDC4DB252337940039DBE4 /* LoginCoordinator.swift in Sources */,
+				7AF8774E25384A15007D9393 /* UIViewController+HUD.swift in Sources */,
 				7FA86EF4252C6D8F00DE88F1 /* ChatViewController.swift in Sources */,
 				3CBA8D3E2535DC23007502CC /* SettingsViewController.swift in Sources */,
 				7F9324A32530ADCD005B01BF /* HomeViewController+CollectionView.swift in Sources */,
@@ -492,6 +499,7 @@
 				F7CDC4CD2523377B0039DBE4 /* Coordinator.swift in Sources */,
 				7FA86EF7252C6DA600DE88F1 /* ChatCoordinator.swift in Sources */,
 				7F9324AD2530AE3A005B01BF /* ChannelCardCollectionViewCell.swift in Sources */,
+				7ABBE3D62539926F00B5A01B /* String+Localization.swift in Sources */,
 				9335E9DA252C8A3800FB46B0 /* Message.swift in Sources */,
 				F7B7942E2535BAA800248E75 /* FirebaseStorageServices.swift in Sources */,
 				F7B7940C2535B7AB00248E75 /* WhiteNavigationController.swift in Sources */,
@@ -654,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingavision.codingachat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -673,7 +681,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingavision.codingachat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

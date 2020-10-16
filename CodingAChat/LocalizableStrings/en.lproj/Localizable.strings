@@ -24,3 +24,6 @@
 "generics_messages.alertSelect.camera" = "Camera";
 "generics_messages.alertSelect.gallery" = "Gallery";
 "generics_messages.alertSelect.savedInAlbum" = "Saved photo album";
+
+// MARK: --GENERICS
+"generics.hud.wait" = "Wait...";
