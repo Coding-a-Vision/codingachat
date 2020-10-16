@@ -29,6 +29,7 @@
 		F71F14ED251E0DB5009203BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F71F14EC251E0DB5009203BF /* Assets.xcassets */; };
 		F71F14F0251E0DB5009203BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F14EE251E0DB5009203BF /* LaunchScreen.storyboard */; };
 		F71F14FD251E102E009203BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F71F14FC251E102E009203BF /* GoogleService-Info.plist */; };
+		F7979EFE2539BD5100328FE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7979EFD2539BD5100328FE8 /* Constants.swift */; };
 		F7B793FA2535ACA200248E75 /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B793F92535ACA200248E75 /* Trackable.swift */; };
 		F7B793FD2535AD2C00248E75 /* AnalyticsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B793FC2535AD2C00248E75 /* AnalyticsTracker.swift */; };
 		F7B794042535B14B00248E75 /* FakeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B794032535B14B00248E75 /* FakeTracker.swift */; };
@@ -76,6 +77,7 @@
 		F71F14F1251E0DB5009203BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F71F14FC251E102E009203BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F77A0C7E2539A2EE000B67FF /* CodingAChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodingAChat.entitlements; sourceTree = "<group>"; };
+		F7979EFD2539BD5100328FE8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F7B793F92535ACA200248E75 /* Trackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
 		F7B793FC2535AD2C00248E75 /* AnalyticsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTracker.swift; sourceTree = "<group>"; };
 		F7B794032535B14B00248E75 /* FakeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTracker.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		F71F14D7251E0DB3009203BF = {
 			isa = PBXGroup;
 			children = (
+				F7979EFD2539BD5100328FE8 /* Constants.swift */,
 				F71F14E2251E0DB3009203BF /* CodingAChat */,
 				F71F14E1251E0DB3009203BF /* Products */,
 				8E084BF2293DF74C07C747E5 /* Pods */,
@@ -503,6 +506,7 @@
 				7FA86EF4252C6D8F00DE88F1 /* ChatViewController.swift in Sources */,
 				3CBA8D3E2535DC23007502CC /* SettingsViewController.swift in Sources */,
 				7F9324A32530ADCD005B01BF /* HomeViewController+CollectionView.swift in Sources */,
+				F7979EFE2539BD5100328FE8 /* Constants.swift in Sources */,
 				F7CDC528252341540039DBE4 /* EditDetailsViewController.swift in Sources */,
 				F71F14E4251E0DB3009203BF /* AppDelegate.swift in Sources */,
 				7F0E25B92534582C00CD2B5B /* UIApplication+topViewController.swift in Sources */,

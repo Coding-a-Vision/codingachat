@@ -234,6 +234,9 @@ PODS:
   - Firebase/Firestore (6.33.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.18.0)
+  - Firebase/Messaging (6.33.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 4.7.0)
   - Firebase/Storage (6.33.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 3.9.0)
@@ -285,6 +288,19 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (4.8.0):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+  - FirebaseMessaging (4.7.1):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstanceID (~> 4.7)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Reachability (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+    - Protobuf (>= 3.9.2, ~> 3.9)
   - FirebaseStorage (3.9.0):
     - FirebaseCore (~> 6.10)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -343,6 +359,7 @@ PODS:
   - InputBarAccessoryView (5.2.1):
     - InputBarAccessoryView/Core (= 5.2.1)
   - InputBarAccessoryView/Core (5.2.1)
+  - IQKeyboardManager (6.5.6)
   - Kingfisher (5.15.0):
     - Kingfisher/Core (= 5.15.0)
   - Kingfisher/Core (5.15.0)
@@ -364,6 +381,7 @@ PODS:
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
   - PromisesObjC (1.2.10)
+  - Protobuf (3.13.0)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.39.2)
 
@@ -372,8 +390,10 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Crashlytics
   - Firebase/Firestore
+  - Firebase/Messaging
   - Firebase/Storage
   - FirebaseFirestoreSwift
+  - IQKeyboardManager
   - Kingfisher
   - MessageKit
   - PromiseKit
@@ -393,6 +413,8 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseFirestoreSwift
     - FirebaseInstallations
+    - FirebaseInstanceID
+    - FirebaseMessaging
     - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -401,12 +423,14 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - InputBarAccessoryView
+    - IQKeyboardManager
     - Kingfisher
     - leveldb-library
     - MessageKit
     - nanopb
     - PromiseKit
     - PromisesObjC
+    - Protobuf
     - SVProgressHUD
     - SwiftLint
 
@@ -422,6 +446,8 @@ SPEC CHECKSUMS:
   FirebaseFirestore: adff4877869ca91a11250cc0989a6cd56bad163f
   FirebaseFirestoreSwift: 2c46dbc1156db97dc4f6dd798d4f5b57b9c7fab6
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
+  FirebaseInstanceID: bd3ffc24367f901a43c063b36c640b345a4a5dd1
+  FirebaseMessaging: 5eca4ef173de76253352511aafef774caa1cba2a
   FirebaseStorage: 33b92875a9b556824886cc7a65120c7d2cb3a8d8
   GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
   GoogleDataTransport: b7f406340a291370045a270c599e53c6fa6ec20f
@@ -430,15 +456,17 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   InputBarAccessoryView: 39a7ed22727baf3b8550ecdf6c8a4d28b2c6aa91
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MessageKit: 5ff0908bce5a7b6e11bd0b60e13a33e03697d161
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 2eef3114b1e58442c32013eb6f2c10225d0774ff
+PODFILE CHECKSUM: 0cdbf6c8730b6d9cbdb6f2bfb3f3e5c80363f9b8
 
 COCOAPODS: 1.9.3
