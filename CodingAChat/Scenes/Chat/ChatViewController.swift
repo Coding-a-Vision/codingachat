@@ -29,14 +29,9 @@ class ChatViewController: MessagesViewController {
         }
     }
     
-    @IBAction func sendMessage(_ sender: Any) {
-        //guard let message = messageTextField.text else { return }
-        //delegate?.sendMessage(message: message, type: .text)
-    }
+    let channel: Channel
     
-    let channel : Channel
-    
-    init(channel : Channel, user: User) {
+    init(channel: Channel, user: User) {
         self.channel = channel
         self.user = user
         super.init(nibName: nil, bundle: nil)
@@ -147,7 +142,6 @@ extension ChatViewController: MessagesLayoutDelegate {
     
 }
 
-
 extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
@@ -196,7 +190,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         defer {
             dismiss(animated: true, completion: nil)

@@ -56,7 +56,7 @@ struct Message {
         self.type = type
         self.userPictureUrl = json["userPictureUrl"] as? String
         
-        if let urlString = json["pictureUrl"] as? String, let url = URL(string: urlString)  {
+        if let urlString = json["pictureUrl"] as? String, let url = URL(string: urlString) {
             photo = ImageMediaItem(url: url, image: nil, placeholderImage: UIImage(), size: CGSize(width: 240, height: 240))
         }
 

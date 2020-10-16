@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol settingsActionDelegate : class {
+protocol settingsActionDelegate: class {
     func contactUs()
     func logout()
 }
@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadBackgroundImage()
-        version()
+        versionLabel.text = versionString
     }
     
     func loadBackgroundImage() {
@@ -34,10 +34,14 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    func version(){
-        let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-        versionLabel.text = " ver \(appVersionString) (\(buildNumber))"
+    var versionString: String? {
+        
+        guard
+            let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
+            let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String
+        else { return nil }
+        
+        return "ver \(appVersionString) (\(buildNumber))"
     }
     
     @IBAction func logoutButton(_ sender: Any) {

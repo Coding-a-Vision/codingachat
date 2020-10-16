@@ -18,15 +18,15 @@ class ChatCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
     private let presenter: UIViewController
-    private let chatViewController : ChatViewController
-    private let window : UIWindow
+    private let chatViewController: ChatViewController
+    private let window: UIWindow
     private let db: Firestore
     private let user: User
     private let channel: Channel
     var alertSound: AVAudioPlayer?
     var isFirstLoading = true
     
-    init(presenter: UIViewController, window: UIWindow, channel : Channel, user: User) {
+    init(presenter: UIViewController, window: UIWindow, channel: Channel, user: User) {
         self.user = user
         self.presenter = presenter
         self.window = window
@@ -46,7 +46,7 @@ class ChatCoordinator: Coordinator {
         db.collection("channels")
             .document(channel.id)
             .collection("messages")
-            .addSnapshotListener { [weak self] (querySnapshot, error) in
+            .addSnapshotListener { [weak self] (querySnapshot, _) in
                 
                 guard let querySnapshot = querySnapshot else { return print("No documents") }
                 
@@ -63,8 +63,8 @@ class ChatCoordinator: Coordinator {
                        let message = Message(json: diff.document.data(), id: diff.document.documentID, date: timestamp.dateValue()) {
                         self?.chatViewController.addMessage(message)
                     } else if diff.type == .removed {
-                        let id = diff.document.documentID
-                        // self?.chatViewController.removeMessage(withId: id) // TODO:
+                        _ = diff.document.documentID
+                        // self?.chatViewController.removeMessage(withId: id)
                     }
                 }
             }
@@ -79,7 +79,6 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         let storage = FirebaseStorageServices()
         let imageName = UUID().uuidString
         
-        //SVProgressHUD.show(withStatus: "Wait...")
         UIViewController.showHUD(message: "Wait...")
         
         firstly {
@@ -87,7 +86,6 @@ extension ChatCoordinator: ChatViewControllerDelegate {
         }.done { url in
             self.sendMessage(message: nil, url: url, type: .photo)
         }.ensure {
-            //SVProgressHUD.dismiss()
             UIViewController.dismissHUD()
         }.catch { error in
             UIAlertController.show(message: "Error: \(error.localizedDescription)")

@@ -48,7 +48,7 @@ extension SettingsCoordinator: settingsActionDelegate {
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
         delegate.coordinator?.start()

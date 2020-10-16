@@ -9,11 +9,11 @@
 import UIKit
 
 class WhiteNavigationController: UINavigationController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.barTintColor = UIColor.systemBackground
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
         navigationBar.shadowImage = UIImage()
-        
     }
 }

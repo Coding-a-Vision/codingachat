@@ -11,7 +11,7 @@ import SVProgressHUD
 
 extension UIViewController {
     
-    static func showHUD(message: String){
+    static func showHUD(message: String) {
         
         SVProgressHUD.show(withStatus: message)
     }

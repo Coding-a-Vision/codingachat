@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         delegate?.onLogin(withEmail: email, andPassword: password)
     }
     
-    private func buildUI(){
+    private func buildUI() {
         self.emailTextField.placeholder = NSLocalizedString("generics_messages.email.textfield.placeholder", comment: "")
         self.passwordTextField.placeholder = NSLocalizedString("generics_messages.password.textfield.placeholder", comment: "")
         self.button.setTitle(NSLocalizedString("generics_messages.button.login.title", comment: ""), for: .normal)

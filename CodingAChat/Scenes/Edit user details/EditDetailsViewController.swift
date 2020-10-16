@@ -92,7 +92,7 @@ class EditDetailsViewController: UIViewController {
         delegate?.userDidSaveInfo(withDisplayName: displayName, andImage: image)
     }
     
-    private func buildUI(){
+    private func buildUI() {
         self.saveButton.setTitle(NSLocalizedString("generics_messages.saveButton.title", comment: ""), for: .normal)
         self.displayNameLabel.text = NSLocalizedString("generics_messages.displayNameTextField.text", comment: "")
     }
@@ -100,7 +100,7 @@ class EditDetailsViewController: UIViewController {
 
 extension EditDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         guard let image = info[.editedImage] as? UIImage else { return }
         

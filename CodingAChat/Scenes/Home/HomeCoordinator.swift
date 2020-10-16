@@ -56,7 +56,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     
     func fetchData() {
         let db = Firestore.firestore()
-        db.collection("channels").addSnapshotListener() { [weak self] (querySnapshot, err) in
+        db.collection("channels").addSnapshotListener { [weak self] (querySnapshot, err) in
             if let err = err {
                 UIAlertController.show(message: "Unable to load channels")
                 print("Error getting documents: \(err)")

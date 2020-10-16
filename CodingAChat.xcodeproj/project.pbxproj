@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7ABBE3D62539926F00B5A01B /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABBE3D52539926F00B5A01B /* String+Localization.swift */; };
-		7AF8774E25384A15007D9393 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */; };
 		3CBA8D3B2535DC08007502CC /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3A2535DC08007502CC /* SettingsCoordinator.swift */; };
 		3CBA8D3E2535DC23007502CC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3C2535DC23007502CC /* SettingsViewController.swift */; };
 		3CBA8D3F2535DC23007502CC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CBA8D3D2535DC23007502CC /* SettingsViewController.xib */; };
+		7ABBE3D62539926F00B5A01B /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABBE3D52539926F00B5A01B /* String+Localization.swift */; };
+		7AF8774E25384A15007D9393 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */; };
 		7F0E25B7253448B000CD2B5B /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */; };
 		7F0E25B92534582C00CD2B5B /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */; };
 		7F9324A32530ADCD005B01BF /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9324A22530ADCD005B01BF /* HomeViewController+CollectionView.swift */; };
@@ -50,11 +50,11 @@
 
 /* Begin PBXFileReference section */
 		3492E6105A686B1F3FD9E6DF /* Pods-CodingAChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingAChat.debug.xcconfig"; path = "Target Support Files/Pods-CodingAChat/Pods-CodingAChat.debug.xcconfig"; sourceTree = "<group>"; };
-		7ABBE3D52539926F00B5A01B /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
-		7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		3CBA8D3A2535DC08007502CC /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		3CBA8D3C2535DC23007502CC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3CBA8D3D2535DC23007502CC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		7ABBE3D52539926F00B5A01B /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		7AF8774D25384A15007D9393 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		7F0E25B6253448B000CD2B5B /* UIAlertController+show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
 		7F0E25B82534582C00CD2B5B /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		7F9324A22530ADCD005B01BF /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = CodingAVision;
 				TargetAttributes = {
 					F71F14DF251E0DB3009203BF = {
@@ -570,6 +570,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -631,6 +632,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

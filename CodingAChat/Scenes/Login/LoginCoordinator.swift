@@ -18,7 +18,6 @@ class LoginCoordinator: Coordinator {
     private let tracker: Trackable
     var onLogin: ((User) -> Void)?
     
-    
     init(window: UIWindow, tracker: Trackable) {
         self.window = window
         self.tracker = tracker
