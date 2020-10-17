@@ -68,13 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
          print("Failed to register: \(error)")
      } */
     
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
         // Print full message.
         print(userInfo)
     }
-    
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -82,12 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Print full message.
         print(userInfo)
         
-        
         if UIApplication.shared.applicationState == .active {
             // Mostro semplicemente un alert all'utente, magari non bloccante
         } else {
-            guard let channelId = userInfo["channelId"] as? String else { return }
-            guard let channelName = userInfo["channelName"] as? String else { return }
+            guard let channelId = userInfo["channelId"] as? String, let channelName = userInfo["channelName"] as? String else { return }
+           
             let channel = Channel(id: channelId, name: channelName)
             
             coordinator?.goToChannel(channel)
