@@ -120,10 +120,21 @@ class ChatViewController: MessagesViewController {
     }
 
     private func buildBackground() {
-        if let colorString = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let color = colorString.findColor(withName: colorString) {
-            messagesCollectionView.backgroundColor = color
+        if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String {
+            print("Sfondo tinta unica colore \(imageData)")
+            if let color = imageData.findColor(withName: imageData) {
+                print("Ho convertito il colore ed è \(color)")
+                messagesCollectionView.backgroundColor = color
+            }
+        } else {
+            if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let image = UIImage(named: imageData) as? UIImage, let imageview = UIImageView(image: image) as? UIImageView {
+                print("Sfondo chiamato \(imageData)")
+                
+                messagesCollectionView.backgroundView = imageview
+            } else {
+                messagesCollectionView.backgroundView?.backgroundColor = .none
+            }
         }
-        //return UIColor.red
     }
 
     private func setSendButtonAppearance(text: String) {
