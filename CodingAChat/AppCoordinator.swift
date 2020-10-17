@@ -38,4 +38,13 @@ class AppCoordinator: Coordinator {
             childCoordinators.append(loginCoordinator)
         }
     }
+    func goToChannel(_ channel: Channel) {
+        if let user = Auth.auth().currentUser {
+            let chatCoordinator = ChatCoordinator(presenter: UIApplication.topViewController()!, window: window, channel: channel, user: user)
+            chatCoordinator.start()
+            childCoordinators.append(chatCoordinator)
+        }
+        
+    }
+    
 }
