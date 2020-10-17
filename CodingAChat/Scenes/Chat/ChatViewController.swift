@@ -50,7 +50,7 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-       
+        buildBackground()
         messageInputBar.delegate = self
         setSendButtonAppearance(text: "")
         messageInputBar.sendButton.isEnabled = true
@@ -118,7 +118,14 @@ class ChatViewController: MessagesViewController {
         present(alertController, animated: true, completion: nil)
         
     }
-    
+
+    private func buildBackground() {
+        if let colorString = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let color = colorString.findColor(withName: colorString) {
+            messagesCollectionView.backgroundColor = color
+        }
+        //return UIColor.red
+    }
+
     private func setSendButtonAppearance(text: String) {
         if text.isEmpty {
             messageInputBar.sendButton.image = UIImage(systemName: "camera.fill")

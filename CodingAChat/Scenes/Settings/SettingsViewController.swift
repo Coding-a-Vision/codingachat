@@ -24,17 +24,30 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
+        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "changedColor"), object: nil, queue: nil) { [weak self] _ in
+            self?.loadBackgroundImage()
+        }
         loadBackgroundImage()
         versionLabel.text = versionString
     }
     
     func loadBackgroundImage() {
-        if let imageData = UserDefaults.standard.object(forKey: TAG) as? Data,
-            let image = UIImage(data: imageData) {
-            backgroundImage.image=image
+        if let imageData = UserDefaults.standard.object(forKey: TAG) as? String {
+            print("Sfondo tinta unica colore \(imageData)")
+            if let color = imageData.findColor(withName: imageData) {
+                print("Ho convertito il colore ed è \(color)")
+                backgroundImage.backgroundColor = color
+            }
+        } else {
+            if let imageData = UserDefaults.standard.object(forKey: TAG) as? String, let image = UIImage(named: imageData) {
+                print("Sfondo chiamato \(imageData)")
+                
+                backgroundImage.image = image
+            } else {
+                backgroundImage = UIImageView(image: UIImage(named: "placeholder"))
+            }
         }
     }
-    
     var versionString: String? {
         
         guard
@@ -62,7 +75,7 @@ class SettingsViewController: UIViewController {
             self.navigationController?.pushViewController(ColorsViewController(), animated: true)
         }
 
-        let goToColors = UIAlertAction(title: NSLocalizedString("Sfondi a tinta unica", comment: ""), style: .default) { _ in
+        let goToColors = UIAlertAction(title: NSLocalizedString("Colori a tinta unica", comment: ""), style: .default) { _ in
             
             self.navigationController?.pushViewController(ColorsViewController(), animated: true)
         }
