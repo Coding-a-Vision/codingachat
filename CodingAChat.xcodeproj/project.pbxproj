@@ -211,7 +211,6 @@
 				F7B794062535B15A00248E75 /* Analytics */,
 				9335E9D9252C8A3800FB46B0 /* Message.swift */,
 				F7B7942D2535BAA800248E75 /* FirebaseStorageServices.swift */,
-				FA263A2B253B567300593A29 /* Backgrounds.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,6 +259,7 @@
 				7F0E25B52534488F00CD2B5B /* Extensions */,
 				9335E9D8252C8A2400FB46B0 /* Models */,
 				F7CDC4CC2523377B0039DBE4 /* Coordinator.swift */,
+				FA263A2B253B567300593A29 /* Backgrounds.swift */,
 				F7CDC4E0252337AB0039DBE4 /* AppCoordinator.swift */,
 				F71F14FB251E0E04009203BF /* Application */,
 				F71F14FA251E0DF9009203BF /* Storyboards */,
