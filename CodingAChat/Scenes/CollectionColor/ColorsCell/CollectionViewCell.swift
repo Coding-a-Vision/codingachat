@@ -17,10 +17,16 @@ class CollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func configure(name : String) {
-        self.name.text = name.uppercased()
+    func configure(color : String) {
+        self.name.text = color.uppercased()
         if self.name.text == "BLACK" { self.name.textColor = UIColor.white } else { self.name.textColor = UIColor.black }
-        self.imagebg.backgroundColor = name.findColor(withName: name)
+        self.imagebg.backgroundColor = color.findColor(withName: color)
+        buildUI()
+    }
+    func configure(bground : String) {
+        self.name.text = bground.uppercased()
+        self.imagebg.image = UIImage(named: bground) as? UIImage
+        self.imagebg.contentMode = .scaleToFill
         buildUI()
     }
     

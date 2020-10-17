@@ -47,6 +47,7 @@
 		F7CDC528252341540039DBE4 /* EditDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC526252341540039DBE4 /* EditDetailsViewController.swift */; };
 		F7CDC529252341540039DBE4 /* EditDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */; };
 		FA263A29253B36B900593A29 /* String+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263A28253B36B900593A29 /* String+color.swift */; };
+		FA263A2C253B567300593A29 /* Backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263A2B253B567300593A29 /* Backgrounds.swift */; };
 		FA9BAE052534BF3300FE19EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9BAE072534BF3300FE19EF /* Localizable.strings */; };
 		FA9FE160253A2DCB00B0B780 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FE15E253A2DCA00B0B780 /* ColorsViewController.swift */; };
 		FA9FE161253A2DCB00B0B780 /* ColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9FE15F253A2DCB00B0B780 /* ColorsViewController.xib */; };
@@ -100,6 +101,7 @@
 		F7CDC526252341540039DBE4 /* EditDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailsViewController.swift; sourceTree = "<group>"; };
 		F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDetailsViewController.xib; sourceTree = "<group>"; };
 		FA263A28253B36B900593A29 /* String+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+color.swift"; sourceTree = "<group>"; };
+		FA263A2B253B567300593A29 /* Backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backgrounds.swift; sourceTree = "<group>"; };
 		FA9BAE062534BF3300FE19EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA9BAE082534BF3700FE19EF /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA9FE15E253A2DCA00B0B780 /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				F7B794062535B15A00248E75 /* Analytics */,
 				9335E9D9252C8A3800FB46B0 /* Message.swift */,
 				F7B7942D2535BAA800248E75 /* FirebaseStorageServices.swift */,
+				FA263A2B253B567300593A29 /* Backgrounds.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				FA9FE160253A2DCB00B0B780 /* ColorsViewController.swift in Sources */,
 				F7CDC4D42523378D0039DBE4 /* HomeViewController.swift in Sources */,
 				F7CDC524252341420039DBE4 /* EditDetailsCoordinator.swift in Sources */,
+				FA263A2C253B567300593A29 /* Backgrounds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
