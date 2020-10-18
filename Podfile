@@ -19,4 +19,5 @@ target 'CodingAChat' do
   pod 'MessageKit'
   pod 'SwiftLint'
   pod 'IQKeyboardManager'
+  pod 'NotificationBannerSwift', '~> 3.0.0'
 end
