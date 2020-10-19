@@ -31,8 +31,8 @@ class BackgroundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: Constants.nibName, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: Constants.reuseIdentifier)
+        let nib = UINib(nibName: Constants.bgNibName, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: Constants.bgReuseIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -42,7 +42,7 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        if selected == 1{
+        if selected == 1 {
             return Sfondi.allCases.count
         } else {
             return ColorBg.allCases.count
@@ -51,11 +51,11 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as? CollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.bgReuseIdentifier, for: indexPath) as? CollectionViewCell else {
             
             fatalError("Wrong cell type")
         }
-        if selected == 1{
+        if selected == 1 {
             cell.configure(bground: Sfondi.allCases[indexPath.item].rawValue)
             return cell
         } else {
@@ -65,6 +65,6 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.changeBg(withSelected: self.selected, withIndexPath : indexPath)
+        delegate?.changeBg(withSelected: self.selected, withIndexPath: indexPath)
     }
 }

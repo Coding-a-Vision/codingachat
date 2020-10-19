@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 enum ColorBg: String, CaseIterable {
     case black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown
 }

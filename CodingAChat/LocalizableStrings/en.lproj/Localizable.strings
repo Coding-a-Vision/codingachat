@@ -30,7 +30,7 @@
 "settings_messages.alertSelect.changeColor" = "Colors";
 
 // MARK: --BACKGROUND
-"background_messages.alertSelect.tile" = "Do you want replace with this?";
+"background_messages.alertSelect.tile" = "Do you want to replace it with this?";
 
 // MARK: --GENERICS
 "generics.hud.wait" = "Wait...";

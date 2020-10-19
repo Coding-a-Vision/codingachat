@@ -18,7 +18,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     func configure(color : String) {
-
         self.name.text = color.uppercased()
         if self.name.text == "BLACK" { self.name.textColor = UIColor.white } else { self.name.textColor = UIColor.black }
         self.imagebg.backgroundColor = color.findColor(withName: color)
@@ -26,7 +25,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     func configure(bground : String) {
-
         self.name.text = bground.uppercased()
         self.imagebg.image = UIImage(named: bground)
         self.imagebg.contentMode = .scaleToFill

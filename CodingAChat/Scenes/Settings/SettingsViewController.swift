@@ -20,27 +20,23 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     var userDefault = UserDefaults.standard
-    let TAG = "BACKGROUND_IMAGE"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
         loadBackgroundImage()
-        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "changedColor"), object: nil, queue: nil) { [weak self] _ in
+        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Constants.userDefaultChangedColor), object: nil, queue: nil) { [weak self] _ in
             self?.loadBackgroundImage()
         }
         versionLabel.text = versionString
     }
     
     func loadBackgroundImage() {
-        if let imageData = UserDefaults.standard.object(forKey: TAG) as? String, let color = imageData.findColor(withName: imageData) {
-            print("Sfondo tinta unica colore \(imageData)")
-            print("Ho convertito il colore ed è \(color)")
+        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = imageData.findColor(withName: imageData) {
             backgroundImage.backgroundColor = color
             backgroundImage.image = .none
             } else {
-            if let imageData = UserDefaults.standard.object(forKey: TAG) as? String, let image = UIImage(named: imageData) {
-                print("Sfondo chiamato \(imageData)")
+                if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let image = UIImage(named: imageData) {
                 backgroundImage.backgroundColor = .none
                 backgroundImage.image = image
             } else {
@@ -86,7 +82,7 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
         guard let image = info[.editedImage] as? UIImage else { return }
         backgroundImage.image = image
         let imagepng = image.pngData()
-        userDefault.set(imagepng, forKey: TAG)
+        userDefault.set(imagepng, forKey: Constants.userDefaultBackgroundImage)
         dismiss(animated: true, completion: nil)
     }
     

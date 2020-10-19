@@ -32,11 +32,11 @@ class HomeViewController: UIViewController {
         // Set title
         self.title = NSLocalizedString("home_messages.tile", comment: "")
         
-        let headerViewNib = UINib(nibName: "HeaderCollectionReusableView", bundle: nil)
-        collectionView.register(headerViewNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderViewID")
+        let headerViewNib = UINib(nibName: Constants.homeHeaderViewNib, bundle: nil)
+        collectionView.register(headerViewNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.homeHeaderIdentifier)
         
-        let channelCardNib = UINib(nibName: "ChannelCardCollectionViewCell", bundle: nil)
-        collectionView.register(channelCardNib, forCellWithReuseIdentifier: "ChannelCardID")
+        let channelCardNib = UINib(nibName: Constants.homeChannelViewNib, bundle: nil)
+        collectionView.register(channelCardNib, forCellWithReuseIdentifier: Constants.homeChannelIdentifier)
     }
     
     override func viewDidAppear(_ animated: Bool) {
