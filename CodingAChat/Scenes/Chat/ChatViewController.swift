@@ -120,12 +120,12 @@ class ChatViewController: MessagesViewController {
     }
 
     private func buildBackground() {
-        if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let color = imageData.findColor(withName: imageData) as? UIColor {
+        if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let color = imageData.findColor(withName: imageData) {
             print("Sfondo tinta unica colore \(imageData)")
             print("Ho convertito il colore ed è \(color)")
             messagesCollectionView.backgroundColor = color
         } else {
-            if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let image = UIImage(named: imageData) as? UIImage, let imageview = UIImageView(image: image) as? UIImageView {
+            if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let image = UIImage(named: imageData), let imageview = UIImageView(image: image) as? UIImageView {
                 print("Sfondo chiamato \(imageData)")
                 
                 messagesCollectionView.backgroundView = imageview

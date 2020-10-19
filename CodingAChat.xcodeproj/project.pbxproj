@@ -373,18 +373,18 @@
 			children = (
 				FA9FE15E253A2DCA00B0B780 /* ColorsViewController.swift */,
 				FA9FE15F253A2DCB00B0B780 /* ColorsViewController.xib */,
-				FA9FE15D253A2D9B00B0B780 /* ColorsCell */,
+				FA9FE15D253A2D9B00B0B780 /* BackgroundCell */,
 			);
 			path = CollectionColor;
 			sourceTree = "<group>";
 		};
-		FA9FE15D253A2D9B00B0B780 /* ColorsCell */ = {
+		FA9FE15D253A2D9B00B0B780 /* BackgroundCell */ = {
 			isa = PBXGroup;
 			children = (
 				FA9FE163253A2DD600B0B780 /* CollectionViewCell.swift */,
 				FA9FE162253A2DD600B0B780 /* CollectionViewCell.xib */,
 			);
-			path = ColorsCell;
+			path = BackgroundCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

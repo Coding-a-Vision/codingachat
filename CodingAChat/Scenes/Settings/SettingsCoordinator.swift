@@ -15,7 +15,7 @@ class SettingsCoordinator: Coordinator {
     private let presenter: UIViewController
     
     init(presenter: UIViewController) {
-        self.presenter=presenter
+        self.presenter = presenter
         viewController = SettingsViewController()
     }
     

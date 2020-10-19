@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
     }
     
     func loadBackgroundImage() {
-        if let imageData = UserDefaults.standard.object(forKey: TAG) as? String, let color = imageData.findColor(withName: imageData) as? UIColor {
+        if let imageData = UserDefaults.standard.object(forKey: TAG) as? String, let color = imageData.findColor(withName: imageData) {
             print("Sfondo tinta unica colore \(imageData)")
             print("Ho convertito il colore ed è \(color)")
             backgroundImage.backgroundColor = color
