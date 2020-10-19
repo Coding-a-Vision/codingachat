@@ -8,9 +8,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+protocol ColorsViewActionDelegate: class {
+    func changeBg(withSelected selected: Int)
+}
 
-class ColorsViewController: UIViewController {
+class BackgroundsViewController: UIViewController {
+    
+    private let reuseIdentifier = "Cell"
+    weak var delegate: ColorsViewActionDelegate?
     let selected: Int
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -34,7 +39,7 @@ class ColorsViewController: UIViewController {
     }
 }
 
-extension ColorsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension BackgroundsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
