@@ -55,21 +55,21 @@ extension SettingsCoordinator: settingsActionDelegate {
     }
 
     func goToBg() {
-        let alertController = UIAlertController(title: NSLocalizedString("Vuoi cambiare sfondo?", comment: ""), message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("settings_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
 
-        let goToBackgrounds = UIAlertAction(title: NSLocalizedString("Sfondi", comment: ""), style: .default) { _ in
+        let goToBackgrounds = UIAlertAction(title: NSLocalizedString("settings_messages.alertSelect.changeBg", comment: ""), style: .default) { _ in
             let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: 1)
             backgroundsCoordinator.start()
             self.childCoordinators.append(backgroundsCoordinator)
         }
 
-        let goToColors = UIAlertAction(title: NSLocalizedString("Colori a tinta unica", comment: ""), style: .default) { _ in
+        let goToColors = UIAlertAction(title: NSLocalizedString("settings_messages.alertSelect.changeColor", comment: ""), style: .default) {_ in
             let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: 2)
             backgroundsCoordinator.start()
             self.childCoordinators.append(backgroundsCoordinator)
         }
 
-        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("generics.cancel", comment: ""), style: .cancel, handler: nil)
         
         alertController.addAction(goToBackgrounds)
         alertController.addAction(goToColors)

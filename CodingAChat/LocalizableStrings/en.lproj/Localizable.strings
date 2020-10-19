@@ -7,23 +7,32 @@
 */
 
 // MARK: -- LOGIN
-"generics_messages.email.textfield.placeholder" = "E-mail address";
-"generics_messages.password.textfield.placeholder" = "Password";
-"generics_messages.button.login.title" = "Login";
-"generics_messages.notregistered.label.title" = "Are you not registered yet?";
-"generics_messages.button.signup.title" = "Sign up now";
-"genercis_messages.error.completeFields" = "Please, fill in all fields"; //EditDetails too
-
+"login_messages.email.textfield.placeholder" = "E-mail address";
+"login_messages.password.textfield.placeholder" = "Password";
+"login_messages.button.login.title" = "Login";
+"login_messages.notregistered.label.title" = "Are you not registered yet?";
+"login_messages.button.signup.title" = "Sign up now";
+"login_messages.error.completeFields" = "Please, fill in all fields"; //EditDetails too
 // MARK: -- HOME
-"generics_messages.home.tile" = "Home";
+"home_messages.tile" = "Home";
 
 // MARK: --EDIT
-"generics_messages.saveButton.title" = "Save";
-"generics_messages.displayNameTextField.text" = "Display name";
-"generics_messages.alertSelect.title" = "Select the source";
-"generics_messages.alertSelect.camera" = "Camera";
-"generics_messages.alertSelect.gallery" = "Gallery";
-"generics_messages.alertSelect.savedInAlbum" = "Saved photo album";
+"edit_messages.saveButton.title" = "Save";
+"edit_messages.displayNameTextField.text" = "Display name";
+"edit_messages.alertSelect.title" = "Select the source"; //Chat Too
+"edit_messages.alertSelect.camera" = "Camera"; //Chat Too
+"edit_messages.alertSelect.gallery" = "Gallery"; //Chat Too
+"edit_messages.alertSelect.savedInAlbum" = "Saved photo album"; //Chat Too
+
+// MARK: --SETTINGS
+"settings_messages.alertSelect.title" = "Do you want to change your background?";
+"settings_messages.alertSelect.changeBg" = "Wallpaper";
+"settings_messages.alertSelect.changeColor" = "Colors";
+
+// MARK: --BACKGROUND
+"background_messages.alertSelect.tile" = "Do you want replace with this?";
 
 // MARK: --GENERICS
 "generics.hud.wait" = "Wait...";
+"generics.cancel" = "Cancel";
+"genercis.yes" = "Yes";

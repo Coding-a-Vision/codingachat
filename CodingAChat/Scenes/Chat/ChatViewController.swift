@@ -89,24 +89,24 @@ class ChatViewController: MessagesViewController {
     
     func sendImage() {
         
-        let alertController = UIAlertController(title: "Seleziona la sorgente", message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("edit_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+        let cameraAction = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.camera", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .camera)
         }
         
-        let gallery = UIAlertAction(title: "Gallery", style: .default) { _ in
+        let gallery = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .photoLibrary)
         }
         
-        let saved = UIAlertAction(title: "Saved photo album", style: .default) { _ in
+        let saved = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .savedPhotosAlbum)
         }
     
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("generics.cancel", comment: ""), style: .cancel, handler: nil)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             alertController.addAction(cameraAction)
@@ -120,12 +120,12 @@ class ChatViewController: MessagesViewController {
     }
 
     private func buildBackground() {
-        if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let color = imageData.findColor(withName: imageData) {
+        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = imageData.findColor(withName: imageData) {
             print("Sfondo tinta unica colore \(imageData)")
             print("Ho convertito il colore ed è \(color)")
             messagesCollectionView.backgroundColor = color
         } else {
-            if let imageData = UserDefaults.standard.object(forKey: "BACKGROUND_IMAGE") as? String, let image = UIImage(named: imageData), let imageview = UIImageView(image: image) as? UIImageView {
+            if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let image = UIImage(named: imageData), let imageview = UIImageView(image: image) as? UIImageView {
                 print("Sfondo chiamato \(imageData)")
                 
                 messagesCollectionView.backgroundView = imageview

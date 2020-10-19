@@ -45,19 +45,19 @@ class EditDetailsViewController: UIViewController {
     
     @IBAction func pickImage() {
         
-        let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("edit_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.camera", comment: ""), style: .default) { _ in
+        let cameraAction = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.camera", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .camera)
         }
         
-        let gallery = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
+        let gallery = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .photoLibrary)
         }
         
-        let saved = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
+        let saved = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .savedPhotosAlbum)
         }
@@ -85,7 +85,7 @@ class EditDetailsViewController: UIViewController {
     @IBAction func save() {
         
         guard let displayName = displayNameTextField.text, !displayName.isEmpty, let image = userPictureImageView.image else {
-            UIAlertController.show(message: NSLocalizedString("genercis_messages.error.completeFields", comment: ""))
+            UIAlertController.show(message: NSLocalizedString("edit_messages.error.completeFields", comment: ""))
             return
         }
         
@@ -93,8 +93,8 @@ class EditDetailsViewController: UIViewController {
     }
     
     private func buildUI() {
-        self.saveButton.setTitle(NSLocalizedString("generics_messages.saveButton.title", comment: ""), for: .normal)
-        self.displayNameLabel.text = NSLocalizedString("generics_messages.displayNameTextField.text", comment: "")
+        self.saveButton.setTitle(NSLocalizedString("edit_messages.saveButton.title", comment: ""), for: .normal)
+        self.displayNameLabel.text = NSLocalizedString("edit_messages.displayNameTextField.text", comment: "")
     }
 }
 

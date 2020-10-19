@@ -282,13 +282,13 @@
 		F71F14F9251E0DF4009203BF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FA9FE15C253A2D9300B0B780 /* CollectionColor */,
-				F7B7940A2535B79F00248E75 /* Nav */,
-				F7CDC521252341220039DBE4 /* Edit user details */,
 				F7CDC4D7252337940039DBE4 /* Login */,
-				3CBA8D392535DBD8007502CC /* Settings */,
 				F7CDC4CF2523378D0039DBE4 /* Home */,
 				7FA86EF1252C6D7000DE88F1 /* Chat */,
+				F7CDC521252341220039DBE4 /* Edit user details */,
+				3CBA8D392535DBD8007502CC /* Settings */,
+				FA9FE15C253A2D9300B0B780 /* CollectionColor */,
+				F7B7940A2535B79F00248E75 /* Nav */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

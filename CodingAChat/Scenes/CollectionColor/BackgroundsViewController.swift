@@ -14,7 +14,6 @@ protocol ColorsViewActionDelegate: class {
 
 class BackgroundsViewController: UIViewController {
     
-    private let reuseIdentifier = "Cell"
     weak var delegate: ColorsViewActionDelegate?
     let selected: Int
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,8 +31,8 @@ class BackgroundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
+        let nib = UINib(nibName: Constants.nibName, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: Constants.reuseIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -52,7 +51,7 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as? CollectionViewCell else {
             
             fatalError("Wrong cell type")
         }

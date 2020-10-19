@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Set title
-        self.title = NSLocalizedString("generics_messages.home.tile", comment: "")
+        self.title = NSLocalizedString("home_messages.tile", comment: "")
         
         let headerViewNib = UINib(nibName: "HeaderCollectionReusableView", bundle: nil)
         collectionView.register(headerViewNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderViewID")

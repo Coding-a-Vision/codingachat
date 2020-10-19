@@ -13,4 +13,12 @@ struct Constants {
     static func getNotificationChannelID(from channelName: String) -> String {
         return "notifications_\(channelName)"
     }
+
+    // MARK: --UserDefaults
+    static var userDefaultBackgroundImage: String = "BACKGROUND_IMAGE"
+    static var userDefaultChangedColor: String = "changedColor"
+    
+    //MARK: --BackgroundViewController
+    static var nibName: String = "CollectionViewCell"
+    static var reuseIdentifier: String = "Cell"
 }
