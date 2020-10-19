@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ColorsViewActionDelegate: class {
-    func changeBg(withSelected selected: Int)
+    func changeBg(withSelected selected: Int, withIndexPath indexPath: IndexPath)
 }
 
 class BackgroundsViewController: UIViewController {
@@ -66,28 +66,6 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Hai tappato la cella numero \([indexPath.item+1]) che è \(ColorBg.allCases[indexPath.item].rawValue)")
-        let alertController = UIAlertController(title: NSLocalizedString("Vuoi cambiare sfondo?", comment: ""), message: "", preferredStyle: .actionSheet)
-
-        let yes = UIAlertAction(title: NSLocalizedString("Cambia sfondo", comment: ""), style: .default) { [weak self] _ in
-            UserDefaults.standard.removeObject(forKey: "BACKGROUND_IMAGE")
-            if self?.selected == 1 {
-                UserDefaults.standard.set(Sfondi.allCases[indexPath.item].rawValue, forKey: "BACKGROUND_IMAGE")
-                print("Hai cambiato sfondo con il colore \(Sfondi.allCases[indexPath.item].rawValue)")
-            } else {
-                UserDefaults.standard.set(ColorBg.allCases[indexPath.item].rawValue, forKey: "BACKGROUND_IMAGE")
-                print("Hai cambiato sfondo con il colore \(ColorBg.allCases[indexPath.item].rawValue)")
-            }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changedColor"), object: nil)
-            self?.navigationController?.popViewController(animated: true)
-        }
-        
-        let not = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
-            
-            print("Non hai cambiato")
-        }
-        alertController.addAction(yes)
-        alertController.addAction(not)
-        present(alertController, animated: true, completion: nil)
+        delegate?.changeBg(withSelected: self.selected, withIndexPath : indexPath)
     }
 }

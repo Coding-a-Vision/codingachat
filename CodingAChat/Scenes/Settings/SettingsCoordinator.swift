@@ -57,13 +57,16 @@ extension SettingsCoordinator: settingsActionDelegate {
     func goToBg() {
         let alertController = UIAlertController(title: NSLocalizedString("Vuoi cambiare sfondo?", comment: ""), message: "", preferredStyle: .actionSheet)
 
-        let goToBackgrounds = UIAlertAction(title: NSLocalizedString("Sfondi", comment: ""), style: .default) { [weak self] _ in
-            //COLLEGARE IL COLORS COORDINATOR
-            self?.presenter.navigationController?.pushViewController(BackgroundsViewController(selected: 1), animated: true)
+        let goToBackgrounds = UIAlertAction(title: NSLocalizedString("Sfondi", comment: ""), style: .default) { _ in
+            let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: 1)
+            backgroundsCoordinator.start()
+            self.childCoordinators.append(backgroundsCoordinator)
         }
 
-        let goToColors = UIAlertAction(title: NSLocalizedString("Colori a tinta unica", comment: ""), style: .default) { [weak self] _ in
-            self?.presenter.navigationController?.pushViewController(BackgroundsViewController(selected: 2), animated: true)
+        let goToColors = UIAlertAction(title: NSLocalizedString("Colori a tinta unica", comment: ""), style: .default) { _ in
+            let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: 2)
+            backgroundsCoordinator.start()
+            self.childCoordinators.append(backgroundsCoordinator)
         }
 
         let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
