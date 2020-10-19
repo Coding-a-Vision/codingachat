@@ -11,6 +11,7 @@ import UIKit
 protocol settingsActionDelegate: class {
     func contactUs()
     func logout()
+    func goToBg()
 }
 
 class SettingsViewController: UIViewController {
@@ -66,25 +67,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func changeBackgroundImage(_ sender: Any) {
-        
-        let alertController = UIAlertController(title: NSLocalizedString("Vuoi cambiare sfondo?", comment: ""), message: "", preferredStyle: .actionSheet)
-
-        let goToBackgrounds = UIAlertAction(title: NSLocalizedString("Sfondi", comment: ""), style: .default) { _ in
-            
-            self.navigationController?.pushViewController(ColorsViewController(selected: 1), animated: true)
-        }
-
-        let goToColors = UIAlertAction(title: NSLocalizedString("Colori a tinta unica", comment: ""), style: .default) { _ in
-            
-            self.navigationController?.pushViewController(ColorsViewController(selected: 2), animated: true)
-        }
-
-        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-        
-        alertController.addAction(goToBackgrounds)
-        alertController.addAction(goToColors)
-        alertController.addAction(cancel)
-        present(alertController, animated: true, completion: nil)
+        delegate?.goToBg()
     }
     
     func showPicker(with source: UIImagePickerController.SourceType) {
