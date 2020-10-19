@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import IQKeyboardManager
+import NotificationBannerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -36,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.makeKeyAndVisible()
         return true
     }
-
+    
     func registerForFCMNotifications() {
         
         UNUserNotificationCenter.current().delegate = self
@@ -59,13 +60,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
      
      func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
      
-         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-         let token = tokenParts.joined()
-         print("Device Token: \(token)")
-         }
-         
-         func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-         print("Failed to register: \(error)")
+     let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+     let token = tokenParts.joined()
+     print("Device Token: \(token)")
+     }
+     
+     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+     print("Failed to register: \(error)")
      } */
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
@@ -81,9 +82,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(userInfo)
         
         if UIApplication.shared.applicationState == .active {
-            // Mostro semplicemente un alert all'utente, magari non bloccante
+            if let aps = userInfo["aps"] as? NSDictionary, let alert = aps["alert"] as? NSDictionary, let title = alert["title"] as? String, let body = alert["body"] as? String, let channelID = userInfo["channelId"] as? String, let channelName = userInfo["channelName"] as? String {
+                let banner = NotificationBanner(title: "\(title) from \(channelName)", subtitle: body, style: .info)
+                banner.onTap = {
+                    let channel = Channel(id: channelID, name: channelName)
+                    self.coordinator?.goToChannel(channel)
+                }
+                banner.show()
+            }
         } else {
-            // se utente è loggato recupero il canale dal dizionario e provo a inviare l'utente nel dettaglio della chat
+            guard let channelId = userInfo["channelId"] as? String, let channelName = userInfo["channelName"] as? String else { return }
+            
+            let channel = Channel(id: channelId, name: channelName)
+            
+            coordinator?.goToChannel(channel)
         }
         
         completionHandler(UIBackgroundFetchResult.newData)

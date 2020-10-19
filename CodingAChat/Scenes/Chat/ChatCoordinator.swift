@@ -20,17 +20,15 @@ class ChatCoordinator: Coordinator {
     
     private let presenter: UIViewController
     private let chatViewController: ChatViewController
-    private let window: UIWindow
     private let db: Firestore
     private let user: User
     private let channel: Channel
     var alertSound: AVAudioPlayer?
     var isFirstLoading = true
     
-    init(presenter: UIViewController, window: UIWindow, channel: Channel, user: User) {
+    init(presenter: UIViewController, channel: Channel, user: User) {
         self.user = user
         self.presenter = presenter
-        self.window = window
         self.chatViewController = ChatViewController(channel: channel, user: user)
         self.db = Firestore.firestore()
         self.channel = channel

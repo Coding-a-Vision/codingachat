@@ -42,7 +42,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     }
     
     func channelJoin(selectedChannel: Channel) {
-        let chatcoordinator = ChatCoordinator(presenter: homeViewController, window: window, channel: selectedChannel, user: user)
+        let chatcoordinator = ChatCoordinator(presenter: homeViewController, channel: selectedChannel, user: user)
         chatcoordinator.start()
         childCoordinators.append(chatcoordinator)
         tracker.track(withName: .join, parameters: ["channelID": selectedChannel.name])
