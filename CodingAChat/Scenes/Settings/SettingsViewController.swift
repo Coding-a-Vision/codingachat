@@ -32,17 +32,18 @@ class SettingsViewController: UIViewController {
     }
     
     func loadBackgroundImage() {
+        backgroundImage.layer.cornerRadius = 10
+        backgroundImage.layer.borderWidth = 1
         if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = ColorBg(rawValue: imageData) {
-            backgroundImage.layer.borderWidth = 1
             backgroundImage.image = .none
-            backgroundImage.layer.cornerRadius = 10
+            backgroundImage.backgroundColor = color.color
             if color == .none || color == .white {
                 backgroundImage.layer.borderColor = UIColor.black.cgColor
             } else { backgroundImage.layer.borderColor = color.color.cgColor }
-            backgroundImage.backgroundColor = color.color
         } else {
             if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let background = Background(rawValue: imageData) {
                 backgroundImage.backgroundColor = .none
+                backgroundImage.layer.borderColor = UIColor.systemBackground.cgColor
                 backgroundImage.image = UIImage(named: background.assetName)
             } else {
                 backgroundImage.image = UIImage(named: "placeholder")
