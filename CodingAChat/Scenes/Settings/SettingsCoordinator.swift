@@ -13,11 +13,11 @@ class SettingsCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     private let viewController: SettingsViewController
     private let presenter: UIViewController
-    private let tracker : Trackable
+    private let tracker: Trackable
     
-    init(presenter: UIViewController, tracker : Trackable) {
+    init(presenter: UIViewController, tracker: Trackable) {
         self.presenter = presenter
-        self.tracker=tracker
+        self.tracker = tracker
         viewController = SettingsViewController()
     }
     
