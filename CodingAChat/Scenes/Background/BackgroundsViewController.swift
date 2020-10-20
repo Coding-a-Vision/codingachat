@@ -73,3 +73,18 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
         delegate?.changeBg(withSelected: self.selected, withIndexPath: indexPath)
     }
 }
+
+extension BackgroundsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let side = view.frame.width-4
+        return CGSize(width: side/2, height: side/2)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.5
+    }
+}
