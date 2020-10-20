@@ -120,10 +120,11 @@ class ChatViewController: MessagesViewController {
     }
 
     private func buildBackground() {
-        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = imageData.findColor(withName: imageData) {
-            messagesCollectionView.backgroundColor = color
+        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = ColorBg(rawValue: imageData) {
+            messagesCollectionView.backgroundColor = color.color
         } else {
-            if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let image = UIImage(named: imageData), let imageview = UIImageView(image: image) as? UIImageView {
+            if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let background = Background(rawValue: imageData) {
+                let imageview = UIImageView(image: UIImage(named: background.assetName))
                 messagesCollectionView.backgroundView = imageview
             } else {
                 messagesCollectionView.backgroundView?.backgroundColor = .none

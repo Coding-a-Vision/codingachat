@@ -14,17 +14,17 @@ struct Constants {
         return "notifications_\(channelName)"
     }
 
-// MARK: -- UserDefaults
+    // MARK: - UserDefaults
     static var userDefaultBackgroundImage: String = "BACKGROUND_IMAGE"
     static var userDefaultChangedColor: String = "changedColor"
 
-// MARK: -- HOME
+    // MARK: - HOME
     static var homeHeaderViewNib: String = "HeaderCollectionReusableView"
     static var homeHeaderIdentifier: String = "HeaderViewID"
     static var homeChannelViewNib: String = "ChannelCardCollectionViewCell"
     static var homeChannelIdentifier: String = "ChannelCardID"
 
-// MARK: -- BackgroundViewController
+    // MARK: - BackgroundViewController
     static var bgNibName: String = "CollectionViewCell"
     static var bgReuseIdentifier: String = "Cell"
 }

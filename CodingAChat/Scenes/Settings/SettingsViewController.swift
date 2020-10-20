@@ -32,15 +32,15 @@ class SettingsViewController: UIViewController {
     }
     
     func loadBackgroundImage() {
-        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = imageData.findColor(withName: imageData) {
-            backgroundImage.backgroundColor = color
+        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = ColorBg(rawValue: imageData) {
+            backgroundImage.backgroundColor = color.color
             backgroundImage.image = .none
-            } else {
-                if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let image = UIImage(named: imageData) {
+        } else {
+            if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let background = Background(rawValue: imageData) {
                 backgroundImage.backgroundColor = .none
-                backgroundImage.image = image
+                backgroundImage.image = UIImage(named: background.assetName)
             } else {
-                backgroundImage = UIImageView(image: UIImage(named: "placeholder"))
+                backgroundImage.image = UIImage(named: "placeholder")
             }
         }
     }

@@ -287,7 +287,7 @@
 				7FA86EF1252C6D7000DE88F1 /* Chat */,
 				F7CDC521252341220039DBE4 /* Edit user details */,
 				3CBA8D392535DBD8007502CC /* Settings */,
-				FA9FE15C253A2D9300B0B780 /* CollectionColor */,
+				FA9FE15C253A2D9300B0B780 /* Background */,
 				F7B7940A2535B79F00248E75 /* Nav */,
 			);
 			path = Scenes;
@@ -370,7 +370,7 @@
 			path = LocalizableStrings;
 			sourceTree = "<group>";
 		};
-		FA9FE15C253A2D9300B0B780 /* CollectionColor */ = {
+		FA9FE15C253A2D9300B0B780 /* Background */ = {
 			isa = PBXGroup;
 			children = (
 				FAAC8324253DE0840019FE9B /* BackgroundsCoordinator.swift */,
@@ -378,7 +378,7 @@
 				FA9FE15F253A2DCB00B0B780 /* BackgroundsViewController.xib */,
 				FA9FE15D253A2D9B00B0B780 /* BackgroundCell */,
 			);
-			path = CollectionColor;
+			path = Background;
 			sourceTree = "<group>";
 		};
 		FA9FE15D253A2D9B00B0B780 /* BackgroundCell */ = {

@@ -58,13 +58,13 @@ extension SettingsCoordinator: settingsActionDelegate {
         let alertController = UIAlertController(title: NSLocalizedString("settings_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
 
         let goToBackgrounds = UIAlertAction(title: NSLocalizedString("settings_messages.alertSelect.changeBg", comment: ""), style: .default) { _ in
-            let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: 1)
+            let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: .image)
             backgroundsCoordinator.start()
             self.childCoordinators.append(backgroundsCoordinator)
         }
 
         let goToColors = UIAlertAction(title: NSLocalizedString("settings_messages.alertSelect.changeColor", comment: ""), style: .default) {_ in
-            let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: 2)
+            let backgroundsCoordinator = BackgroundsCoordinator(presenter: self.viewController, number: .color)
             backgroundsCoordinator.start()
             self.childCoordinators.append(backgroundsCoordinator)
         }

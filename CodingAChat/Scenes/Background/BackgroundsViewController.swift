@@ -8,17 +8,22 @@
 
 import UIKit
 
+enum BackgroundType {
+    case image
+    case color
+}
+
 protocol ColorsViewActionDelegate: class {
-    func changeBg(withSelected selected: Int, withIndexPath indexPath: IndexPath)
+    func changeBg(withSelected selected: BackgroundType, withIndexPath indexPath: IndexPath)
 }
 
 class BackgroundsViewController: UIViewController {
     
     weak var delegate: ColorsViewActionDelegate?
-    let selected: Int
+    let selected: BackgroundType
     @IBOutlet weak var collectionView: UICollectionView!
 
-    init(selected: Int) {
+    init(selected: BackgroundType) {
         self.selected = selected
         super.init(nibName: nil, bundle: nil)
 
@@ -42,8 +47,8 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        if selected == 1 {
-            return Sfondi.allCases.count
+        if selected == .image {
+            return Background.allCases.count
         } else {
             return ColorBg.allCases.count
         }
@@ -55,11 +60,11 @@ extension BackgroundsViewController: UICollectionViewDataSource, UICollectionVie
             
             fatalError("Wrong cell type")
         }
-        if selected == 1 {
-            cell.configure(bground: Sfondi.allCases[indexPath.item].rawValue)
+        if selected == .image {
+            cell.configure(bground: Background.allCases[indexPath.item])
             return cell
         } else {
-            cell.configure(color: ColorBg.allCases[indexPath.item].rawValue)
+            cell.configure(color: ColorBg.allCases[indexPath.item])
             return cell
         }
     }

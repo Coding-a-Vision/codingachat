@@ -14,9 +14,9 @@ class BackgroundsCoordinator: Coordinator {
     let navigator: UINavigationController
     let viewController: BackgroundsViewController
     private let presenter: UIViewController
-    private let number: Int
+    private let number: BackgroundType
     
-    init(presenter: UIViewController, number: Int) {
+    init(presenter: UIViewController, number: BackgroundType) {
         self.presenter = presenter
         self.number = number
         self.viewController = BackgroundsViewController(selected: number)
@@ -31,14 +31,14 @@ class BackgroundsCoordinator: Coordinator {
 
 extension BackgroundsCoordinator: ColorsViewActionDelegate {
 
-    func changeBg(withSelected selected: Int, withIndexPath indexPath: IndexPath) {
+    func changeBg(withSelected selected: BackgroundType, withIndexPath indexPath: IndexPath) {
 
         let alertController = UIAlertController(title: NSLocalizedString("background_messages.alertSelect.tile", comment: ""), message: "", preferredStyle: .actionSheet)
 
         let yes = UIAlertAction(title: NSLocalizedString("genercis.yes", comment: ""), style: .default) { [weak self] _ in
             UserDefaults.standard.removeObject(forKey: Constants.userDefaultBackgroundImage)
-            if selected == 1 {
-                UserDefaults.standard.set(Sfondi.allCases[indexPath.item].rawValue, forKey: Constants.userDefaultBackgroundImage)
+            if selected == .image {
+                UserDefaults.standard.set(Background.allCases[indexPath.item].rawValue, forKey: Constants.userDefaultBackgroundImage)
             } else {
                 UserDefaults.standard.set(ColorBg.allCases[indexPath.item].rawValue, forKey: Constants.userDefaultBackgroundImage)
             }
