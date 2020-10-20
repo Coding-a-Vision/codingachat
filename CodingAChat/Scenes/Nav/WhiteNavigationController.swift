@@ -15,5 +15,6 @@ class WhiteNavigationController: UINavigationController {
         navigationBar.barTintColor = UIColor.systemBackground
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
         navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = false
     }
 }

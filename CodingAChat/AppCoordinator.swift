@@ -38,9 +38,15 @@ class AppCoordinator: Coordinator {
             childCoordinators.append(loginCoordinator)
         }
     }
+    
     func goToChannel(_ channel: Channel) {
         
         guard let user = Auth.auth().currentUser, let presenter = UIApplication.topViewController() else { return }
+        
+        // Prevent push if already in chatViewController and in the same channel
+        if let chatViewController = presenter as? ChatViewController, chatViewController.channel.id == channel.id {
+            return
+        }
         
         let chatCoordinator = ChatCoordinator(presenter: presenter, channel: channel, user: user)
         chatCoordinator.start()
