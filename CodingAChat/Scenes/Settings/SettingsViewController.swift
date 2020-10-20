@@ -11,6 +11,7 @@ import UIKit
 protocol settingsActionDelegate: class {
     func contactUs()
     func logout()
+    func goToBg()
 }
 
 class SettingsViewController: UIViewController {
@@ -19,21 +20,30 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     var userDefault = UserDefaults.standard
-    let TAG = "BACKGROUND_IMAGE"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Settings"
         loadBackgroundImage()
+        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Constants.userDefaultChangedColor), object: nil, queue: nil) { [weak self] _ in
+            self?.loadBackgroundImage()
+        }
         versionLabel.text = versionString
     }
     
     func loadBackgroundImage() {
-        if let imageData = UserDefaults.standard.object(forKey: TAG) as? Data,
-            let image = UIImage(data: imageData) {
-            backgroundImage.image=image
+        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = ColorBg(rawValue: imageData) {
+            backgroundImage.backgroundColor = color.color
+            backgroundImage.image = .none
+        } else {
+            if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let background = Background(rawValue: imageData) {
+                backgroundImage.backgroundColor = .none
+                backgroundImage.image = UIImage(named: background.assetName)
+            } else {
+                backgroundImage.image = UIImage(named: "placeholder")
+            }
         }
     }
-    
     var versionString: String? {
         
         guard
@@ -53,31 +63,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func changeBackgroundImage(_ sender: Any) {
-        
-        let alertController = UIAlertController(title: NSLocalizedString("generics_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
-        
-        let cameraAction = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.camera", comment: ""), style: .default) { _ in
-            
-            self.showPicker(with: .camera)
-        }
-        
-        let gallery = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
-            
-            self.showPicker(with: .photoLibrary)
-        }
-        
-        let saved = UIAlertAction(title: NSLocalizedString("generics_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
-            
-            self.showPicker(with: .savedPhotosAlbum)
-        }
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alertController.addAction(cameraAction)
-        }
-        
-        alertController.addAction(gallery)
-        alertController.addAction(saved)
-        present(alertController, animated: true, completion: nil)
+        delegate?.goToBg()
     }
     
     func showPicker(with source: UIImagePickerController.SourceType) {
@@ -96,7 +82,7 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
         guard let image = info[.editedImage] as? UIImage else { return }
         backgroundImage.image = image
         let imagepng = image.pngData()
-        userDefault.set(imagepng, forKey: TAG)
+        userDefault.set(imagepng, forKey: Constants.userDefaultBackgroundImage)
         dismiss(animated: true, completion: nil)
     }
     

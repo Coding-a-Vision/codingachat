@@ -7,22 +7,32 @@
 */
 
 // MARK: -- LOGIN
-"generics_messages.email.textfield.placeholder" = "Indirizzo Email";
-"generics_messages.password.textfield.placeholder" = "Password";
-"generics_messages.button.login.title" = "Accedi";
-"generics_messages.notregistered.label.title" = "Non sei ancora registrato?";
-"generics_messages.button.signup.title" = "Registrati ora";
-"genercis_messages.error.completeFields" = "Per piacere completa tutti i campi"; //Anche in EditDetails
+"login_messages.email.textfield.placeholder" = "Indirizzo Email";
+"login_messages.password.textfield.placeholder" = "Password";
+"login_messages.button.login.title" = "Accedi";
+"login_messages.notregistered.label.title" = "Non sei ancora registrato?";
+"login_messages.button.signup.title" = "Registrati ora";
+"login_messages.error.completeFields" = "Per piacere completa tutti i campi"; //Anche in EditDetails
 // MARK: -- HOME
-"generics_messages.home.tile" = "Home";
+"home_messages.tile" = "Home";
 
 // MARK: --EDIT
-"generics_messages.saveButton.title" = "Salva";
-"generics_messages.displayNameTextField.text" = "Nome mostrato";
-"generics_messages.alertSelect.title" = "Seleziona la sorgente";
-"generics_messages.alertSelect.camera" = "Camera";
-"generics_messages.alertSelect.gallery" = "Galleria";
-"generics_messages.alertSelect.savedInAlbum" = "Foto salvate in Album";
+"edit_messages.saveButton.title" = "Salva";
+"edit_messages.displayNameTextField.text" = "Nome mostrato";
+"edit_messages.alertSelect.title" = "Seleziona la sorgente"; //Anche in Chat
+"edit_messages.alertSelect.camera" = "Camera"; //Anche in Chat
+"edit_messages.alertSelect.gallery" = "Galleria"; //Anche in Chat
+"edit_messages.alertSelect.savedInAlbum" = "Foto salvate in Album"; //Anche in Chat
+
+// MARK: --SETTINGS
+"settings_messages.alertSelect.title" = "Con cosa vuoi sostituire lo sfondo?";
+"settings_messages.alertSelect.changeBg" = "Sfondi";
+"settings_messages.alertSelect.changeColor" = "Colori tinta unica";
+
+// MARK: --BACKGROUND
+"background_messages.alertSelect.tile" = "Vuoi sostituire lo sfondo attuale con questo?";
 
 // MARK: --GENERICS
 "generics.hud.wait" = "Attendere...";
+"generics.cancel" = "Annulla";
+"genercis.yes" = "Si";

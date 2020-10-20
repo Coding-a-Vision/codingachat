@@ -50,7 +50,7 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-       
+        buildBackground()
         messageInputBar.delegate = self
         setSendButtonAppearance(text: "")
         messageInputBar.sendButton.isEnabled = true
@@ -89,24 +89,24 @@ class ChatViewController: MessagesViewController {
     
     func sendImage() {
         
-        let alertController = UIAlertController(title: "Seleziona la sorgente", message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("edit_messages.alertSelect.title", comment: ""), message: "", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+        let cameraAction = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.camera", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .camera)
         }
         
-        let gallery = UIAlertAction(title: "Gallery", style: .default) { _ in
+        let gallery = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.gallery", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .photoLibrary)
         }
         
-        let saved = UIAlertAction(title: "Saved photo album", style: .default) { _ in
+        let saved = UIAlertAction(title: NSLocalizedString("edit_messages.alertSelect.savedInAlbum", comment: ""), style: .default) { _ in
             
             self.showPicker(with: .savedPhotosAlbum)
         }
     
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("generics.cancel", comment: ""), style: .cancel, handler: nil)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             alertController.addAction(cameraAction)
@@ -118,7 +118,20 @@ class ChatViewController: MessagesViewController {
         present(alertController, animated: true, completion: nil)
         
     }
-    
+
+    private func buildBackground() {
+        if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let color = ColorBg(rawValue: imageData) {
+            messagesCollectionView.backgroundColor = color.color
+        } else {
+            if let imageData = UserDefaults.standard.object(forKey: Constants.userDefaultBackgroundImage) as? String, let background = Background(rawValue: imageData) {
+                let imageview = UIImageView(image: UIImage(named: background.assetName))
+                messagesCollectionView.backgroundView = imageview
+            } else {
+                messagesCollectionView.backgroundView?.backgroundColor = .none
+            }
+        }
+    }
+
     private func setSendButtonAppearance(text: String) {
         if text.isEmpty {
             messageInputBar.sendButton.image = UIImage(systemName: "camera.fill")
