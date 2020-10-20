@@ -11,6 +11,7 @@ import Foundation
 enum AnalyticsEvent: String {
     case login = "signin"
     case join
+    case logout
     case changeUserData = "change_user_data"
 }
 

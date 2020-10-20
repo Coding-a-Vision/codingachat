@@ -13,9 +13,11 @@ class SettingsCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     private let viewController: SettingsViewController
     private let presenter: UIViewController
+    private let tracker : Trackable
     
-    init(presenter: UIViewController) {
+    init(presenter: UIViewController, tracker : Trackable) {
         self.presenter = presenter
+        self.tracker=tracker
         viewController = SettingsViewController()
     }
     
@@ -47,6 +49,8 @@ extension SettingsCoordinator: settingsActionDelegate {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            tracker.track(withName: .logout, parameters: nil)
+            
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }

@@ -36,7 +36,7 @@ class HomeCoordinator: Coordinator {
 extension HomeCoordinator: HomeViewControllerDelegate {
     
     func onSettings() { 
-        let settingCoordinator = SettingsCoordinator(presenter: homeViewController)
+        let settingCoordinator = SettingsCoordinator(presenter: homeViewController, tracker: tracker)
         settingCoordinator.start()
         childCoordinators.append(settingCoordinator)
     }
