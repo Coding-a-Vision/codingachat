@@ -12,6 +12,7 @@ import FirebaseAuth
 import InputBarAccessoryView
 import AVFoundation
 import FirebaseMessaging
+import PromiseKit
 
 protocol ChatViewControllerDelegate: class {
     func sendMessage(message: String?, url: URL?, type: Type)
@@ -24,6 +25,7 @@ class ChatViewController: MessagesViewController {
     weak var delegate: ChatViewControllerDelegate?
     private var messages: [Message] = []
     private let user: User
+    let storage = FirebaseStorageServices()
     
     private var sortedMessages: [Message] {
         return messages.sorted { (m1, m2) -> Bool in
@@ -179,9 +181,14 @@ extension ChatViewController: MessagesDisplayDelegate {
         
         guard let message = message as? Message else { return }
         
-        if let urlString = message.userPictureUrl, let url = URL(string: urlString) {
-            avatarView.kf.setImage(with: url)
-        } else {
+        let userId = message.author.senderId
+        let imageName = "\(userId).jpg"
+        
+        firstly {
+            storage.donwloadImage(imageName)
+        }.done { image in
+            avatarView.image = image
+        }.catch { _ in
             avatarView.initials = String(message.author.displayName.prefix(2))
         }
     }

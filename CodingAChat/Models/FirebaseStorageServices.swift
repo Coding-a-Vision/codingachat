@@ -12,6 +12,12 @@ import FirebaseStorage
 
 class FirebaseStorageServices {
     
+    private let cache: Cacheable
+    
+    init(cache: Cacheable = KingfisherCacheServices()) {
+        self.cache = cache
+    }
+    
     func uploadImage(_ imageData: Data, imageName: String) -> Promise<URL> {
         
         return Promise<URL> { seal in
@@ -35,6 +41,38 @@ class FirebaseStorageServices {
                         seal.fulfill(url)
                     } else if let error = error {
                         seal.reject(error)
+                    }
+                }
+            }
+        }
+    }
+    
+    func donwloadImage(_ name: String) -> Promise<UIImage> {
+        
+        return Promise<UIImage> { seal in
+            
+            if cache.isImageCached(for: name) {
+                
+                cache.getImage(for: name) { res, err in
+                    
+                    if let res = res {
+                        seal.fulfill(res)
+                    } else if let err = err {
+                        seal.reject(err)
+                    }
+                }
+            } else {
+                let storage = Storage.storage()
+                
+                // Create a reference with an initial file path and name
+                let pathReference = storage.reference(withPath: name)
+                
+                pathReference.getData(maxSize: 10 * 1024 * 1024) { [weak self] data, error in
+                    if let error = error {
+                        seal.reject(error)
+                    } else if let data = data, let image = UIImage(data: data) {
+                        seal.fulfill(image)
+                        self?.cache.store(image: image, forKey: name)
                     }
                 }
             }

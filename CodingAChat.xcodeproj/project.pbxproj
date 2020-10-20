@@ -46,6 +46,7 @@
 		F7CDC524252341420039DBE4 /* EditDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC523252341420039DBE4 /* EditDetailsCoordinator.swift */; };
 		F7CDC528252341540039DBE4 /* EditDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDC526252341540039DBE4 /* EditDetailsViewController.swift */; };
 		F7CDC529252341540039DBE4 /* EditDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */; };
+		F7DF01CD253EE64400270660 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DF01CC253EE64400270660 /* Cache.swift */; };
 		FA263A29253B36B900593A29 /* String+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263A28253B36B900593A29 /* String+color.swift */; };
 		FA263A2C253B567300593A29 /* Backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263A2B253B567300593A29 /* Backgrounds.swift */; };
 		FA9BAE052534BF3300FE19EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9BAE072534BF3300FE19EF /* Localizable.strings */; };
@@ -101,6 +102,7 @@
 		F7CDC523252341420039DBE4 /* EditDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailsCoordinator.swift; sourceTree = "<group>"; };
 		F7CDC526252341540039DBE4 /* EditDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailsViewController.swift; sourceTree = "<group>"; };
 		F7CDC527252341540039DBE4 /* EditDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDetailsViewController.xib; sourceTree = "<group>"; };
+		F7DF01CC253EE64400270660 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		FA263A28253B36B900593A29 /* String+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+color.swift"; sourceTree = "<group>"; };
 		FA263A2B253B567300593A29 /* Backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backgrounds.swift; sourceTree = "<group>"; };
 		FA9BAE062534BF3300FE19EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				F7B793F92535ACA200248E75 /* Trackable.swift */,
 				F7B793FC2535AD2C00248E75 /* AnalyticsTracker.swift */,
 				F7B794032535B14B00248E75 /* FakeTracker.swift */,
+				F7DF01CC253EE64400270660 /* Cache.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				FA263A29253B36B900593A29 /* String+color.swift in Sources */,
 				3CBA8D3B2535DC08007502CC /* SettingsCoordinator.swift in Sources */,
 				7FE50D432530A37800B96C30 /* CustomTextField.swift in Sources */,
+				F7DF01CD253EE64400270660 /* Cache.swift in Sources */,
 				FAAC8325253DE0840019FE9B /* BackgroundsCoordinator.swift in Sources */,
 				7F0E25B7253448B000CD2B5B /* UIAlertController+show.swift in Sources */,
 				F7B793FA2535ACA200248E75 /* Trackable.swift in Sources */,
