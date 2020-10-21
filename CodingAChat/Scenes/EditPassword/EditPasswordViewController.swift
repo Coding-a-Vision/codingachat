@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol EditPasswordViewControllerDelegate: class {
+    func changePassword(password: String)
+}
+
 class EditPasswordViewController: UIViewController {
 
     @IBOutlet weak var oldPasswordTextField: CustomTextField!
     @IBOutlet weak var newPasswordTextField: CustomTextField!
     @IBOutlet weak var confirmPasswordTextField: CustomTextField!
+    
+    weak var delegate: EditPasswordViewControllerDelegate?
     
     @IBAction func saveNewPassword(_ sender: Any) {
         guard let oldPassword = oldPasswordTextField.text, !oldPassword.isEmpty, let newPassword = newPasswordTextField.text, !newPassword.isEmpty, let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty else {
@@ -29,6 +35,7 @@ class EditPasswordViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
+        delegate?.changePassword(password: newPassword)
     }
     
     override func viewDidLoad() {
