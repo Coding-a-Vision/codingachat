@@ -10,6 +10,27 @@ import UIKit
 
 class EditPasswordViewController: UIViewController {
 
+    @IBOutlet weak var oldPasswordTextField: CustomTextField!
+    @IBOutlet weak var newPasswordTextField: CustomTextField!
+    @IBOutlet weak var confirmPasswordTextField: CustomTextField!
+    
+    @IBAction func saveNewPassword(_ sender: Any) {
+        guard let oldPassword = oldPasswordTextField.text, !oldPassword.isEmpty, let newPassword = newPasswordTextField.text, !newPassword.isEmpty, let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty else {
+            // TO DO: Use extension for alerts
+            let alert = UIAlertController(title: "Error", message: "login_messages.error.completeFields".localized, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        guard newPassword == confirmPassword else {
+            // TO DO: Use extension for alerts
+            let alert = UIAlertController(title: "Error", message: "edit_password.error.notMatchingPasswords".localized, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -29,6 +29,9 @@
 "settings_messages.alertSelect.changeBg" = "Sfondi";
 "settings_messages.alertSelect.changeColor" = "Colori tinta unica";
 
+// MARK: --EDIT PASSWORD
+"edit_password.error.notMatchingPasswords" = "Le password non corrispondono";
+
 // MARK: --BACKGROUND
 "background_messages.alertSelect.tile" = "Vuoi sostituire lo sfondo attuale con questo?";
 

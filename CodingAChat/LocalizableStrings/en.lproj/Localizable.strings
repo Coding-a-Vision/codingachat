@@ -29,6 +29,9 @@
 "settings_messages.alertSelect.changeBg" = "Wallpaper";
 "settings_messages.alertSelect.changeColor" = "Colors";
 
+// MARK: --EDIT PASSWORD
+"edit_password.error.notMatchingPasswords" = "Passwords not matching";
+
 // MARK: --BACKGROUND
 "background_messages.alertSelect.tile" = "Do you want to replace it with this?";
 
