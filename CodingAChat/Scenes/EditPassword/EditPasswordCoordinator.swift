@@ -34,12 +34,25 @@ extension EditPasswordCoordinator: EditPasswordViewControllerDelegate {
         user.updatePassword(to: password) { [weak self] (error) in
             if let _ = error {
                 let alert = UIAlertController(title: "Error", message: "Do login again to change password", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                    self?.logout()
+                }))
                 self?.editPasswordViewController.present(alert, animated: true, completion: nil)
             } else {
                 // Success: go back
                 self?.presenter.navigationController?.popViewController(animated: true)
             }
         }
+    }
+    
+    func logout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        delegate.coordinator?.start()
     }
 }
