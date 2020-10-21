@@ -37,10 +37,34 @@ class HomeViewController: UIViewController {
         
         let channelCardNib = UINib(nibName: Constants.homeChannelViewNib, bundle: nil)
         collectionView.register(channelCardNib, forCellWithReuseIdentifier: Constants.homeChannelIdentifier)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addTapped))
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        delegate?.fetchData()
+    @objc func addTapped(sender: UIBarButtonItem) {
+        
+        let alertController = UIAlertController(title: "Create a new channel", message: "", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter Channel's name"
+        }
+        
+        let yes = UIAlertAction(title: "Yes", style: .default) { _ in
+            print("yes, it is \(String(describing: alertController.textFields))")
+        }
+        
+        let not = UIAlertAction(title: "No", style: .default) { _ in
+            print("not")
+        }
+        
+        alertController.addAction(yes)
+        alertController.addAction(not)
+        present(alertController, animated: true, completion: nil)
     }
+
+
+override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    delegate?.fetchData()
+}
 }
