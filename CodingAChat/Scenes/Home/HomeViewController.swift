@@ -13,6 +13,7 @@ protocol HomeViewControllerDelegate: class {
     func onSettings()
     func fetchData()
     func channelJoin(selectedChannel: Channel)
+    func addChannel(channel: String)
 }
 
 class HomeViewController: UIViewController {
@@ -38,7 +39,7 @@ class HomeViewController: UIViewController {
         let channelCardNib = UINib(nibName: Constants.homeChannelViewNib, bundle: nil)
         collectionView.register(channelCardNib, forCellWithReuseIdentifier: Constants.homeChannelIdentifier)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
     }
     
     @objc func addTapped(sender: UIBarButtonItem) {
@@ -49,16 +50,20 @@ class HomeViewController: UIViewController {
             textField.placeholder = "Enter Channel's name"
         }
         
-        let yes = UIAlertAction(title: "Yes", style: .default) { _ in
-            print("yes, it is \(String(describing: alertController.textFields))")
+        let yes = UIAlertAction(title: "Create", style: .default) { [weak self] _ in
+            
+            if let channelName = alertController.textFields?.first?.text {
+                
+                self?.delegate?.addChannel(channel: channelName)
+            }
         }
         
-        let not = UIAlertAction(title: "No", style: .default) { _ in
+        let not = UIAlertAction(title: "Cancel", style: .destructive) { _ in
             print("not")
         }
         
-        alertController.addAction(yes)
         alertController.addAction(not)
+        alertController.addAction(yes)
         present(alertController, animated: true, completion: nil)
     }
 
