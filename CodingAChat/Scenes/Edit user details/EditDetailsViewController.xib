@@ -131,6 +131,9 @@
                                     <integer key="value" value="9"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="changePasswordAction:" destination="-1" eventType="touchUpInside" id="0ho-S8-DAF"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

@@ -12,6 +12,7 @@ import Kingfisher
 
 protocol EditDetailsViewControllerDelegate: class {
     func userDidSaveInfo(withDisplayName displayName: String, andImage image: UIImage)
+    func goToEditPassword()
 }
 
 class EditDetailsViewController: UIViewController {
@@ -89,6 +90,11 @@ class EditDetailsViewController: UIViewController {
         }
         
         delegate?.userDidSaveInfo(withDisplayName: displayName, andImage: image)
+    }
+    
+    
+    @IBAction func changePasswordAction(_ sender: Any) {
+        delegate?.goToEditPassword()
     }
     
     private func buildUI() {

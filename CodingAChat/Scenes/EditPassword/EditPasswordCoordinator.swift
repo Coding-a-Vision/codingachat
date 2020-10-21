@@ -9,9 +9,17 @@
 import UIKit
 
 class EditPasswordCoordinator: Coordinator {
+    
     var childCoordinators: [Coordinator] = []
+    let presenter: UIViewController
+    let editPasswordViewController: UIViewController
+    
+    init(presenter: UIViewController) {
+        self.presenter = presenter
+        self.editPasswordViewController = EditPasswordViewController()
+    }
     
     func start() {
-        <#code#>
+        presenter.navigationController?.pushViewController(editPasswordViewController, animated: true)
     }
 }
