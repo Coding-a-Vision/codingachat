@@ -17,8 +17,8 @@
 "home_messages.tile" = "Home";
 
 // MARK: --EDIT
-"edit_messages.saveButton.title" = "Save";
-"edit_messages.displayNameTextField.text" = "Display name";
+"edit_messages.saveButton.title" = "Save changes";
+"edit_messages.displayNameTextField.text" = "DISPLAY NAME";
 "edit_messages.alertSelect.title" = "Select the source"; //Chat Too
 "edit_messages.alertSelect.camera" = "Camera"; //Chat Too
 "edit_messages.alertSelect.gallery" = "Gallery"; //Chat Too

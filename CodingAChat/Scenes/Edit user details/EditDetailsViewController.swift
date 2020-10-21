@@ -16,6 +16,7 @@ protocol EditDetailsViewControllerDelegate: class {
 
 class EditDetailsViewController: UIViewController {
     
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var userPictureImageView: UIImageView!
@@ -38,9 +39,7 @@ class EditDetailsViewController: UIViewController {
         buildUI()
         self.displayNameTextField.text = user.displayName
         userPictureImageView.kf.setImage(with: user.photoURL)
-        
-        userPictureImageView.layer.borderWidth = 2
-        userPictureImageView.layer.borderColor = UIColor.red.cgColor
+        self.emailLabel.text = user.email
     }
     
     @IBAction func pickImage() {
