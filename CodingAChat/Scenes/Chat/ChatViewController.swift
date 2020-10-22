@@ -56,7 +56,7 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         setSendButtonAppearance(text: "")
         messageInputBar.sendButton.isEnabled = true
-        
+        messageInputBar.tintColor = UIColor(named: "buttonsColor")
         setNotificationIcon()
     }
     
@@ -67,7 +67,9 @@ class ChatViewController: MessagesViewController {
         let image = isActive ? "bell.fill" : "bell.slash.fill"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: image), style: .plain, target: self, action: #selector(toggleNotifications))
+        
     }
+    
     
     @objc
     func toggleNotifications() {
