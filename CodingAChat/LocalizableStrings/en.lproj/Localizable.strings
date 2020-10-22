@@ -31,6 +31,7 @@
 
 // MARK: --EDIT PASSWORD
 "edit_password.error.notMatchingPasswords" = "Passwords not matching";
+"edit_password.error.doLoginAgain" = "Do login again to change password";
 
 // MARK: --BACKGROUND
 "background_messages.alertSelect.tile" = "Do you want to replace it with this?";
@@ -39,3 +40,5 @@
 "generics.hud.wait" = "Wait...";
 "generics.cancel" = "Cancel";
 "genercis.yes" = "Yes";
+"generics.error" = "Error";
+"generics.ok" = "OK";

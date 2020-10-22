@@ -40,7 +40,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         
         guard let data = image.jpegData(compressionQuality: 0.8) else { return }
         
-        UIViewController.showHUD(message: "Wait...")
+        UIViewController.showHUD(message: "generics.hud.wait".localized)
         
         let storage = FirebaseStorageServices()
         
@@ -79,7 +79,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
     }
     
     func goToEditPassword() {
-        let editPasswordCoordinator = EditPasswordCoordinator(presenter: viewController, user: user)
+        let editPasswordCoordinator = EditPasswordCoordinator(presenter: viewController, user: user, tracker : tracker)
         editPasswordCoordinator.start()
         childCoordinators.append(editPasswordCoordinator)
     }
