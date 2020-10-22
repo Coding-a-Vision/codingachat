@@ -54,6 +54,12 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         childCoordinators.append(editCoordinator)
     }
     
+    func addChannel(channel: String) {
+        
+        let db = Firestore.firestore()
+        db.collection("channels").addDocument(data: ["name" : channel])
+    }
+    
     func fetchData() {
         let db = Firestore.firestore()
         db.collection("channels").addSnapshotListener { [weak self] (querySnapshot, err) in
