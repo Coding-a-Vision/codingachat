@@ -32,6 +32,11 @@
 // MARK: --EDIT PASSWORD
 "edit_password.error.notMatchingPasswords" = "Le password non corrispondono";
 "edit_password.error.doLoginAgain" = "Rieffettua il login per cambiare password";
+"edit.password.oldPassword" = "VECCHIA PASSWORD";
+"edit.password.newPassword" = "NUOVA PASSWORD";
+"edit.password.confirmPassword" = "CONFERMA NUOVA PASSWORD";
+"edit.password.changePassword" = "Cambia password";
+"edit_messages.accountSettings" = "Impostazioni account";
 
 // MARK: --BACKGROUND
 "background_messages.alertSelect.tile" = "Vuoi sostituire lo sfondo attuale con questo?";

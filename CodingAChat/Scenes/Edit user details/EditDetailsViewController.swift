@@ -22,6 +22,8 @@ class EditDetailsViewController: UIViewController {
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var userPictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBOutlet weak var accountSettingsLabel: UILabel!
     
     weak var delegate: EditDetailsViewControllerDelegate?
     private let user: User
@@ -98,8 +100,10 @@ class EditDetailsViewController: UIViewController {
     }
     
     private func buildUI() {
-        self.saveButton.setTitle(NSLocalizedString("edit_messages.saveButton.title", comment: ""), for: .normal)
-        self.displayNameLabel.text = NSLocalizedString("edit_messages.displayNameTextField.text", comment: "")
+        self.changePasswordButton.setTitle("edit.password.changePassword".localized, for: .normal)
+        self.saveButton.setTitle("edit_messages.saveButton.title".localized, for: .normal)
+        self.displayNameLabel.text = "edit_messages.displayNameTextField.text".localized
+        self.accountSettingsLabel.text = "edit_messages.accountSettings".localized
     }
 }
 
