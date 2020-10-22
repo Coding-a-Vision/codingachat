@@ -72,9 +72,8 @@ extension SettingsCoordinator: settingsActionDelegate {
             backgroundsCoordinator.start()
             self.childCoordinators.append(backgroundsCoordinator)
         }
-
         let cancel = UIAlertAction(title: NSLocalizedString("generics.cancel", comment: ""), style: .cancel, handler: nil)
-        
+
         alertController.addAction(goToBackgrounds)
         alertController.addAction(goToColors)
         alertController.addAction(cancel)

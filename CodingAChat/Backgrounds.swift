@@ -9,6 +9,7 @@
 import UIKit
 
 enum ColorBg: String, CaseIterable {
+    case none
     case black
     case darkGray
     case lightGray
@@ -27,6 +28,8 @@ enum ColorBg: String, CaseIterable {
     var color: UIColor {
         
         switch self {
+        case .none:
+            return UIColor.systemBackground
         case .blue:
             return UIColor.blue
         case .black:

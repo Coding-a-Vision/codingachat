@@ -20,7 +20,9 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(color: ColorBg) {
         self.name.text = color.rawValue.uppercased()
         self.imagebg.backgroundColor = color.color
-        self.name.textColor = color == .black ? .white : .black
+        if color == .none {
+            self.name.textColor = .secondarySystemFill 
+        } else { self.name.textColor = color == .black ? .white : .black }
         buildUI()
     }
 

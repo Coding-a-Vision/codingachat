@@ -129,7 +129,7 @@ class ChatViewController: MessagesViewController {
                 let imageview = UIImageView(image: UIImage(named: background.assetName))
                 messagesCollectionView.backgroundView = imageview
             } else {
-                messagesCollectionView.backgroundView?.backgroundColor = .none
+                messagesCollectionView.backgroundView?.backgroundColor = .systemBackground
             }
         }
     }
