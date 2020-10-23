@@ -79,7 +79,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
     }
     
     func goToEditPassword() {
-        let editPasswordCoordinator = EditPasswordCoordinator(presenter: viewController, user: user, tracker : tracker)
+        let editPasswordCoordinator = EditPasswordCoordinator(presenter: viewController, user: user)
         editPasswordCoordinator.start()
         childCoordinators.append(editPasswordCoordinator)
     }
