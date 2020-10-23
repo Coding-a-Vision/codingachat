@@ -12,14 +12,18 @@ import Kingfisher
 
 protocol EditDetailsViewControllerDelegate: class {
     func userDidSaveInfo(withDisplayName displayName: String, andImage image: UIImage)
+    func goToEditPassword()
 }
 
 class EditDetailsViewController: UIViewController {
     
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var userPictureImageView: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBOutlet weak var accountSettingsLabel: UILabel!
     
     weak var delegate: EditDetailsViewControllerDelegate?
     private let user: User
@@ -38,9 +42,7 @@ class EditDetailsViewController: UIViewController {
         buildUI()
         self.displayNameTextField.text = user.displayName
         userPictureImageView.kf.setImage(with: user.photoURL)
-        
-        userPictureImageView.layer.borderWidth = 2
-        userPictureImageView.layer.borderColor = UIColor.red.cgColor
+        self.emailLabel.text = user.email
     }
     
     @IBAction func pickImage() {
@@ -92,9 +94,16 @@ class EditDetailsViewController: UIViewController {
         delegate?.userDidSaveInfo(withDisplayName: displayName, andImage: image)
     }
     
+    
+    @IBAction func changePasswordAction(_ sender: Any) {
+        delegate?.goToEditPassword()
+    }
+    
     private func buildUI() {
-        self.saveButton.setTitle(NSLocalizedString("edit_messages.saveButton.title", comment: ""), for: .normal)
-        self.displayNameLabel.text = NSLocalizedString("edit_messages.displayNameTextField.text", comment: "")
+        self.changePasswordButton.setTitle("edit.password.changePassword".localized, for: .normal)
+        self.saveButton.setTitle("edit_messages.saveButton.title".localized, for: .normal)
+        self.displayNameLabel.text = "edit_messages.displayNameTextField.text".localized
+        self.accountSettingsLabel.text = "edit_messages.accountSettings".localized
     }
 }
 

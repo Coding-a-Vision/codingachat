@@ -17,8 +17,8 @@
 "home_messages.tile" = "Home";
 
 // MARK: --EDIT
-"edit_messages.saveButton.title" = "Salva";
-"edit_messages.displayNameTextField.text" = "Nome mostrato";
+"edit_messages.saveButton.title" = "Salva cambiamenti";
+"edit_messages.displayNameTextField.text" = "NOME VISUALIZZATO";
 "edit_messages.alertSelect.title" = "Seleziona la sorgente"; //Anche in Chat
 "edit_messages.alertSelect.camera" = "Camera"; //Anche in Chat
 "edit_messages.alertSelect.gallery" = "Galleria"; //Anche in Chat
@@ -29,6 +29,15 @@
 "settings_messages.alertSelect.changeBg" = "Sfondi";
 "settings_messages.alertSelect.changeColor" = "Colori tinta unica";
 
+// MARK: --EDIT PASSWORD
+"edit_password.error.notMatchingPasswords" = "Le password non corrispondono";
+"edit_password.error.doLoginAgain" = "Rieffettua il login per cambiare password";
+"edit.password.oldPassword" = "VECCHIA PASSWORD";
+"edit.password.newPassword" = "NUOVA PASSWORD";
+"edit.password.confirmPassword" = "CONFERMA NUOVA PASSWORD";
+"edit.password.changePassword" = "Cambia password";
+"edit_messages.accountSettings" = "Impostazioni account";
+
 // MARK: --BACKGROUND
 "background_messages.alertSelect.tile" = "Vuoi sostituire lo sfondo attuale con questo?";
 
@@ -36,3 +45,5 @@
 "generics.hud.wait" = "Attendere...";
 "generics.cancel" = "Annulla";
 "genercis.yes" = "Si";
+"generics.error" = "Errore";
+"generics.ok" = "OK";

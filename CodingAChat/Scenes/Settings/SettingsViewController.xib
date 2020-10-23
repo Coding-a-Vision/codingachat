@@ -19,20 +19,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjI-7l-3Be">
-                    <rect key="frame" x="0.0" y="769" width="414" height="61"/>
-                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="61" id="EyB-MF-qde"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                    <state key="normal" title="Logout">
-                        <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="logoutButton:" destination="-1" eventType="touchUpInside" id="tWS-yj-5oi"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeT-sb-iBa">
                     <rect key="frame" x="87" y="286" width="240" height="241"/>
                     <constraints>
@@ -52,18 +38,6 @@
                         <constraint firstAttribute="height" constant="298" id="o0j-iE-tTO"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wm9-wn-JCF">
-                    <rect key="frame" x="124" y="665" width="166" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.063071869310000001" green="0.42130285499999998" blue="0.088638402520000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="tintColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="   Contact us" image="envelope" catalog="system">
-                        <color key="titleColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="contactUsButton:" destination="-1" eventType="touchUpInside" id="DJ6-yH-HJ5"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sfondo Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeV-Ca-KvF">
                     <rect key="frame" x="20" y="216" width="374" height="33"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
@@ -82,26 +56,58 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjI-7l-3Be">
+                    <rect key="frame" x="0.0" y="736" width="414" height="61"/>
+                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="EyB-MF-qde"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="logoutButton:" destination="-1" eventType="touchUpInside" id="tWS-yj-5oi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wm9-wn-JCF">
+                    <rect key="frame" x="124" y="643" width="166" height="55"/>
+                    <color key="backgroundColor" red="0.063071869310000001" green="0.42130285499999998" blue="0.088638402520000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="166" id="kSJ-LQ-YD7"/>
+                        <constraint firstAttribute="height" constant="55" id="mr1-RF-56k"/>
+                    </constraints>
+                    <color key="tintColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="   Contact us" image="envelope" catalog="system">
+                        <color key="titleColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="contactUsButton:" destination="-1" eventType="touchUpInside" id="DJ6-yH-HJ5"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Suh-R5-ndi" secondAttribute="trailing" constant="20" id="1oq-7X-Cn1"/>
-                <constraint firstItem="OjI-7l-3Be" firstAttribute="top" secondItem="JZq-L0-ckB" secondAttribute="bottom" constant="214" id="CLA-LT-Qho"/>
                 <constraint firstItem="JZq-L0-ckB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="213" id="GYn-Zw-xrY"/>
                 <constraint firstItem="OjI-7l-3Be" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Itg-PC-Uec"/>
                 <constraint firstItem="SeT-sb-iBa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="242" id="O7h-Q0-XsR"/>
-                <constraint firstItem="Fvr-qV-zBY" firstAttribute="top" secondItem="JZq-L0-ckB" secondAttribute="bottom" constant="35" id="Qfv-g5-9He"/>
                 <constraint firstItem="Suh-R5-ndi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QxH-zd-Mo9"/>
                 <constraint firstItem="OjI-7l-3Be" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="TvE-kO-vCx"/>
+                <constraint firstItem="Fvr-qV-zBY" firstAttribute="top" secondItem="JZq-L0-ckB" secondAttribute="bottom" constant="35" id="Xo5-nt-jrW"/>
                 <constraint firstItem="JZq-L0-ckB" firstAttribute="top" secondItem="TeV-Ca-KvF" secondAttribute="bottom" constant="8" id="YkP-C1-Ndj"/>
                 <constraint firstItem="Fvr-qV-zBY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Zlx-u5-drD"/>
                 <constraint firstItem="JZq-L0-ckB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="bTz-K6-tnL"/>
+                <constraint firstItem="wm9-wn-JCF" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="bsf-9Z-x37"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fvr-qV-zBY" secondAttribute="trailing" constant="20" id="byP-oi-exU"/>
                 <constraint firstItem="TeV-Ca-KvF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cdf-Qs-NCf"/>
                 <constraint firstItem="SeT-sb-iBa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="dgk-SU-bUR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SeT-sb-iBa" secondAttribute="trailing" constant="87" id="f6Y-qA-R6j"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TeV-Ca-KvF" secondAttribute="trailing" constant="20" id="gBF-sr-yeH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JZq-L0-ckB" secondAttribute="trailing" constant="87" id="iAK-7i-sMB"/>
+                <constraint firstItem="OjI-7l-3Be" firstAttribute="top" secondItem="wm9-wn-JCF" secondAttribute="bottom" constant="38" id="jTR-S7-Sei"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OjI-7l-3Be" secondAttribute="bottom" constant="65" id="p3f-42-rsw"/>
+                <constraint firstItem="wm9-wn-JCF" firstAttribute="top" secondItem="Fvr-qV-zBY" secondAttribute="bottom" constant="32" id="yuH-QP-dcF"/>
                 <constraint firstItem="TeV-Ca-KvF" firstAttribute="top" secondItem="Suh-R5-ndi" secondAttribute="bottom" constant="56" id="zK8-ng-Qyr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

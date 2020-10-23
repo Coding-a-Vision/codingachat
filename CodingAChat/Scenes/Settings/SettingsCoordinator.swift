@@ -45,17 +45,20 @@ extension SettingsCoordinator: settingsActionDelegate {
         
     }
     
-    func logout() {
+    func logout (tracker : Trackable) {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             tracker.track(withName: .logout, parameters: nil)
-            
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
         delegate.coordinator?.start()
+    }
+    
+    func logout() {
+        self.logout(tracker: tracker)
     }
 
     func goToBg() {

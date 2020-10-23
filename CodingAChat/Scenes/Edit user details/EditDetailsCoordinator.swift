@@ -16,6 +16,7 @@ class EditDetailsCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     private let viewController: EditDetailsViewController
     private let presenter: UIViewController
+    private let navigator: UINavigationController
     private let user: User
     private let tracker: Trackable
     
@@ -23,12 +24,13 @@ class EditDetailsCoordinator: Coordinator {
         self.presenter = presenter
         self.user = user
         self.tracker = tracker
-        viewController = EditDetailsViewController(user: user)
+        self.viewController = EditDetailsViewController(user: user)
+        self.navigator = WhiteNavigationController(rootViewController: viewController)
     }
     
     func start() {
         viewController.delegate = self
-        presenter.present(viewController, animated: true, completion: nil)
+        presenter.present(navigator, animated: true, completion: nil)
     }
 }
 
@@ -38,7 +40,7 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
         
         guard let data = image.jpegData(compressionQuality: 0.8) else { return }
         
-        UIViewController.showHUD(message: "Wait...")
+        UIViewController.showHUD(message: "generics.hud.wait".localized)
         
         let storage = FirebaseStorageServices()
         
@@ -75,4 +77,11 @@ extension EditDetailsCoordinator: EditDetailsViewControllerDelegate {
             }
         }
     }
+    
+    func goToEditPassword() {
+        let editPasswordCoordinator = EditPasswordCoordinator(presenter: viewController, user: user)
+        editPasswordCoordinator.start()
+        childCoordinators.append(editPasswordCoordinator)
+    }
+    
 }
