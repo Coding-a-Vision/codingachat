@@ -42,8 +42,8 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         db.collection("admins").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
+            } else if let querySnapshot = querySnapshot {
+                for document in querySnapshot.documents {
                     if let adminID = document.data()["adminID"] as? String {
                         if(currentUserId == adminID) {
                             self.homeViewController.addAdminFunctionalities()
