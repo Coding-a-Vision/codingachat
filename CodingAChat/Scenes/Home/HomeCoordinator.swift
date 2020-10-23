@@ -35,6 +35,28 @@ class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: HomeViewControllerDelegate {
     
+    func modifyUIForAdmin() {
+        let db = Firestore.firestore()
+        guard let currentUserId = Auth.auth().currentUser?.uid else {  return }
+        
+        db.collection("admins").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else if let querySnapshot = querySnapshot {
+                for document in querySnapshot.documents {
+                    if let adminID = document.data()["adminID"] as? String {
+                        if(currentUserId == adminID) {
+                            self.homeViewController.addAdminFunctionalities()
+                        }
+                    }
+                }
+            }
+        }
+            
+        
+    }
+    
+    
     func onSettings() { 
         let settingCoordinator = SettingsCoordinator(presenter: homeViewController, tracker: tracker)
         settingCoordinator.start()

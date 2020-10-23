@@ -14,6 +14,7 @@ protocol HomeViewControllerDelegate: class {
     func fetchData()
     func channelJoin(selectedChannel: Channel)
     func addChannel(channel: String)
+    func modifyUIForAdmin()
 }
 
 class HomeViewController: UIViewController {
@@ -39,7 +40,10 @@ class HomeViewController: UIViewController {
         
         let channelCardNib = UINib(nibName: Constants.homeChannelViewNib, bundle: nil)
         collectionView.register(channelCardNib, forCellWithReuseIdentifier: Constants.homeChannelIdentifier)
-        
+        delegate?.modifyUIForAdmin()
+    }
+    
+    func addAdminFunctionalities() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
     }
     
