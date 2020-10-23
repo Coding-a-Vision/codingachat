@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let myWindow = UIWindow(frame: UIScreen.main.bounds)
         IQKeyboardManager.shared().isEnabled = true
-        
+        IQKeyboardManager.shared().disabledDistanceHandlingClasses.add(ChatViewController.self)
         coordinator = AppCoordinator(window: myWindow)
         coordinator?.start()
         self.window = myWindow

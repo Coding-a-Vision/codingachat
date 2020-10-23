@@ -14,6 +14,6 @@ extension UIAlertController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        controller.show(alert, sender: nil)
+        controller.present(alert, animated: true, completion: nil)
     }
 }

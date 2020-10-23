@@ -48,7 +48,7 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = channel.name
-        
+    
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -70,14 +70,14 @@ class ChatViewController: MessagesViewController {
         
     }
     
-    
     @objc
     func toggleNotifications() {
         delegate?.toggleNotification()
     }
     
     func addMessage(_ message: Message) {
-        
+        view.endEditing(true)
+        messageInputBar.inputTextView.resignFirstResponder()
         messages.append(message)
         messagesCollectionView.reloadData()
     }
